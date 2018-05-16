@@ -23,7 +23,7 @@ class CfgVehicles {
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
        mass = 23.5868;
    };
-
+/*
    class Man;
    class CAManBase: Man {
        class ACE_Actions {
@@ -55,4 +55,5 @@ class CfgVehicles {
            };
        };
    };
+  */
 };
