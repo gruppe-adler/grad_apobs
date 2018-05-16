@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="GRAD">
+    <Package name="APOBS">
+        <Key ID="STR_grad_apobs_functions_">
+            <English>a</English>
+            <German>b</German>
+        </Key>
+    </Package>
+</Project>
