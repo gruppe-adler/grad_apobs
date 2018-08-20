@@ -63,10 +63,7 @@ TRACE_2("start",_unit,_connector);
     };
 
     // check hoseLength < distance
-    if (
-        !(_connector getVariable [QGVAR(jerryCan), false])
-        && {((_source getVariable [QGVAR(hoseLength), GVAR(hoseLength)]) - 2) < _unit distance (_source modelToWorld (_connector getVariable QGVAR(attachPos)))}
-    ) exitWith {
+    if ({((_source getVariable [QGVAR(hoseLength), GVAR(hoseLength)]) - 2) < _unit distance (_source modelToWorld (_connector getVariable QGVAR(attachPos)))}) exitWith {
         TRACE_1("stop length",_unit);
         DROP_Connector
         UNHOLSTER_WEAPON

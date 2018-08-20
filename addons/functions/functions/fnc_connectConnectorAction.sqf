@@ -1,8 +1,6 @@
 #include "script_component.hpp"
-private ["_closeInDistance", "_endPosTestOffset"];
 
 params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]], ["_startingPosASL", [0,0,0], [[]], 3], ["_connector", objNull, [objNull]]];
-
 
 private _bestPosASL = [];
 private _bestPosDistance = 1e99;
@@ -12,7 +10,6 @@ private _modelVectorLow = _startingPosASL vectorFromTo (AGLtoASL (_rearpack mode
 
 {
     private _endPosASL = _x;
-    // [_startingPosASL, _endPosASL, [1,0,0,1]] call EFUNC(common,addLineToDebugDraw); // Debug scan lines
     private _intersections = lineIntersectsSurfaces [_startingPosASL, _endPosASL, _unit];
     {
         _x params ["_intersectPosASL", "", "_intersectObject"];
@@ -38,8 +35,7 @@ private _modelVectorLow = _startingPosASL vectorFromTo (AGLtoASL (_rearpack mode
 
 //Checks (too close to center or can't attach)
 if (_bestPosASL isEqualTo []) exitWith {
-    TRACE_2("no valid spot found",_closeInDistance,_startDistanceFromCenter);
-    [localize LSTRING(Failed)] call EFUNC(common,displayTextStructured);
+    [localize LSTRING(Failed)] call ace_common_fnc_displayTextStructured;
 };
 
 //Move it out slightly, for visibility sake (better to look a little funny than be embedded//sunk in the hull and be useless)
@@ -97,4 +93,4 @@ private _attachPosModel = _rearpack worldToModel (ASLtoAGL _bestPosASL);
     localize LSTRING(ConnectAction),
     {true},
     [INTERACT_EXCEPTIONS]
-] call EFUNC(common,progressBar);
+] call ace_common_fnc_progressBar;

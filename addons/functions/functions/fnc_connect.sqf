@@ -6,7 +6,6 @@ private _connector = createVehicle ["Grad_APOBS_Connector_F", _pos, [], 0, "CAN_
 _connector setDir _dir;
 _connector setPos _pos;
 
-_target setVariable [QGVAR(connector), _connector,true];
 _target setVariable [QGVAR(rearpack), _rearpack,true];
 */
 
@@ -67,7 +66,7 @@ params [
             _connector setVariable [QGVAR(source), _source, true];
 
             _source setVariable [QGVAR(isConnected), true, true];
-            _source setVariable [QGVAR(ownedConnector), _connector, true];
+            _source setVariable [QGVAR(connector), _connector, true];
         };
 
         _unit setVariable [QGVAR(connector), _connector, true];

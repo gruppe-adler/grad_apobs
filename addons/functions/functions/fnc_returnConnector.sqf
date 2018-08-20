@@ -33,7 +33,7 @@ if (isNull _connector || {_source != _connector getVariable QGVAR(source)}) exit
         _unit setVariable [QGVAR(isRefueling), false];
 
         _source setVariable [QGVAR(isConnected), false, true];
-        _source setVariable [QGVAR(ownedconnector), nil, true];
+        _source setVariable [QGVAR(connector), nil, true];
         private _rope = _connector getVariable [QGVAR(rope), objNull];
         if !(isNull _rope) then {
             ropeDestroy _rope;
