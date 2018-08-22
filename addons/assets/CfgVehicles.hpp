@@ -1,6 +1,25 @@
 class CBA_Extended_EventHandlers;
 
 class CfgVehicles {
+  class Items_base_F;
+  class grad_apobs_cover: Items_base_F
+  {
+    author="DerZade";
+    displayName="APOBS Cover";
+    scope=2;
+    scopeCurator=2;
+    model = QPATHTOF(data\models\cover.p3d);
+    //picture = QPATHTOF(ui\gunbag_ca.paa);
+    //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
+    //hiddenSelections[] = {"Camo"};
+    //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
+
+  };
+  class grad_apobs_base: grad_apobs_cover
+  {
+    displayName="APOBS Base";
+    model = QPATHTOF(data\models\base.p3d);
+  };
     class Bag_Base;
     class Grad_APOBS_F: Bag_Base {
        author = "DerZade [A] & Salbei";
