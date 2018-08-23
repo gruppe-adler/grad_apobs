@@ -82,7 +82,7 @@ class CfgVehicles {
                };
                class GVAR(pullFiringPin) {
                    displayName = CSTRING(pullFiringPin);
-                   condition = QUOTE({_target getVariable [QGVAR(firingSafetyPulled), false])});
+                   condition = QUOTE({_target getVariable [QGVAR(firingSafetyPulled), false]});
                    statement = QUOTE({[_target] call FUNC(pullFiringPin)});
                    showDisabled = 0;
                    priority = -1;
