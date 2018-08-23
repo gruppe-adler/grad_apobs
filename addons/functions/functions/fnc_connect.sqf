@@ -72,4 +72,4 @@ params [["_unit", objNull, [objNull]],["_object", objNull, [objNull]]];
     localize LSTRING(TakeConnectorAction),
     {true},
     [INTERACT_EXCEPTIONS_REFUELING]
-] call ace_common_fnc_progressBar);
+] call ace_common_fnc_progressBar;
