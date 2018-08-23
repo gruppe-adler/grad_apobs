@@ -1,20 +1,6 @@
-/*
-private _pos = _player modelToWorld [1,-1,0];
-private _dir = getDir _player;
-
-private _connector = createVehicle ["Grad_APOBS_Connector_F", _pos, [], 0, "CAN_COLLIDE"];
-_connector setDir _dir;
-_connector setPos _pos;
-
-_target setVariable [QGVAR(rearpack), _rearpack,true];
-*/
-
 #include "script_component.hpp"
 
-params [
-    ["_unit", objNull, [objNull]],
-    ["_object", objNull, [objNull]]
-];
+params [["_unit", objNull, [objNull]],["_object", objNull, [objNull]]];
 
 [
     2,
@@ -27,10 +13,10 @@ params [
 
         private _source = _object;
         private _connector = _object;
-        if (typeOf _object isEqualTo "Grad_APOBS_Connector_F") then { // func is called on connector either connected or on ground
+        if ((typeOf _object) isEqualTo "Grad_APOBS_Connector_F") then {          // func is called on connector either connected or on ground
             _source = _connector getVariable QGVAR(source);
             _connector attachTo [_unit, [-0.02,0.05,-0.12], "righthandmiddle1"];
-        } else { // func is called on APOBS
+        } else {                                                                 // func is called on APOBS
             _connector = "Grad_APOBS_Connector_F" createVehicle [0,0,0];
             _connector attachTo [_unit, [-0.02,0.05,-0.12], "righthandmiddle1"];
 
@@ -48,16 +34,16 @@ params [
                 _connector setVariable [QGVAR(helper), _helper, true];
                 _ropeTarget = _helper;
             };
-            private _attachPos = _source getVariable [QGVAR(hooks), getArray (configFile >> "CfgVehicles" >> typeOf _source >> QGVAR(hooks))];
+            private _attachPos = _source getVariable [QGVAR(hooks), (getArray (configFile >> "CfgVehicles" >> typeOf _source >> QGVAR(hooks)))];
             if (_attachPos isEqualTo []) then {
                 _attachPos = [[0,0,0]];
             };
             if (count _attachPos == 1) then {
                 _attachPos = _attachPos select 0;
             } else {
-                // select closest hook
-                private _hookDistances = _attachPos apply {_unit distance (_source modelToWorld _x)};
-                _attachPos = _attachPos select (_hookDistances find selectMin _hookDistances);
+               // select closest hook
+               private _hookDistances = _attachPos apply {_unit distance (_source modelToWorld _x)};
+               _attachPos = _attachPos select (_hookDistances find selectMin _hookDistances);
             };
             private _hoseLength = _source getVariable [QGVAR(hoseLength), GVAR(hoseLength)];
             private _rope = ropeCreate [_ropeTarget, _attachPos, _connector, [0, -0.20, 0.12], _hoseLength];
