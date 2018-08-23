@@ -67,7 +67,7 @@ class CfgVehicles {
                class GVAR(pullFiringSafety) {
                    displayName = CSTRING(pullSafetyPin);
                    condition = QUOTE({[_target] call FUNC(canPullFiringSafety)});
-                   statement = QUOTE({[_target] call FUNC(pullFiringSafety));
+                   statement = QUOTE({[_target] call FUNC(pullFiringSafety)});
                    showDisabled = 0;
                    priority = -1;
                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
@@ -75,7 +75,7 @@ class CfgVehicles {
                class GVAR(returnFiringSafety) {
                    displayName = CSTRING(returnSafetyPin);
                    condition = QUOTE({[_target] call FUNC(canReturnFiringSafety)});
-                   statement = QUOTE({[_target] call FUNC(returnFiringSafety));
+                   statement = QUOTE({[_target] call FUNC(returnFiringSafety)});
                    showDisabled = 0;
                    priority = -1;
                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
@@ -83,7 +83,7 @@ class CfgVehicles {
                class GVAR(pullFiringPin) {
                    displayName = CSTRING(pullFiringPin);
                    condition = QUOTE({_target getVariable [QGVAR(firingSafetyPulled), false])});
-                   statement = QUOTE({[_target] call FUNC(pullFiringPin));
+                   statement = QUOTE({[_target] call FUNC(pullFiringPin)});
                    showDisabled = 0;
                    priority = -1;
                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
@@ -124,16 +124,16 @@ class CfgVehicles {
 
     class Grad_APOBS_Connector_F: ThingX {
       class GVAR(pickUpConnector) {
-          displayName = CSTRING(pickUpConnector);
-          condition = QUOTE([ARR_2(_player,_target)] call FUNC(canTakeConnector));
-          statement = QUOTE([ARR_2(_player,_target)] call FUNC(takeConnector));
-          //icon = QPATHTOF(uigunbag_icon_ca.paa);
+         displayName = CSTRING(pickUpConnector);
+         condition = QUOTE([ARR_2(_player,_target)] call FUNC(canTakeConnector));
+         statement = QUOTE([ARR_2(_player,_target)] call FUNC(takeConnector));
+         //icon = QPATHTOF(uigunbag_icon_ca.paa);
       };
       class GVAR(disconnectConnector) {
-          displayName = CSTRING(disconnectConnector);
-          condition = QUOTE([ARR_2(_player,_target)] call FUNC(canDisconnect));
-          statement = QUOTE([ARR_2(_player,_target)] call DFUNC(disconnect));
-          //icon = QPATHTOF(uigunbag_icon_ca.paa);
-      };
-  };
+         displayName = CSTRING(disconnectConnector);
+         condition = QUOTE([ARR_2(_player,_target)] call FUNC(canDisconnect));
+         statement = QUOTE([ARR_2(_player,_target)] call DFUNC(disconnect));
+         //icon = QPATHTOF(uigunbag_icon_ca.paa);
+       };
+   };
 };
