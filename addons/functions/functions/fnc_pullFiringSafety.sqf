@@ -2,4 +2,4 @@
 
 params ["_target"];
 
-_target setVariable [QGVAR(firingSafetyPulled), true, true];
+_target setVariable [QGVAR(firingPinPulled), true, true];

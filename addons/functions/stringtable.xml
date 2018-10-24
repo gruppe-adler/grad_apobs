@@ -41,12 +41,12 @@
             <English>Disconnect rocket</English>
             <German>Racketen verbindung trennen</German>
         </Key>
-        <Key ID="STR_grad_apobs_functions_pullSafetyPin">
-            <English>Pull safety pin</English>
+        <Key ID="STR_grad_apobs_functions_pullsafety pin">
+            <English>Pull pin</English>
             <German>Sicherungsstift ziehen</German>
         </Key>
-        <Key ID="STR_grad_apobs_functions_returnSafetyPin">
-            <English>Return safety pin</English>
+        <Key ID="STR_grad_apobs_functions_returnsafety pin">
+            <English>Return pin</English>
             <German>Sicherungsstift zurück stecken</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_pullFiringPin">
@@ -60,6 +60,10 @@
         <Key ID="STR_grad_apobs_functions_disconnectConnector">
             <English>Disconnect connector</English>
             <German>Connector trennen</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_dropApobs">
+            <English>Place APOBS</English>
+            <German>APOBS platzieren</German>
         </Key>
     </Package>
 </Project>

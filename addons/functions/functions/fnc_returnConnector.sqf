@@ -23,7 +23,7 @@ private _connector = _unit getVariable [QGVAR(connector), objNull];
 if (isNull _connector || {_source != _connector getVariable QGVAR(source)}) exitWith {};
 
 [
-    TIME_PROGRESSBAR(REFUEL_PROGRESS_DURATION),
+    1,
     [_unit, _connector, _source],
     {
         params ["_args"];

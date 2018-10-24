@@ -75,8 +75,7 @@ TRACE_2("start",_unit,_connector);
     private _hintRMB = localize ELSTRING(dragging,Drop);
 
     getCursorObjectParams params ["_cursorObject", "", "_distance"];
-    if (!isNull _cursorObject && {_distance <
-      }) then {
+    if (!isNull _cursorObject && {_distance < 2}) then {
         if (
             1 == getNumber (configFile >> "CfgVehicles" >> (typeOf _cursorObject) >> QGVAR(canReceive))
             && {isNull (_cursorObject getVariable [QGVAR(connector), objNull])}

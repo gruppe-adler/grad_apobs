@@ -9,7 +9,7 @@ private _vectorDir = vectorDir _target;
 private _vectorUp = vectorUp _target;
 
 private _str = _targetClass splitString "_";
-private _newClass = ("Grad_APOBS_Open_" + (_str select 2));
+private _newClass = ("Grad_APOBS_" + (_str select 2)) + "_Open";
 
 deleteVehicle _target;
 private _newPack = _newClass createVehicle _pos;
