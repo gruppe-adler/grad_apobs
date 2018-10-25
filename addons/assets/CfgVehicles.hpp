@@ -20,13 +20,12 @@ class CfgVehicles {
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
    };
 
-  class Items_base_F;
-  class grad_apobs_cover: Items_base_F
+  class ThingX;
+  class grad_apobs_cover: ThingX
   {
     author="DerZade";
     displayName="APOBS Cover";
-    scope=2;
-    scopeCurator=2;
+    scope=1;
     model = QPATHTOF(data\models\cover.p3d);
     //picture = QPATHTOF(ui\gunbag_ca.paa);
     //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
@@ -41,7 +40,7 @@ class CfgVehicles {
   };
 
 
-   class Grad_APOBS_Frontpack_closed: Items_base_F {
+   class Grad_APOBS_Frontpack_closed: ThingX {
        author = "DerZade [A] & Salbei";
        scope = 1;
        displayName = "APOBS Frontpack";
@@ -53,17 +52,8 @@ class CfgVehicles {
        maximumLoad = 0;
        mass = 27.2155;
    };
-   class Grad_APOBS_Rearpack_closed: Items_base_F {
-       author = "DerZade [A] & Salbei";
-       scope = 1;
+   class Grad_APOBS_Rearpack_closed: ThingX {
        displayName = "APOBS Rearpack";
-       model = QPATHTOF(data\models\backpack.p3d);
-       //picture = QPATHTOF(ui\gunbag_ca.paa);
-       //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-       //hiddenSelections[] = {"Camo"};
-       //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
-       maximumLoad = 0;
-       mass = 27.2155;
    };
    /*
    class Grad_APOBS_Connector {
