@@ -24,17 +24,16 @@ class CfgVehicles {
         class GVAR(openApobs) {
           selection = "";
           displayName = CSTRING(openApobs);
-          condition = QUOTE({_target getVariable [QUOTE(QGVAR(isClosed)),true]});
+          condition = QUOTE(_target getVariable [QUOTE(QGVAR(isClosed)),true]);
           statement = QUOTE([_target] call FUNC(openApobs));
           showDisabled = 0;
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
         };
-        /*
         class GVAR(closeApobs) {
           selection = "";
           displayName = CSTRING(closeApobs);
-          condition = QUOTE({[_target] call FUNC(canClose)});
+          condition = QUOTE([_target] call FUNC(canClose));
           statement = QUOTE([_target] call FUNC(closeApobs));
           showDisabled = 0;
           priority = -1;
@@ -43,8 +42,8 @@ class CfgVehicles {
         class GVAR(takeApobs) {
           selection = "";
           displayName = CSTRING(takeApobs);
-          condition = QUOTE({[_target] call FUNC(canTake)});
-          statement = QUOTE([_target] call FUNC(takeApobs));
+          condition = QUOTE(!(_target getVariable [QUOTE(QGVAR(isClosed)),true]));
+          statement = QUOTE([_player, _target] call FUNC(takeApobs));
           showDisabled = 0;
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
@@ -52,7 +51,7 @@ class CfgVehicles {
         class GVAR(connectApobs) {
           selection = "";
           displayName = CSTRING(connectApobs);
-          condition = QUOTE({[_target] call FUNC(canConnect)});
+          condition = QUOTE([_target] call FUNC(canConnect));
           statement = QUOTE([ARR_2(_player,_target)] call FUNC(connect));
           showDisabled = 0;
           priority = -1;
@@ -71,7 +70,7 @@ class CfgVehicles {
         class GVAR(dismantleRocket) {
           selection = "";
           displayName = CSTRING(dismantleRocket);
-          condition = QUOTE([_target] call FUNC(canSetUpRocket));
+          condition = QUOTE(_target getVariable [QUOTE(QGVAR(rocketSetup)),false]);
           statement = QUOTE([_target] call FUNC(setUpRocket));
           showDisabled = 0;
           priority = -1;
@@ -98,8 +97,8 @@ class CfgVehicles {
         class GVAR(pullFiringSafety) {
           selection = "";
           displayName = CSTRING(pullSafetyPin);
-          condition = QUOTE({[_target] call FUNC(canPullFiringSafety)});
-          statement = QUOTE({[_target] call FUNC(pullFiringSafety)});
+          condition = QUOTE([_target] call FUNC(canPullFiringSafety));
+          statement = QUOTE([_target] call FUNC(pullFiringSafety));
           showDisabled = 0;
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
@@ -107,8 +106,8 @@ class CfgVehicles {
         class GVAR(returnFiringSafety) {
           selection = "";
           displayName = CSTRING(returnSafetyPin);
-          condition = QUOTE({[_target] call FUNC(canReturnFiringSafety)});
-          statement = QUOTE({[_target] call FUNC(returnFiringSafety)});
+          condition = QUOTE([_target] call FUNC(canReturnFiringSafety));
+          statement = QUOTE([_target] call FUNC(returnFiringSafety));
           showDisabled = 0;
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
@@ -116,13 +115,12 @@ class CfgVehicles {
         class GVAR(pullFiringPin) {
           selection = "";
           displayName = CSTRING(pullFiringPin);
-          condition = QUOTE({_target getVariable [QGVAR(firingPinPulled), false]});
-          statement = QUOTE({[_target] call FUNC(pullFiringPin)});
+          condition = QUOTE(_target getVariable [QUOTE(QGVAR(firingPinPulled)), false]);
+          statement = QUOTE([_target] call FUNC(pullFiringPin));
           showDisabled = 0;
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
         };
-        */
       };
     };
   };
@@ -136,17 +134,16 @@ class CfgVehicles {
         class GVAR(openApobs) {
           selection = "";
           displayName = CSTRING(openApobs);
-          condition = QUOTE({_target getVariable [QUOTE(QGVAR(isClosed)),true]});
+          condition = QUOTE(_target getVariable [QUOTE(QGVAR(isClosed)),true]);
           statement = QUOTE([_target] call FUNC(openApobs));
           showDisabled = 0;
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
         };
-        /*
         class GVAR(closeApobs) {
           selection = "";
           displayName = CSTRING(closeApobs);
-          condition = QUOTE({[_target] call FUNC(canClose)});
+          condition = QUOTE([_target] call FUNC(canClose));
           statement = QUOTE([_target] call FUNC(closeApobs));
           showDisabled = 0;
           priority = -1;
@@ -155,7 +152,7 @@ class CfgVehicles {
         class GVAR(takeApobs) {
           selection = "";
           displayName = CSTRING(takeApobs);
-          condition = QUOTE({[_target] call FUNC(canTake)});
+          condition = QUOTE([_target] call FUNC(canTake));
           statement = QUOTE([_target] call FUNC(takeApobs));
           showDisabled = 0;
           priority = -1;
@@ -163,7 +160,7 @@ class CfgVehicles {
         };
         class GVAR(disconnectApobs) {
           displayName = CSTRING(disconnectApobs);
-          condition = QUOTE(!{[_player] call FUNC(canDisconnect)});
+          condition = QUOTE(![_player] call FUNC(canDisconnect));
           statement = QUOTE([ARR_2(_player,_target)] call FUNC(disconnect));
           showDisabled = 0;
           priority = -1;
@@ -171,7 +168,7 @@ class CfgVehicles {
         };
         class GVAR(assembleParachute) {
           displayName = CSTRING(assembleParachute);
-          condition = QUOTE(!{[_target] call FUNC(canAssembleParachute)});
+          condition = QUOTE(![_target] call FUNC(canAssembleParachute));
           statement = QUOTE([_target] call FUNC(assembleParachute));
           showDisabled = 0;
           priority = -1;
@@ -179,13 +176,12 @@ class CfgVehicles {
         };
         class GVAR(disassembleParachute) {
           displayName = CSTRING(disassembleParachute);
-          condition = QUOTE(!{[_target] call FUNC(canAssembleParachute)});
+          condition = QUOTE(![_target] call FUNC(canAssembleParachute));
           statement = QUOTE([_target] call FUNC(disassembleParachute));
           showDisabled = 0;
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
         };
-        */
       };
     };
   };
