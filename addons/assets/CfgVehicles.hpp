@@ -39,7 +39,6 @@ class CfgVehicles {
     model = QPATHTOF(data\models\base.p3d);
   };
 
-
    class Grad_APOBS_Frontpack_closed: ThingX {
        author = "DerZade [A] & Salbei";
        scope = 1;
@@ -79,7 +78,6 @@ class CfgVehicles {
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
        mass = 10;
       };
-   };
    class GRAD_APOBS_Parachute: ThingX {
        author = "DerZade [A] & Salbei";
        scope = 1;
