@@ -11,4 +11,4 @@ private _pos = _unit modelToWorld [0,_offset,0];
 private _obj = createVehicle [(format ["%1_closed", _backpackType]), _pos,[],0,"CAN_COLLIDE"];
 _obj setPos _pos;
 
-_unit reveal _ladder;
+_unit reveal _obj;
