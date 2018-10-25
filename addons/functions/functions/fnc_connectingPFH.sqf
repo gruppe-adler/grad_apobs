@@ -66,7 +66,7 @@ params ["_unit", "_connector"];
     };
 
     // check hoseLength < distance
-    if ({((_source getVariable [QGVAR(hoseLength), GVAR(hoseLength)]) - 2) < _unit distance (_source modelToWorld (_connector getVariable QGVAR(attachPos)))}) exitWith {
+    if (((_source getVariable [QGVAR(hoseLength), GVAR(hoseLength)]) - 2) < _unit distance (_source modelToWorld (_connector getVariable QGVAR(attachPos)))) exitWith {
         [_unit, _connector] call FUNC(dropConnector);
         _unit selectWeapon (_unit getVariable QGVAR(selectedWeaponOnConnecting));
         _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];

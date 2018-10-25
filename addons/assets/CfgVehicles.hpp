@@ -55,40 +55,41 @@ class CfgVehicles {
    class Grad_APOBS_Rearpack_closed: ThingX {
        displayName = "APOBS Rearpack";
    };
-   /*
-   class Grad_APOBS_Connector {
+   class Grad_APOBS_Connector: ThingX {
        author = "DerZade [A] & Salbei";
        scope = 1;
        displayName = "APOBS Connector";
-       model = QPATHTOF(data\models\connector.p3d);
+       model = "\z\ace\addons\refuel\data\nozzle.p3d";
+       //model = QPATHTOF(data\models\connector.p3d);
        //picture = QPATHTOF(ui\gunbag_ca.paa);
        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
        //hiddenSelections[] = {"Camo"};
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
        mass = 1;
    };
-   class Grad_APOBS_Rocket {
+   class Grad_APOBS_Rocket: ThingX {
        author = "DerZade [A] & Salbei";
        scope = 1;
        displayName = "APOBS Rocket";
-       model = QPATHTOF(data\models\rocket.p3d);
+       model = "\A3\Weapons_F_EPC\Ammo\Rocket_03_AP_F.p3d";
+       //model = QPATHTOF(data\models\rocket.p3d);
        //picture = QPATHTOF(ui\gunbag_ca.paa);
        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
        //hiddenSelections[] = {"Camo"};
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
-       mass = 1;
+       mass = 10;
       };
    };
-   class GRAD_APOBS_Parachute {
+   class GRAD_APOBS_Parachute: ThingX {
        author = "DerZade [A] & Salbei";
        scope = 1;
        displayName = "APOBS Parachute";
-       model = QPATHTOF(data\models\backpack.p3d);
+       model = "\A3\air_f_beta\Parachute_01\Parachute_01_F.p3d";
+       //model = QPATHTOF(data\models\backpack.p3d);
        //picture = QPATHTOF(ui\gunbag_ca.paa);
        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
        //hiddenSelections[] = {"Camo"};
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
        mass = 1;
    };
-   */
 };
