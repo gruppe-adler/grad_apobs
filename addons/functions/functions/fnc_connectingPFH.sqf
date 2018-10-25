@@ -1,7 +1,6 @@
 #include "script_component.hpp"
 
 params ["_unit", "_connector"];
-TRACE_2("start",_unit,_connector);
 
 [{
     params ["_args", "_idPFH"];
@@ -14,31 +13,28 @@ TRACE_2("start",_unit,_connector);
         && {!("unconscious" isEqualTo toLower animationState _unit)}
         && {!(_unit getVariable ["ACE_isUnconscious", false])}
     ) exitWith {
-        TRACE_3("stop dead/weapon/interact/uncon",_unit,alive _unit,currentWeapon _unit);
         [_unit, _connector] call FUNC(dropConnector);
         _unit setVariable [QGVAR(selectedWeaponOnRefuel), nil];
         _unit setVariable [QGVAR(hint), nil];
- call ace_interaction_fnc_hideMouseHint;
- [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
- [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
- [_idPFH] call CBA_fnc_removePerFrameHandler;
+       call ace_interaction_fnc_hideMouseHint;
+       [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+       [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+       [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
 
     // check drop from external events
     if (isNull (_unit getVariable [QGVAR(connector), objNull])) exitWith {
-        TRACE_2("stop drop",_unit,_connector);
         _unit selectWeapon (_unit getVariable QGVAR(selectedWeaponOnConnecting));
- _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
+        _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
         _unit setVariable [QGVAR(hint), nil];
- call ace_interaction_fnc_hideMouseHint;
- [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
- [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
- [_idPFH] call CBA_fnc_removePerFrameHandler;
+       call ace_interaction_fnc_hideMouseHint;
+       [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+       [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+       [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
 
     private _source = _connector getVariable [QGVAR(source), objNull];
     if !(alive _source) exitWith {
-        TRACE_3("stop source",_unit,_connector,_source);
         [_unit, _connector] call FUNC(dropConnector);
         private _rope = _connector getVariable [QGVAR(rope), objNull];
         if !(isNull _rope) then {
@@ -50,37 +46,35 @@ TRACE_2("start",_unit,_connector);
         };
         deleteVehicle _connector;
         _unit selectWeapon (_unit getVariable QGVAR(selectedWeaponOnConnecting));
- _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
+        _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
         _unit setVariable [QGVAR(hint), nil];
- call ace_interaction_fnc_hideMouseHint;
- [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
- [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
- [_idPFH] call CBA_fnc_removePerFrameHandler;
+       call ace_interaction_fnc_hideMouseHint;
+       [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+       [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+       [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
 
     if !(_unit == vehicle _unit && {_unit isEqualTo ACE_player}) exitWith {
-        TRACE_1("stop vehicle/player",_unit,vehicle _unit);
         [_unit, _connector] call FUNC(dropConnector);
         _unit selectWeapon (_unit getVariable QGVAR(selectedWeaponOnConnecting));
- _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
+        _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
         _unit setVariable [QGVAR(hint), nil];
- call ace_interaction_fnc_hideMouseHint;
- [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
- [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
- [_idPFH] call CBA_fnc_removePerFrameHandler;
+       call ace_interaction_fnc_hideMouseHint;
+       [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+       [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+       [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
 
     // check hoseLength < distance
     if ({((_source getVariable [QGVAR(hoseLength), GVAR(hoseLength)]) - 2) < _unit distance (_source modelToWorld (_connector getVariable QGVAR(attachPos)))}) exitWith {
-        TRACE_1("stop length",_unit);
         [_unit, _connector] call FUNC(dropConnector);
         _unit selectWeapon (_unit getVariable QGVAR(selectedWeaponOnConnecting));
- _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
+        _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
         _unit setVariable [QGVAR(hint), nil];
- call ace_interaction_fnc_hideMouseHint;
- [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
- [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
- [_idPFH] call CBA_fnc_removePerFrameHandler;
+       call ace_interaction_fnc_hideMouseHint;
+       [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+       [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+       [_idPFH] call CBA_fnc_removePerFrameHandler;
         [LSTRING(Hint_TooFar), 2, _unit] call ace_common_fnc_displayTextStructured;
     };
 

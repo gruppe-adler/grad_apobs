@@ -4,9 +4,6 @@ params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]], ["_sta
 
 private _bestPosASL = [];
 private _bestPosDistance = 1e99;
-private _viewPos = _startingPosASL vectorAdd (((positionCameraToWorld [0,0,0]) vectorFromTo (positionCameraToWorld [0,0,1])) vectorMultiply 3);
-private _modelVector = _startingPosASL vectorFromTo (AGLtoASL (_rearpack modelToWorld [0,0,0]));
-private _modelVectorLow = _startingPosASL vectorFromTo (AGLtoASL (_rearpack modelToWorld [0,0,-1]));
 
 {
     private _endPosASL = _x;
@@ -54,7 +51,6 @@ private _attachPosModel = _rearpack worldToModel (ASLtoAGL _bestPosASL);
 
         detach _connector;
         _connector attachTo [_rearpack, _endPosTestOffset];
-        _endPosTestOffset params ["_x", "_y"];
         private _bb = boundingBoxReal _rearpack;
         _bb params ["_ll", "_rr"];
         _ll set [2, 0];

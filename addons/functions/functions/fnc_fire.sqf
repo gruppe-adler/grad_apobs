@@ -26,7 +26,7 @@ _rocket setMass 1;
         params ["_rocket","_prevRopeSegments","_parachute","_rearpack"];
 
         if !(isNull _parachute) then {
-          private _breachLineSegments = +((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments);
+          private _breachLineSegments = ((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments);
 
           ro2 = ropeCreate [_parachute,"front",_rearpack,"back",7];
           _rocket setVelocity [0,25.5,25.5];
@@ -38,7 +38,7 @@ _rocket setMass 1;
             {
                 private _pos = (getPos _x);
                 if (_pos distance (_pos nearestObject "GrenadeHand") > 0.8) then {
-                    _v = "GrenadeHand" createVehicle (getPos _x);
+                     "GrenadeHand" createVehicle (getPos _x);
                     _counter = _counter +1;
                 };
             } forEach _breachLineSegments;
