@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 params ["_unit", "_target"];
 
 private _type = typeOf _target;

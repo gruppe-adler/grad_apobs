@@ -185,7 +185,6 @@ class CfgVehicles {
       };
     };
   };
-  /*
   class Grad_APOBS_Connector_F: ThingX {
     class GVAR(pickUpConnector) {
       displayName = CSTRING(pickUpConnector);
@@ -200,5 +199,4 @@ class CfgVehicles {
       //icon = QPATHTOF(uigunbag_icon_ca.paa);
     };
   };
-  */
 };
