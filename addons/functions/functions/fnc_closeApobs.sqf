@@ -2,9 +2,11 @@
 
 params ["_target"];
 
-_target animate ["open", 0];
-_target setVariable [QGVAR(isOpen), false, true];
+//_target animate ["open", 0];
+_target setVariable [QGVAR(isClose), true, true];
 
+/*
 [{_this animationPhase "open" == 0},{
      _this setVariable [QGVAR(isClose), true, true];
 },_target] call CBA_fnc_waitUntilAndExecute;
+*/

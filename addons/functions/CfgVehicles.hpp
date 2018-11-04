@@ -5,7 +5,7 @@ class CfgVehicles {
       class ACE_Equipment {
         class GVAR(dropApobs) {
         displayName = CSTRING(dropApobs);
-        condition = QUOTE((backpack _player) == 'Grad_APOBS_Frontpack' || (backpack _player) == 'Grad_APOBS_Rearpack');
+        condition = QUOTE((backpack _player) in [QUOTE(QUOTE(Grad_APOBS_Frontpack)), QUOTE(QUOTE(Grad_APOBS_Rearpack))]);
         statement = QUOTE([ARR_2(_player,_target)] call FUNC(dropApobs));
         showDisabled = 0;
         //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
@@ -42,7 +42,7 @@ class CfgVehicles {
         class GVAR(takeApobs) {
           selection = "";
           displayName = CSTRING(takeApobs);
-          condition = QUOTE(!(_target getVariable [QUOTE(QGVAR(isClosed)),true]));
+          condition = QUOTE((_target getVariable [QUOTE(QGVAR(isClosed)),true]));
           statement = QUOTE([_player, _target] call FUNC(takeApobs));
           showDisabled = 0;
           priority = -1;

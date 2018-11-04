@@ -65,5 +65,9 @@
             <English>Place APOBS</English>
             <German>APOBS platzieren</German>
         </Key>
+        <Key ID="STR_grad_apobs_functions_takeApobs">
+            <English>Take APOBS</English>
+            <German>APOBS nehmen</German>
+        </Key>
     </Package>
 </Project>
