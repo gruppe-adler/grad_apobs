@@ -69,5 +69,21 @@
             <English>Take APOBS</English>
             <German>APOBS nehmen</German>
         </Key>
+        <Key ID="STR_grad_apobs_functions_TakeConnectorAction">
+            <English>Taking connector</English>
+            <German>Connector nehmen</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_Hint_TooFar">
+            <English>Too Far</English>
+            <German>Zu weit Weg</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_Connect">
+            <English>Connect</English>
+            <German>Verbinden</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_drop">
+            <English>Drop</English>
+            <German>Fallen lassen</German>
+        </Key>
     </Package>
 </Project>

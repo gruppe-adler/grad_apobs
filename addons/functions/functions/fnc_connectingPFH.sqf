@@ -9,7 +9,7 @@ params ["_unit", "_connector"];
     if !(
         alive _unit
         && {"" isEqualTo currentWeapon _unit || {_unit call ace_common_fnc_isSwimming}}
-        && {[_unit, objNull, [INTERACT_EXCEPTIONS, "notOnMap"]] call ace_common_fnc_canInteractWith}
+        && {[_unit, objNull, ["notOnMap"]] call ace_common_fnc_canInteractWith}
         && {!("unconscious" isEqualTo toLower animationState _unit)}
         && {!(_unit getVariable ["ACE_isUnconscious", false])}
     ) exitWith {
@@ -79,12 +79,12 @@ params ["_unit", "_connector"];
     };
 
     private _hintLMB = "";
-    private _hintRMB = localize ELSTRING(dragging,Drop);
+    private _hintRMB = localize LSTRING(drop);
 
     getCursorObjectParams params ["_cursorObject", "", "_distance"];
     if (!isNull _cursorObject && {_distance < 2}) then {
         if (
-            1 == getNumber (configFile >> "CfgVehicles" >> (typeOf _cursorObject) >> QGVAR(canReceive))
+            1 == (getNumber (configFile >> "CfgVehicles" >> (typeOf _cursorObject) >> "canReceiveAPOBS"))
             && {isNull (_cursorObject getVariable [QGVAR(connector), objNull])}
         ) then {
             _hintLMB = localize LSTRING(Connect);

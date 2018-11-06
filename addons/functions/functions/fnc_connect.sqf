@@ -21,31 +21,9 @@ params [["_unit", objNull, [objNull]],["_object", objNull, [objNull]]];
             _connector attachTo [_unit, [-0.02,0.05,-0.12], "righthandmiddle1"];
 
             private _ropeTarget = _source;
-            if !(_source isKindOf "AllVehicles") then {
-                private _helper = QGVAR(helper) createVehicle [0,0,0];
-                [ace_common_hideObjectGlobal, [_helper, true]] call CBA_fnc_serverEvent;
-                if ((getText (configFile >> "CfgVehicles" >> typeOf _source >> "simulation")) isEqualTo "thingX") then {
-                    _helper attachTo [_source, [0,0,0]];
-                } else {
-                    _helper setPosWorld (getPosWorld _source);
-                    _helper setDir (getDir _source);
-                    _helper setVectorUp (vectorUp _source);
-                };
-                _connector setVariable [QGVAR(helper), _helper, true];
-                _ropeTarget = _helper;
-            };
-            private _attachPos = _source getVariable [QGVAR(hooks), (getArray (configFile >> "CfgVehicles" >> typeOf _source >> QGVAR(hooks)))];
-            if (_attachPos isEqualTo []) then {
-                _attachPos = [[0,0,0]];
-            };
-            if (count _attachPos == 1) then {
-                _attachPos = _attachPos select 0;
-            } else {
-               // select closest hook
-               private _hookDistances = _attachPos apply {_unit distance (_source modelToWorld _x)};
-               _attachPos = _attachPos select (_hookDistances find selectMin _hookDistances);
-            };
-            private _hoseLength = _source getVariable [QGVAR(hoseLength), GVAR(hoseLength)];
+            private _attachPos = [0,0,0];
+
+            private _hoseLength = _source getVariable [QGVAR(hoseLength), (getNumber (configFile >> "Grad_APOBS_Frontpack_closed" >> "connectorLength"))];
             private _rope = ropeCreate [_ropeTarget, _attachPos, _connector, [0, -0.20, 0.12], _hoseLength];
             _connector setVariable [QGVAR(rope), _rope, true];
             _connector setVariable [QGVAR(attachPos), _attachPos, true];
@@ -71,5 +49,5 @@ params [["_unit", objNull, [objNull]],["_object", objNull, [objNull]]];
     {},
     localize LSTRING(TakeConnectorAction),
     {true},
-    [INTERACT_EXCEPTIONS_REFUELING]
+    [INTERACT_EXCEPTIONS_APOBS]
 ] call ace_common_fnc_progressBar;

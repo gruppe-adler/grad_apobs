@@ -16,6 +16,10 @@ class CfgVehicles {
 
   class ThingX;
   class Grad_APOBS_Frontpack_closed: ThingX {
+    class connectorLength {
+      typeName = "NUMBER";
+       defaultValue = 6;
+    };
     class ACE_Actions {
       class ACE_MainActions {
         selection = "interaction_point";
@@ -126,6 +130,7 @@ class CfgVehicles {
   };
 
   class Grad_APOBS_Rearpack_closed: ThingX {
+    canReceiveAPOBS = 1;
     class ACE_Actions {
       class ACE_MainActions {
         selection = "interaction_point";
