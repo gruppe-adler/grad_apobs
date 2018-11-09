@@ -63,7 +63,7 @@ class CfgVehicles {
        model = QPATHTOF(data\models\connector.p3d);
        //picture = QPATHTOF(ui\gunbag_ca.paa);
        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-       //hiddenSelections[] = {"Camo"};
+       hiddenSelections[] = {"Camo"};
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
        mass = 1;
    };

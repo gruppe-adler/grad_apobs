@@ -41,11 +41,11 @@
             <English>Disconnect rocket</English>
             <German>Racketen verbindung trennen</German>
         </Key>
-        <Key ID="STR_grad_apobs_functions_pullsafety pin">
+        <Key ID="STR_grad_apobs_functions_pullsafetyPin">
             <English>Pull pin</English>
             <German>Sicherungsstift ziehen</German>
         </Key>
-        <Key ID="STR_grad_apobs_functions_returnsafety pin">
+        <Key ID="STR_grad_apobs_functions_returnsafetyPin">
             <English>Return pin</English>
             <German>Sicherungsstift zurück stecken</German>
         </Key>
