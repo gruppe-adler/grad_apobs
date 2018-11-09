@@ -19,8 +19,9 @@ class CfgVehicles {
        displayName = "APOBS Rearpack";
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
    };
-/*
+
   class ThingX;
+  /*
   class grad_apobs_cover: ThingX
   {
     author="DerZade";
