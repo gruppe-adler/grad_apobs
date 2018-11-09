@@ -19,7 +19,7 @@ class CfgVehicles {
        displayName = "APOBS Rearpack";
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
    };
-
+/*
   class ThingX;
   class grad_apobs_cover: ThingX
   {
@@ -38,6 +38,7 @@ class CfgVehicles {
     displayName="APOBS Base";
     model = QPATHTOF(data\models\base.p3d);
   };
+  */
 
    class Grad_APOBS_Frontpack_closed: ThingX {
        author = "DerZade [A] & Salbei";
@@ -58,8 +59,7 @@ class CfgVehicles {
        author = "DerZade [A] & Salbei";
        scope = 1;
        displayName = "APOBS Connector";
-       model = "\z\ace\addons\refuel\data\nozzle.p3d";
-       //model = QPATHTOF(data\models\connector.p3d);
+       model = QPATHTOF(data\models\connector.p3d);
        //picture = QPATHTOF(ui\gunbag_ca.paa);
        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
        //hiddenSelections[] = {"Camo"};

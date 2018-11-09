@@ -190,7 +190,7 @@ class CfgVehicles {
       };
     };
   };
-  class Grad_APOBS_Connector_F: ThingX {
+  class Grad_APOBS_Connector: ThingX {
     class GVAR(pickUpConnector) {
       displayName = CSTRING(pickUpConnector);
       condition = QUOTE([ARR_2(_player,_target)] call FUNC(canTakeConnector));

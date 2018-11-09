@@ -13,18 +13,17 @@ params [["_unit", objNull, [objNull]],["_object", objNull, [objNull]]];
 
         private _source = _object;
         private _connector = _object;
-        if ((typeOf _object) isEqualTo "Grad_APOBS_Connector_F") then {          // func is called on connector either connected or on ground
+        if ((typeOf _object) isEqualTo "Grad_APOBS_Connector") then {          // func is called on connector either connected or on ground
             _source = _connector getVariable QGVAR(source);
             _connector attachTo [_unit, [-0.02,0.05,-0.12], "righthandmiddle1"];
         } else {                                                                 // func is called on APOBS
-            _connector = "Grad_APOBS_Connector_F" createVehicle [0,0,0];
+            _connector = "Grad_APOBS_Connector" createVehicle [0,0,0];
             _connector attachTo [_unit, [-0.02,0.05,-0.12], "righthandmiddle1"];
 
-            private _ropeTarget = _source;
-            private _attachPos = [0,0,0];
+            private _attachPos = _connector selectionPosition "back" ;
 
             private _hoseLength = _source getVariable [QGVAR(hoseLength), (getNumber (configFile >> "Grad_APOBS_Frontpack_closed" >> "connectorLength"))];
-            private _rope = ropeCreate [_ropeTarget, _attachPos, _connector, [0, -0.20, 0.12], _hoseLength];
+            private _rope = ropeCreate [_source, [0,0,0], _connector, _attachPos, _hoseLength];
             _connector setVariable [QGVAR(rope), _rope, true];
             _connector setVariable [QGVAR(attachPos), _attachPos, true];
             _connector setVariable [QGVAR(source), _source, true];
