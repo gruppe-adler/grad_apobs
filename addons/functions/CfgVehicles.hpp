@@ -74,7 +74,7 @@ class CfgVehicles {
         class GVAR(dismantleRocket) {
           selection = "";
           displayName = CSTRING(dismantleRocket);
-          condition = QUOTE(_target getVariable [QUOTE(QGVAR(rocketSetup)),false]);
+          condition = QUOTE([_target] call FUNC(canDismantleRocket));
           statement = QUOTE([_target] call FUNC(setUpRocket));
           showDisabled = 0;
           priority = -1;
@@ -181,7 +181,7 @@ class CfgVehicles {
         };
         class GVAR(disassembleParachute) {
           displayName = CSTRING(disassembleParachute);
-          condition = QUOTE(![_target] call FUNC(canAssembleParachute));
+          condition = QUOTE([_target] call FUNC(canDisassembleParachute));
           statement = QUOTE([_target] call FUNC(disassembleParachute));
           showDisabled = 0;
           priority = -1;

@@ -27,7 +27,7 @@ getCursorObjectParams params ["_cursorObject", "", "_distance"];
 if (_button == 1) exitWith {
     if (
         !isNull _cursorObject
-        && {_distance < REFUEL_connector_ACTION_DISTANCE}
+        && {_distance < CONNECTOR_ACTION_DISTANCE}
         && {[_unit, _cursorObject] call FUNC(canReturnConnector)}
     ) then {
         [_unit, _cursorObject] call FUNC(returnConnector);
@@ -44,7 +44,7 @@ if (cameraView == "EXTERNAL") then {
 };
 if (
     !isNull _cursorObject
-    && {_distance < REFUEL_connector_ACTION_DISTANCE}
+    && {_distance < CONNECTOR_ACTION_DISTANCE}
     && {1 == getNumber (configFile >> "CfgVehicles" >> (typeOf _cursorObject) >> QGVAR(canReceive))}
     && {isNull (_cursorObject getVariable [QGVAR(connector), objNull])}
     && {!lineIntersects [eyePos _unit, _virtualPosASL, _unit]}

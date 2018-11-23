@@ -38,7 +38,7 @@
             <German>Rackete verbinden</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_disassembleParachute">
-            <English>Disconnect rocket</English>
+            <English>Disassemble parachute</English>
             <German>Racketen verbindung trennen</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_pullsafetyPin">
@@ -84,6 +84,10 @@
         <Key ID="STR_grad_apobs_functions_drop">
             <English>Drop</English>
             <German>Fallen lassen</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_ConnectAction">
+            <English>Connect Action</English>
+            <German>Connect Action</German>
         </Key>
     </Package>
 </Project>
