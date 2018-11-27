@@ -50,11 +50,18 @@ class CfgVehicles {
        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
        //hiddenSelections[] = {"Camo"};
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
-       maximumLoad = 0;
        mass = 27.2155;
    };
    class Grad_APOBS_Rearpack_closed: ThingX {
+       author = "DerZade [A] & Salbei";
+       scope = 1;
        displayName = "APOBS Rearpack";
+       model = QPATHTOF(data\models\backpack.p3d);
+       //picture = QPATHTOF(ui\gunbag_ca.paa);
+       //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
+       //hiddenSelections[] = {"Camo"};
+       //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
+       mass = 27.2155;
    };
    class Grad_APOBS_Connector: ThingX {
        author = "DerZade [A] & Salbei";

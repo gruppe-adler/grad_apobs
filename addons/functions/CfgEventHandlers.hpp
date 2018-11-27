@@ -10,17 +10,8 @@ class Extended_PreInit_EventHandlers {
     };
 };
 
-class Extended_Deleted_EventHandlers {
-  class Grad_APOBS_F {
-    deleted = QUOTE(if (isServer) then {_target setVariable [QGVAR(rearpack),objNull,true];});
-  };
-};
-
-class Extended_Init_EventHandlers {
-    class Grad_APOBS_F {
-        init = QUOTE(_this call FUNC(initApobs));
-    };
-    class Grad_APOBS_R {
-        init = QUOTE(_this call FUNC(initApobs));
+class Extended_PostInit_EventHandlers {
+    class ADDON {
+        init = QUOTE(call COMPILE_FILE(XEH_postInit));
     };
 };

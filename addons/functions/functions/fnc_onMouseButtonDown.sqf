@@ -38,16 +38,12 @@ if (_button == 1) exitWith {
 
 // LMB
 // code from attach, don't know what it is
-private _virtualPosASL = (eyePos _unit) vectorAdd (positionCameraToWorld [0,0,0.6]) vectorDiff (positionCameraToWorld [0,0,0]);
-if (cameraView == "EXTERNAL") then {
-    _virtualPosASL = _virtualPosASL vectorAdd ((positionCameraToWorld [0.3,0,0]) vectorDiff (positionCameraToWorld [0,0,0]));
-};
+
 if (
     !isNull _cursorObject
     && {_distance < CONNECTOR_ACTION_DISTANCE}
-    && {1 == getNumber (configFile >> "CfgVehicles" >> (typeOf _cursorObject) >> QGVAR(canReceive))}
+    && {isNumber (configFile >> "CfgVehicles" >> (typeOf _cursorObject) >> QGVAR(canReceive))}
     && {isNull (_cursorObject getVariable [QGVAR(connector), objNull])}
-    && {!lineIntersects [eyePos _unit, _virtualPosASL, _unit]}
 ) then {
-    [_unit, _cursorObject, _virtualPosASL, _connector] call FUNC(connectConnectorAction);
+    [_unit, _cursorObject, _connector] call FUNC(connectConnectorAction);
 };

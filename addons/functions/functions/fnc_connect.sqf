@@ -13,7 +13,7 @@ params [["_unit", objNull, [objNull]],["_source", objNull, [objNull]]];
         if !([_unit, _source] call FUNC(canTakeConnector)) exitWith {};
 
         private _connector = _source;
-        diag_log ["Equal: %2", ((typeOf _source) isEqualTo "Grad_APOBS_Connector")];
+
         if ((typeOf _source) isEqualTo "Grad_APOBS_Connector") then {          // func is called on connector either connected or on ground
             _source = _connector getVariable QGVAR(source);
             _connector attachTo [_unit, [-0.02,0.05,-0.12], "righthandmiddle1"];
@@ -25,11 +25,9 @@ params [["_unit", objNull, [objNull]],["_source", objNull, [objNull]]];
             _connector attachTo [_unit, [-0.02,-0.01,0.01], "righthandmiddle1"];
             _helper attachTo [_source, [0,0,0]];
 
-            private _attachPos = _connector selectionPosition "back";
-
             private _hoseLength = _source getVariable [QGVAR(hoseLength), (getNumber (configfile >> "CfgVehicles" >> "Grad_APOBS_Frontpack_closed" >> "connectorLength" >> "defaultValue"))];
-            private _rope = ropeCreate [_helper, [0,0,0], _connector, [0,0,0], _hoseLength];
-            diag_log format ["GRAD_APOBS: Attach: %1, HoseL: %2, Source: %3, _connector %4, rope: %5", _attachPos, _hoseLength, _source, _connector, _rope];
+            private _rope = ropeCreate [_helper, [0,0,0], _connector, [0,-0.01,0], _hoseLength];
+
             _connector setVariable [QGVAR(rope), _rope, true];
             _connector setVariable [QGVAR(attachPos), _attachPos, true];
             _connector setVariable [QGVAR(source), _source, true];
@@ -49,7 +47,7 @@ params [["_unit", objNull, [objNull]],["_source", objNull, [objNull]]];
         [_unit, "forceWalk", "Grad_APOBS_connecting", true] call ace_common_fnc_statusEffect_set;
         [_unit, "blockThrow", "Grad_APOBS_connecting", true] call ace_common_fnc_statusEffect_set;
 
-        [_unit, _connector] call FUNC(startConnectorInHandsPFH);
+        [_unit, _connector] call FUNC(connectingPFH);
     },
     {},
     localize LSTRING(TakeConnectorAction),

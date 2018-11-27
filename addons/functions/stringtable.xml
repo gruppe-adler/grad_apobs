@@ -34,19 +34,19 @@
             <German>Racketen verbindung trennen</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_assembleParachute">
-            <English>Connect rocket</English>
-            <German>Rackete verbinden</German>
+            <English>Assemble parachute</English>
+            <German>Falschirm aufbauen</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_disassembleParachute">
             <English>Disassemble parachute</English>
             <German>Racketen verbindung trennen</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_pullsafetyPin">
-            <English>Pull pin</English>
+            <English>Pull safty pin</English>
             <German>Sicherungsstift ziehen</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_returnsafetyPin">
-            <English>Return pin</English>
+            <English>Return safty pin</English>
             <German>Sicherungsstift zurück stecken</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_pullFiringPin">
@@ -88,6 +88,14 @@
         <Key ID="STR_grad_apobs_functions_ConnectAction">
             <English>Connect Action</English>
             <German>Connect Action</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_returnConnector">
+            <English>Return connector</English>
+            <German>Connector zurücklegen</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_ReturnAction">
+            <English>Returning connector</English>
+            <German>Connector zurücklegen</German>
         </Key>
     </Package>
 </Project>

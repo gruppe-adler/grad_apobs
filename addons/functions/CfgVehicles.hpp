@@ -18,13 +18,13 @@ class CfgVehicles {
   class Grad_APOBS_Frontpack_closed: ThingX {
     class connectorLength {
       typeName = "NUMBER";
-       defaultValue = 6;
+       defaultValue = 1;
     };
     class ACE_Actions {
       class ACE_MainActions {
         selection = "interaction_point";
         distance = 5;
-        condition = "true";
+        condition = QUOTE(alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith});
         class GVAR(openApobs) {
           selection = "";
           displayName = CSTRING(openApobs);
@@ -61,7 +61,15 @@ class CfgVehicles {
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
         };
-
+        class GVAR(returnConnector) {
+          selection = "";
+          displayName = CSTRING(returnConnector);
+          condition = QUOTE([ARR_2(_player,_target)] call FUNC(canReturnConnector));
+          statement = QUOTE([ARR_2(_player,_target)] call FUNC(returnConnector));
+          showDisabled = 0;
+          priority = -1;
+          //icon = QPATHTOF(uigunbag_icon_ca.paa);
+        };
         class GVAR(setUpRocket) {
           selection = "";
           displayName = CSTRING(setUpRocket);
@@ -130,12 +138,12 @@ class CfgVehicles {
   };
 
   class Grad_APOBS_Rearpack_closed: ThingX {
-    canReceiveAPOBS = 1;
+    QGVAR(canReceive) = 6;
     class ACE_Actions {
       class ACE_MainActions {
         selection = "interaction_point";
         distance = 5;
-        condition = "true";
+        condition = QUOTE(alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith});
         class GVAR(openApobs) {
           selection = "";
           displayName = CSTRING(openApobs);
@@ -157,23 +165,15 @@ class CfgVehicles {
         class GVAR(takeApobs) {
           selection = "";
           displayName = CSTRING(takeApobs);
-          condition = QUOTE([_target] call FUNC(canTake));
+          condition = QUOTE((_target getVariable [QUOTE(QGVAR(isClosed)),true]));
           statement = QUOTE([_target] call FUNC(takeApobs));
-          showDisabled = 0;
-          priority = -1;
-          //icon = QPATHTOF(uigunbag_icon_ca.paa);
-        };
-        class GVAR(disconnectApobs) {
-          displayName = CSTRING(disconnectApobs);
-          condition = QUOTE(![_player] call FUNC(canDisconnect));
-          statement = QUOTE([ARR_2(_player,_target)] call FUNC(disconnect));
           showDisabled = 0;
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
         };
         class GVAR(assembleParachute) {
           displayName = CSTRING(assembleParachute);
-          condition = QUOTE(![_target] call FUNC(canAssembleParachute));
+          condition = QUOTE([_target] call FUNC(canAssembleParachute));
           statement = QUOTE([_target] call FUNC(assembleParachute));
           showDisabled = 0;
           priority = -1;
@@ -191,17 +191,24 @@ class CfgVehicles {
     };
   };
   class Grad_APOBS_Connector: ThingX {
-    class GVAR(pickUpConnector) {
-      displayName = CSTRING(pickUpConnector);
-      condition = QUOTE([ARR_2(_player,_target)] call FUNC(canTakeConnector));
-      statement = QUOTE([ARR_2(_player,_target)] call FUNC(takeConnector));
-      //icon = QPATHTOF(uigunbag_icon_ca.paa);
-    };
-    class GVAR(disconnectConnector) {
-      displayName = CSTRING(disconnectConnector);
-      condition = QUOTE([ARR_2(_player,_target)] call FUNC(canDisconnect));
-      statement = QUOTE([ARR_2(_player,_target)] call DFUNC(disconnect));
-      //icon = QPATHTOF(uigunbag_icon_ca.paa);
+    class ACE_Actions {
+      class ACE_MainActions {
+        selection = "interaction_point";
+        distance = 5;
+        condition = QUOTE(alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith});
+        class GVAR(pickUpConnector) {
+          displayName = CSTRING(pickUpConnector);
+          condition = QUOTE([ARR_2(_player,_target)] call FUNC(canTakeConnector));
+          statement = QUOTE([ARR_2(_player,_target)] call FUNC(takeConnector));
+          //icon = QPATHTOF(uigunbag_icon_ca.paa);
+        };
+        class GVAR(disconnectConnector) {
+          displayName = CSTRING(disconnectConnector);
+          condition = QUOTE([ARR_2(_player,_target)] call FUNC(canDisconnect));
+          statement = QUOTE([ARR_2(_player,_target)] call DFUNC(disconnect));
+          //icon = QPATHTOF(uigunbag_icon_ca.paa);
+        };
+      };
     };
   };
 };
