@@ -92,7 +92,7 @@ class CfgVehicles {
         class GVAR(disconnectRocket) {
           selection = "";
           displayName = CSTRING(disconnectRocket);
-          condition = QUOTE([_target] call FUNC(canDisonnectRocket));
+          condition = QUOTE([_target] call FUNC(canDisconnectRocket));
           statement = QUOTE([_target] call FUNC(disconnectRocket));
           showDisabled = 0;
           priority = -1;
