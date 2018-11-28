@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]]];
+params [["_rearpack", objNull, [objNull]]];
 
 if !(_rearpack getVariable [QGVAR(isConnected), false]) exitWith {false};
 if (isNull (_rearpack getVariable [QGVAR(rope), objNull])) exitWith {false};

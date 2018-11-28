@@ -28,7 +28,6 @@ params [["_unit", objNull, [objNull]],["_source", objNull, [objNull]]];
             private _rope = ropeCreate [_helper, [0,0,0], _connector, [0,-0.01,0], _hoseLength];
 
             _connector setVariable [QGVAR(rope), _rope, true];
-            _connector setVariable [QGVAR(attachPos), _attachPos, true];
             _connector setVariable [QGVAR(source), _source, true];
 
             _source setVariable [QGVAR(isConnected), true, true];

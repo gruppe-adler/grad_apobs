@@ -189,7 +189,7 @@ class CfgVehicles {
         };
         class GVAR(disconnectConnector) {
           displayName = CSTRING(disconnectConnector);
-          condition = QUOTE([ARR_2(_player,_target)] call FUNC(canDisconnect));
+          condition = QUOTE([_target] call FUNC(canDisconnect));
           statement = QUOTE([ARR_2(_player,_target)] call FUNC(disconnect));
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
         };
