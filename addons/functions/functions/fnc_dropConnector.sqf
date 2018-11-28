@@ -1,11 +1,10 @@
 #include "script_component.hpp"
 
-params [["_unit", objNull, [objNull]], ["_connector", objNull, [objNull]], ["_disconnectOnly", false, [false]]];
+params [["_unit", objNull, [objNull]], ["_connector", objNull, [objNull]]];
 
 detach _connector;
 _connector setVariable [QGVAR(isConnecting), false, true];
 
-if (_disconnectOnly) exitWith {};
 _connector setVelocity [0, 0, 0];
 
 private _groundPosition = getPosASL _connector;

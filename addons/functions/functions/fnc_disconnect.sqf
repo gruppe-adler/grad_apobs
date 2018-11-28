@@ -1,13 +1,16 @@
 #include "script_component.hpp"
 
-params [["_unit", objNull, [objNull]], ["_connector", objNull, [objNull]]];
+params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]]];
 
-private _rearpack = _connector getVariable [QGVAR(rearpack), objNull];
-if (isNull _rearpack) exitWith {};
+private _frontpack = _rearpack getVariable [QGVAR(frontpack), objNull];
+ropeDestroy (_rearpack getVariable [QGVAR(rope), objNull])
 
-_rearpack setVariable [QGVAR(connector), nil, true];
-_connector setVariable [QGVAR(rearpack), nil, true];
-_connector setVariable [QGVAR(isConnected), false, true];
-[objNull, _connector, true] call FUNC(dropConnector);
+_rearpack setVariable [QGVAR(frontpack), objNull,true];
+_rearpack setVariable [QGVAR(rope), objNull,true];
+_rearpack setVariable [QGVAR(isConnected), false,true];
 
-[_unit, _connector] call FUNC(takeConnector);
+_source setVariable [QGVAR(rearpack), objNull, true];
+_source setVariable [QGVAR(isConnected), false, true];
+_source setVariable [QGVAR(rope), objNull, true];
+
+[_unit, _frontpack] call FUNC(connect);

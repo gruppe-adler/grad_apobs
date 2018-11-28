@@ -4,9 +4,7 @@ params ["_target"];
 
 private _rearpack = _target getVariable [QGVAR(rearpack), objNull];
 private _rocket = _target getVariable [QGVAR(rocket), objNull];
-private _parachute = _target getVariable [QGVAR(parachute), objNull];
-
-if (isNull _rocket) exitWith {};
+private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
 
 _rearpack allowDamage false;
 _parachute allowDamage false;
@@ -26,12 +24,10 @@ _rocket setMass 1;
         params ["_rocket","_prevRopeSegments","_parachute","_rearpack"];
 
          private _breachLineSegments = [];
-        if !(isNull _parachute) then {
-          _breachLineSegments = ((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments);
+         _breachLineSegments = ((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments);
 
-          ropeCreate [_parachute,"front",_rearpack,"back",7];
-          _rocket setVelocity [0,25.5,25.5];
-        };
+         ropeCreate [_parachute,"front",_rearpack,"back",7];
+         _rocket setVelocity [0,25.5,25.5];
 
         [{
             params ["_breachLineSegments"];

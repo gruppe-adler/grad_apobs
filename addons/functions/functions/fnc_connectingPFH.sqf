@@ -84,7 +84,7 @@ params ["_unit", "_connector"];
     getCursorObjectParams params ["_cursorObject", "", "_distance"];
     if (!isNull _cursorObject && {_distance < 2}) then {
         if (
-            1 == (getNumber (configFile >> "CfgVehicles" >> (typeOf _cursorObject) >> "canReceiveAPOBS"))
+            (isNumber (configFile >> "CfgVehicles" >> (typeOf _cursorObject) >> QGVAR(canReceive)))
             && {isNull (_cursorObject getVariable [QGVAR(connector), objNull])}
         ) then {
             _hintLMB = localize LSTRING(Connect);

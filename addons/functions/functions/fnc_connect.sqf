@@ -8,9 +8,8 @@ params [["_unit", objNull, [objNull]],["_source", objNull, [objNull]]];
     {
         params ["_args"];
         _args params ["_unit", "_source"];
-        diag_log "Starting Connect";
 
-        if !([_unit, _source] call FUNC(canTakeConnector)) exitWith {};
+        if !([_unit, _source] call FUNC(canTakeConnector)) exitWith {diag_log "GRAD APOBS: Exit Connect";};
 
         private _connector = _source;
 

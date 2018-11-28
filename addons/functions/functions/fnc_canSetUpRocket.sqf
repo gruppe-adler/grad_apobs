@@ -3,7 +3,6 @@
 params ["_target"];
 
 if (_target getVariable [QGVAR(isClosed),true]) exitWith {false};
-if (_target getVariable [QGVAR(rocketSetup),false]) exitWith {false};
 if !(isNull (_target getVariable [QGVAR(rocket), objNull])) exitWith {false};
 
 true

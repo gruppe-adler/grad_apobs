@@ -2,6 +2,10 @@
 
 params [["_unit", objNull, [objNull]], ["_object", objNull, [objNull]]];
 
+diag_log format ["%1, %2, %3, %4, %5, %6, %7", (isNull _unit), !(_unit isKindOf "CAManBase"),
+!(local _unit), !(isNull (_unit getVariable [QGVAR(connector), objNull])), (typeOf _object == "Grad_APOBS_Connector" && (!isNull (attachedTo _object))),
+([_unit, _object] call ace_interaction_fnc_getInteractionDistance) > (getNumber (configfile >> "CfgVehicles" >> "Grad_APOBS_Frontpack_closed" >> "connectorLength" >> "defaultValue"))];
+
 if (isNull _unit ||
     {!(_unit isKindOf "CAManBase")} ||
     {!local _unit} ||

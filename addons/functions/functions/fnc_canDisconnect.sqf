@@ -1,13 +1,9 @@
 #include "script_component.hpp"
 
-params [["_unit", objNull, [objNull]], ["_connector", objNull, [objNull]]];
+params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]]];
 
-if (isNull _unit ||
-    {isNull _connector} ||
-    {!(_unit isKindOf "CAManBase")} ||
-    {!local _unit} ||
-    {!isNull (_unit getVariable [QGVAR(connector), objNull])} ||
-    {(_connector distance _unit) > 7}) exitWith {false};
+if !(_rearpack getVariable [QGVAR(isConnected), false]) exitWith {false};
+if (isNull (_rearpack getVariable [QGVAR(rope), objNull]) exitWith {false};
+if (isNull (_rearpack getVariable [QGVAR(frontpack), objNull]) exitWith {false};
 
-private _rearpack = _connector getVariable [QGVAR(rearpack), objNull];
-!((isNull _rearpack) || {_connector getVariable [QGVAR(isConnecting), false]})
+true

@@ -86,7 +86,7 @@ class CfgVehicles {
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
        mass = 10;
       };
-   class GRAD_APOBS_Parachute: ThingX {
+   class Grad_APOBS_Parachute: ThingX {
        author = "DerZade [A] & Salbei";
        scope = 1;
        displayName = "APOBS Parachute";

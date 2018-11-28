@@ -18,7 +18,7 @@ class CfgVehicles {
   class Grad_APOBS_Frontpack_closed: ThingX {
     class connectorLength {
       typeName = "NUMBER";
-       defaultValue = 1;
+       defaultValue = 6;
     };
     class ACE_Actions {
       class ACE_MainActions {
@@ -127,7 +127,7 @@ class CfgVehicles {
         class GVAR(pullFiringPin) {
           selection = "";
           displayName = CSTRING(pullFiringPin);
-          condition = QUOTE(_target getVariable [QUOTE(QGVAR(firingPinPulled)), false]);
+          condition = QUOTE([_target] call FUNC(canPullFiringPin));
           statement = QUOTE([_target] call FUNC(pullFiringPin));
           showDisabled = 0;
           priority = -1;
@@ -138,7 +138,7 @@ class CfgVehicles {
   };
 
   class Grad_APOBS_Rearpack_closed: ThingX {
-    QGVAR(canReceive) = 6;
+    GVAR(canReceive) = 1;
     class ACE_Actions {
       class ACE_MainActions {
         selection = "interaction_point";
@@ -187,6 +187,12 @@ class CfgVehicles {
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
         };
+        class GVAR(disconnectConnector) {
+          displayName = CSTRING(disconnectConnector);
+          condition = QUOTE([ARR_2(_player,_target)] call FUNC(canDisconnect));
+          statement = QUOTE([ARR_2(_player,_target)] call FUNC(disconnect));
+          //icon = QPATHTOF(uigunbag_icon_ca.paa);
+        };
       };
     };
   };
@@ -200,12 +206,6 @@ class CfgVehicles {
           displayName = CSTRING(pickUpConnector);
           condition = QUOTE([ARR_2(_player,_target)] call FUNC(canTakeConnector));
           statement = QUOTE([ARR_2(_player,_target)] call FUNC(takeConnector));
-          //icon = QPATHTOF(uigunbag_icon_ca.paa);
-        };
-        class GVAR(disconnectConnector) {
-          displayName = CSTRING(disconnectConnector);
-          condition = QUOTE([ARR_2(_player,_target)] call FUNC(canDisconnect));
-          statement = QUOTE([ARR_2(_player,_target)] call DFUNC(disconnect));
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
         };
       };
