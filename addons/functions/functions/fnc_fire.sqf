@@ -2,9 +2,13 @@
 
 params ["_target"];
 
+systemChat "Boom";
+
 private _rearpack = _target getVariable [QGVAR(rearpack), objNull];
 private _rocket = _target getVariable [QGVAR(rocket), objNull];
 private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
+
+systemChat format ["Rear: %1, Rock: %2, Para: %3", _rearpack, _rocket, _parachute];
 
 _rearpack allowDamage false;
 _parachute allowDamage false;
@@ -27,7 +31,7 @@ _rocket setMass 1;
          _breachLineSegments = ((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments);
 
          ropeCreate [_parachute,"front",_rearpack,"back",7];
-         _rocket setVelocity [0,25.5,25.5];
+         _rocket addForce [_object vectorModelToWorld [0,25.5,25.5],[1,0,0]];
 
         [{
             params ["_breachLineSegments"];

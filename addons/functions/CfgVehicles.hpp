@@ -61,15 +61,6 @@ class CfgVehicles {
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);
         };
-        class GVAR(returnConnector) {
-          selection = "";
-          displayName = CSTRING(returnConnector);
-          condition = QUOTE([ARR_2(_player,_target)] call FUNC(canReturnConnector));
-          statement = QUOTE([ARR_2(_player,_target)] call FUNC(returnConnector));
-          showDisabled = 0;
-          priority = -1;
-          //icon = QPATHTOF(uigunbag_icon_ca.paa);
-        };
         class GVAR(setUpRocket) {
           selection = "";
           displayName = CSTRING(setUpRocket);
@@ -83,7 +74,7 @@ class CfgVehicles {
           selection = "";
           displayName = CSTRING(dismantleRocket);
           condition = QUOTE([_target] call FUNC(canDismantleRocket));
-          statement = QUOTE([_target] call FUNC(setUpRocket));
+          statement = QUOTE([_target] call FUNC(disassembleRocket));
           showDisabled = 0;
           priority = -1;
           //icon = QPATHTOF(uigunbag_icon_ca.paa);

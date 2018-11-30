@@ -3,5 +3,5 @@
 params ["_target"];
 
 private _parachute = _target getVariable [QGVAR(parachute), objNull];
-
-if (isNull _parachute) exitWith {};
+deleteVehicle _parachute;
+_target setVariable [QGVAR(parachute), objNull, true];
