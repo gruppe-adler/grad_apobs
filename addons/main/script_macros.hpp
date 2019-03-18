@@ -9,3 +9,5 @@
 #define QADDON QUOTE(ADDON)
 #define AUTHOR Gruppe Adler
 #define QAUTHOR QUOTE(AUTHOR)
+
+#define PREP_INFOLDER (folder,fncName) [QPATHTOF(functions\folder\DOUBLES(fnc,fncName).sqf), QEFUNC(folder,fncName)] call CBA_fnc_compileFunction

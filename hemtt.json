@@ -1,0 +1,13 @@
+{
+  "name": "GRAD APOBS",
+  "prefix": "grad_apobs",
+  "author": "DerZade, Salbei, XDrake",
+  "files": [
+    "mod.cpp"
+  ],
+  "exclude": [
+    "*.psd",
+    "*.png",
+    "*.tga"
+  ]
+}
