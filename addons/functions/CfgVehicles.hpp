@@ -5,7 +5,7 @@ class CfgVehicles {
             class ACE_Equipment {
                 class GVAR(dropApobs) {
                     displayName = CSTRING(dropApobs);
-                    condition = QUOTE((backpack _player) in [ARR_2('Grad_APOBS_Frontpack', 'Grad_APOBS_Rearpack') ]);
+                    condition = QUOTE((backpack _player) in [ARR_2('Grad_APOBS_Frontpack', 'Grad_APOBS_Rearpack')]);
                     statement = QUOTE([ARR_2(_player,_target)] call FUNC(dropApobs));
                     showDisabled = 0;
                 };

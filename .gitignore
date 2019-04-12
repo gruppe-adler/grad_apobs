@@ -1,4 +1,5 @@
 release/**
+releases/**
 
 *.pbo
 *.cache
