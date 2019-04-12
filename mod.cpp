@@ -1,11 +1,11 @@
 name = "GRAD APOBS";
 author = "Gruppe Adler";
-picture = "logo_grad_ca.paa";
+picture = "Adler.paa";
 //actionName = "Website";
 //action = "https://github.com/gruppe-adler/grad_apobs/releases";
 description = "Gruppe Adler APOBS";
-logo = "logo_grad_ca.paa";
-logoOver = "logo_grad_ca.paa";
+logo = "Adler.paa";
+logoOver = "Adler.paa";
 tooltip = "Gruppe Adler APOBS";
 overview = "";
 overviewPicture = "Adler.paa";

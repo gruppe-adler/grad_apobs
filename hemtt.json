@@ -1,13 +1,21 @@
 {
-  "name": "GRAD APOBS",
-  "prefix": "grad_apobs",
-  "author": "DerZade, Salbei, XDrake",
-  "files": [
-    "mod.cpp"
-  ],
-  "exclude": [
-    "*.psd",
-    "*.png",
-    "*.tga"
-  ]
+      "name": "GRAD APOBS",
+      "prefix": "grad_apobs",
+      "author": "DerZade, Salbei, XDrake",
+      "files": [
+          "mod.cpp",
+          "Adler.paa",
+          "LICENSE",
+          "README.md"
+      ],
+      "exclude": [
+        "*.psd",
+        "*.png",
+        "*.tga"
+    ],
+    "keyname": "{{prefix}}-{{version}}",
+    "signame": "{{prefix}}-{{version}}",
+    "releasebuild": [
+        "@zip"
+    ]
 }

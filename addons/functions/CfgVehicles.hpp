@@ -5,7 +5,7 @@ class CfgVehicles {
             class ACE_Equipment {
                 class GVAR(dropApobs) {
                     displayName = CSTRING(dropApobs);
-                    condition = QUOTE((backpack _player) in [QUOTE(QUOTE(Grad_APOBS_Frontpack)), QUOTE(QUOTE(Grad_APOBS_Rearpack))]);
+                    condition = QUOTE((backpack _player) in [ARR_2('Grad_APOBS_Frontpack', 'Grad_APOBS_Rearpack') ]);
                     statement = QUOTE([ARR_2(_player,_target)] call FUNC(dropApobs));
                     showDisabled = 0;
                     //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
@@ -28,7 +28,7 @@ class CfgVehicles {
                 class GVAR(openApobs) {
                     selection = "";
                     displayName = CSTRING(openApobs);
-                    condition = QUOTE(_target getVariable [QUOTE(QGVAR(isClosed)),true]);
+                    condition = QUOTE(_target getVariable [ARR_2(QUOTE(QGVAR(isClosed)),true)]);
                     statement = QUOTE([_target] call FUNC(openApobs));
                     showDisabled = 0;
                     priority = -1;
@@ -46,8 +46,8 @@ class CfgVehicles {
                 class GVAR(takeApobs) {
                     selection = "";
                     displayName = CSTRING(takeApobs);
-                    condition = QUOTE((_target getVariable [QUOTE(QGVAR(isClosed)),true]));
-                    statement = QUOTE([_player, _target] call FUNC(takeApobs));
+                    condition = QUOTE((_target getVariable [ARR_2(QUOTE(QGVAR(isClosed)), true)]));
+                    statement = QUOTE([ARR_2(_player, _target)] call FUNC(takeApobs));
                     showDisabled = 0;
                     priority = -1;
                     //icon = QPATHTOF(uigunbag_icon_ca.paa);
@@ -138,7 +138,7 @@ class CfgVehicles {
                 class GVAR(openApobs) {
                     selection = "";
                     displayName = CSTRING(openApobs);
-                    condition = QUOTE(_target getVariable [QUOTE(QGVAR(isClosed)),true]);
+                    condition = QUOTE(_target getVariable [ARR_2(QUOTE(QGVAR(isClosed)), true)]);
                     statement = QUOTE([_target] call FUNC(openApobs));
                     showDisabled = 0;
                     priority = -1;
@@ -156,7 +156,7 @@ class CfgVehicles {
                 class GVAR(takeApobs) {
                     selection = "";
                     displayName = CSTRING(takeApobs);
-                    condition = QUOTE((_target getVariable [QUOTE(QGVAR(isClosed)),true]));
+                    condition = QUOTE((_target getVariable [ARR_2(QUOTE(QGVAR(isClosed)), true)]));
                     statement = QUOTE([_target] call FUNC(takeApobs));
                     showDisabled = 0;
                     priority = -1;
