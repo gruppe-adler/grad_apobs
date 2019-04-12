@@ -8,7 +8,6 @@ class CfgVehicles {
                     condition = QUOTE((backpack _player) in [ARR_2('Grad_APOBS_Frontpack', 'Grad_APOBS_Rearpack') ]);
                     statement = QUOTE([ARR_2(_player,_target)] call FUNC(dropApobs));
                     showDisabled = 0;
-                    //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
                 };
             };
         };
@@ -32,7 +31,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(openApobs));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(closeApobs) {
                     selection = "";
@@ -41,7 +39,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(closeApobs));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(takeApobs) {
                     selection = "";
@@ -50,7 +47,6 @@ class CfgVehicles {
                     statement = QUOTE([ARR_2(_player, _target)] call FUNC(takeApobs));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(connectApobs) {
                     selection = "";
@@ -59,7 +55,6 @@ class CfgVehicles {
                     statement = QUOTE([ARR_2(_player,_target)] call FUNC(connect));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(setUpRocket) {
                     selection = "";
@@ -68,7 +63,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(setUpRocket));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(dismantleRocket) {
                     selection = "";
@@ -77,7 +71,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(disassembleRocket));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(connectRocket) {
                     selection = "";
@@ -86,7 +79,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(connectRocket));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(disconnectRocket) {
                     selection = "";
@@ -95,7 +87,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(disconnectRocket));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(pullFiringSafety) {
                     selection = "";
@@ -104,7 +95,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(pullFiringSafety));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(returnFiringSafety) {
                     selection = "";
@@ -113,7 +103,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(returnFiringSafety));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(pullFiringPin) {
                     selection = "";
@@ -122,7 +111,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(pullFiringPin));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
             };
         };
@@ -142,7 +130,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(openApobs));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(closeApobs) {
                     selection = "";
@@ -151,7 +138,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(closeApobs));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(takeApobs) {
                     selection = "";
@@ -160,7 +146,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(takeApobs));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(assembleParachute) {
                     displayName = CSTRING(assembleParachute);
@@ -168,7 +153,6 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(assembleParachute));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(disassembleParachute) {
                     displayName = CSTRING(disassembleParachute);
@@ -176,13 +160,13 @@ class CfgVehicles {
                     statement = QUOTE([_target] call FUNC(disassembleParachute));
                     showDisabled = 0;
                     priority = -1;
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
                 class GVAR(disconnectConnector) {
                     displayName = CSTRING(disconnectConnector);
                     condition = QUOTE([_target] call FUNC(canDisconnect));
                     statement = QUOTE([ARR_2(_player,_target)] call FUNC(disconnect));
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
+                    showDisabled = 0;
+                    priority = -1;
                 };
             };
         };
@@ -198,7 +182,6 @@ class CfgVehicles {
                     displayName = CSTRING(pickUpConnector);
                     condition = QUOTE([ARR_2(_player,_target)] call FUNC(canTakeConnector));
                     statement = QUOTE([ARR_2(_player,_target)] call FUNC(takeConnector));
-                    //icon = QPATHTOF(uigunbag_icon_ca.paa);
                 };
             };
         };
