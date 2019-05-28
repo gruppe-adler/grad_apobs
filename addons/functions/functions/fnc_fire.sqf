@@ -8,30 +8,32 @@ private _rearpack = _target getVariable [QGVAR(rearpack), objNull];
 private _rocket = _target getVariable [QGVAR(rocket), objNull];
 private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
 
+private _connector = _target getVariable [QGVAR(connector), objNull];
+
+private _ropes = [];
+_ropes pushBack (ropes _target);
+_ropes pushBack (ropes _rearpack);
+_ropes pushBack (ropes _connector);
+
+systemChat str _ropes;
+
+{
+    ropeDestroy _x;
+}forEach _ropes;
+deleteVehicle _connector;
+
 systemChat format ["Rear: %1, Rock: %2, Para: %3", _rearpack, _rocket, _parachute];
-
-_rearpack allowDamage false;
-_parachute allowDamage false;
-_rocket allowDamage false;
-
-_rearpack setMass 1;
-_parachute setMass 1;
-_rocket setMass 1;
 
 [{
     params ["_rocket","_parachute","_rearpack"];
 
-    private _prevRopeSegments = +(_rocket nearObjects ["ropesegment", 50]);
-    ro1 = ropeCreate [_rocket,"back",_parachute,"front",45];
+    ro1 = ropeCreate [_rocket, [0,0,0],_parachute, [0,0,0], 45];
 
     [{ count ((_this select 0) nearObjects ["ropesegment", 50]) > count (_this select 1)},{
         params ["_rocket","_prevRopeSegments","_parachute","_rearpack"];
 
-         private _breachLineSegments = [];
-         _breachLineSegments = ((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments);
-
-         ropeCreate [_parachute,"front",_rearpack,"back",7];
-         _rocket addForce [_object vectorModelToWorld [0,25.5,25.5],[1,0,0]];
+         ropeCreate [_parachute, [0,0,0],_rearpack, [0,0,0], 7];
+         _rocket addForce [_rocket vectorModelToWorld [0,25.5,25.5],[1,0,0]];
 
         [{
             params ["_breachLineSegments"];

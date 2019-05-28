@@ -10,28 +10,25 @@ params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]], ["_con
         _args params [["_unit", objNull, [objNull]], ["_connector", objNull, [objNull]], ["_rearpack", objNull, [objNull]]];
         _unit setVariable [QGVAR(connector), objNull, true];
 
-        diag_log format ["Unit: %1, Connector: %2, Rearpack: %3", _unit, _connector, _rearpack];
-
-        private _frontHelper = ropeAttachedObjects _connector;
         private _source = _connector getVariable [QGVAR(source), objNull];
+        private _helper2 = (attachedObjects _source) select 0;
 
-        {
-           ropeDestroy _x;
-        }forEach (ropes _connector);
+        ropeDestroy ((ropes _helper2) select 0);
+        detach _connector;
 
-        deleteVehicle _connector;
+        _connector setDir (_source getDir _rearpack);
+
         private _helper = "ace_fastroping_helper" createVehicle [0,0,0];
         _helper attachTo [_rearpack, [0,0,0]];
 
-        private _rope = ropeCreate [_helper, [0,0,0], _frontHelper, [0,0,0], (ceil(_helper distance _frontHelper))];
+        private _rope = ropeCreate [_helper, [0,0,0], _connector, [0,0,0], (round(_helper distance _connector))];
+        private _rope2 = ropeCreate [_helper2, [0,0,0], _connector, [0,0,0], (ceil(_helper2 distance _connector))];
 
         _source setVariable [QGVAR(rearpack), _rearpack, true];
         _source setVariable [QGVAR(isConnected), true, true];
-        _source setVariable [QGVAR(rope), _rope, true];
-        _source setVariable [QGVAR(connector), objNull, true];
 
         _rearpack setVariable [QGVAR(isConnected), true, true];
-        _rearpack setVariable [QGVAR(rope), _rope, true];
+        _rearpack setVariable [QGVAR(helper), _helper, true];
         _rearpack setVariable [QGVAR(frontpack), _source, true];
 
     },
