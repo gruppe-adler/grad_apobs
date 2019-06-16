@@ -16,13 +16,17 @@ params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]], ["_con
         ropeDestroy ((ropes _helper2) select 0);
         detach _connector;
 
-        _connector setDir (_source getDir _rearpack);
-
         private _helper = "ace_fastroping_helper" createVehicle [0,0,0];
         _helper attachTo [_rearpack, [0,0,0]];
 
-        private _rope = ropeCreate [_helper, [0,0,0], _connector, [0,0,0], (round(_helper distance _connector))];
-        private _rope2 = ropeCreate [_helper2, [0,0,0], _connector, [0,0,0], (ceil(_helper2 distance _connector))];
+        private _distance = ceil(_helper distance _helper2);
+
+        private _rope = ropeCreate [_helper2, [0,0,0], _helper, [0,0,0], _distance];
+        private _ropeSegments = _helper nearObjects ["ropesegment", _distance];
+        private _attachRope = _ropeSegments select ((count _ropeSegments) -1);
+
+        _connector setDir ( getDir _attachRope);
+        _connector attachTo [_attachRope, [0,0,0]];
 
         _source setVariable [QGVAR(rearpack), _rearpack, true];
         _source setVariable [QGVAR(isConnected), true, true];
