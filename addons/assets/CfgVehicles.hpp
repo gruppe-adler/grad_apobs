@@ -78,13 +78,12 @@ class CfgVehicles {
        author = "DerZade [A] & Salbei";
        scope = 1;
        displayName = "APOBS Rocket";
-       model = "\A3\Weapons_F_EPC\Ammo\Rocket_03_AP_F.p3d";
-       //model = QPATHTOF(data\models\rocket.p3d);
+       model = QPATHTOF(data\models\rocket.p3d);
        //picture = QPATHTOF(ui\gunbag_ca.paa);
        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
        //hiddenSelections[] = {"Camo"};
        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
-       mass = 10;
+       mass = 1;
       };
    class Grad_APOBS_Parachute: ThingX {
        author = "DerZade [A] & Salbei";
