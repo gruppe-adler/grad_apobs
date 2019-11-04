@@ -16,10 +16,10 @@ params ["_unit", "_connector"];
         [_unit, _connector] call FUNC(dropConnector);
         _unit setVariable [QGVAR(selectedWeaponOnRefuel), nil];
         _unit setVariable [QGVAR(hint), nil];
-       call ace_interaction_fnc_hideMouseHint;
-       [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
-       [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
-       [_idPFH] call CBA_fnc_removePerFrameHandler;
+        call ace_interaction_fnc_hideMouseHint;
+        [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+        [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+        [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
 
     // check drop from external events
@@ -27,10 +27,10 @@ params ["_unit", "_connector"];
         _unit selectWeapon (_unit getVariable QGVAR(selectedWeaponOnConnecting));
         _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
         _unit setVariable [QGVAR(hint), nil];
-       call ace_interaction_fnc_hideMouseHint;
-       [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
-       [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
-       [_idPFH] call CBA_fnc_removePerFrameHandler;
+        call ace_interaction_fnc_hideMouseHint;
+        [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+        [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+        [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
 
     private _source = _connector getVariable [QGVAR(source), objNull];
@@ -48,10 +48,10 @@ params ["_unit", "_connector"];
         _unit selectWeapon (_unit getVariable QGVAR(selectedWeaponOnConnecting));
         _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
         _unit setVariable [QGVAR(hint), nil];
-       call ace_interaction_fnc_hideMouseHint;
-       [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
-       [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
-       [_idPFH] call CBA_fnc_removePerFrameHandler;
+        call ace_interaction_fnc_hideMouseHint;
+        [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+        [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+        [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
 
     if !(_unit == vehicle _unit && {_unit isEqualTo ACE_player}) exitWith {
@@ -59,10 +59,10 @@ params ["_unit", "_connector"];
         _unit selectWeapon (_unit getVariable QGVAR(selectedWeaponOnConnecting));
         _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
         _unit setVariable [QGVAR(hint), nil];
-       call ace_interaction_fnc_hideMouseHint;
-       [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
-       [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
-       [_idPFH] call CBA_fnc_removePerFrameHandler;
+        call ace_interaction_fnc_hideMouseHint;
+        [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+        [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+        [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
 
     // check hoseLength < distance
@@ -71,10 +71,10 @@ params ["_unit", "_connector"];
         _unit selectWeapon (_unit getVariable QGVAR(selectedWeaponOnConnecting));
         _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
         _unit setVariable [QGVAR(hint), nil];
-       call ace_interaction_fnc_hideMouseHint;
-       [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
-       [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
-       [_idPFH] call CBA_fnc_removePerFrameHandler;
+        call ace_interaction_fnc_hideMouseHint;
+        [_unit, "forceWalk", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+        [_unit, "blockThrow", "Grad_APOBS_connecting", false] call ace_common_fnc_statusEffect_set;
+        [_idPFH] call CBA_fnc_removePerFrameHandler;
         [LSTRING(Hint_TooFar), 2, _unit] call ace_common_fnc_displayTextStructured;
     };
 
