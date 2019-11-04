@@ -2,7 +2,7 @@
 
 params ["_target"];
 
-if (_target getVariable [QGVAR(isClosed),true]) exitWith { false };
+if (_target getVariable [QGVAR(isClosed), true]) exitWith { false };
 if !(isNull (_target getVariable [QGVAR(connector), objNull])) exitWith { false };
 if !(isNull (_target getVariable [QGVAR(rocket), objNull])) exitWith { false };
 if !(isNull (_target getVariable [QGVAR(parachute), objNull])) exitWith { false };

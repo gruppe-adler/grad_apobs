@@ -44,5 +44,5 @@ params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]], ["_con
     "",
     localize LSTRING(ConnectAction),
     {true},
-    [INTERACT_EXCEPTIONS]
+    [INTERACT_EXCEPTIONS_APOBS]
 ] call ace_common_fnc_progressBar;

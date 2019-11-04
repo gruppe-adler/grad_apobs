@@ -48,7 +48,7 @@ diag_log format ["Rearpack: %1, Rocket: %2, Parachute: %3, Connector: %4", _rear
 
         ropeCreate [_parachute, [0,0,0], (_rearpack getVariable [QGVAR(helper)]), [0,0,0], 7];
 
-        _rocket addForce [_rocket vectorModelToWorld [0,25.5,25.5],[1,0,0]];
+        _rocket addForce [_rocket vectorModelToWorld [0,25.5,25.5], [1,0,0]];
 
         [{
             params ["_rearpack", "_prevRopeSegments"];

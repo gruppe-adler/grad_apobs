@@ -47,5 +47,5 @@ if (isNull _connector || {_source != _connector getVariable QGVAR(source)}) exit
     "",
     localize LSTRING(ReturnAction),
     {true},
-    [INTERACT_EXCEPTIONS]
+    [INTERACT_EXCEPTIONS_APOBS]
 ] call ace_common_fnc_progressBar;

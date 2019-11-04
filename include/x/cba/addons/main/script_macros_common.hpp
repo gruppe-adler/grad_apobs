@@ -1308,7 +1308,7 @@ Example:
         myFunction = {
             PARAMS_1(_name);
             DEFAULT_PARAM(1,_numberOfLegs,2);
-            DEFAULT_PARAM(2,_hasAHead,true);
+            DEFAULT_PARAM(2,_hasAHead, true);
             // Rest of function follows...
         };
     (end)

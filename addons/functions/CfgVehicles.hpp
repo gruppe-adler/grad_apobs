@@ -17,7 +17,7 @@ class CfgVehicles {
     class Grad_APOBS_Frontpack_closed: ThingX {
         class connectorLength {
             typeName = "NUMBER";
-             defaultValue = 6;
+            defaultValue = 6;
         };
         class ACE_Actions {
             class ACE_MainActions {
@@ -27,7 +27,7 @@ class CfgVehicles {
                 class GVAR(openApobs) {
                     selection = "";
                     displayName = CSTRING(openApobs);
-                    condition = QUOTE(_target getVariable [ARR_2(QUOTE(QGVAR(isClosed)),true)]);
+                    condition = QUOTE(_target getVariable [ARR_2(QUOTE(QGVAR(isClosed)), true)]);
                     statement = QUOTE([_target] call FUNC(openApobs));
                     showDisabled = 0;
                     priority = -1;

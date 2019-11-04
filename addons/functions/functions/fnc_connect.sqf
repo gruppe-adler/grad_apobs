@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params [["_unit", objNull, [objNull]],["_source", objNull, [objNull]]];
+params [["_unit", objNull, [objNull]], ["_source", objNull, [objNull]]];
 
 [
     2,
