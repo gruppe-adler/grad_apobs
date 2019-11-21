@@ -95,6 +95,10 @@
         </Key>
         <Key ID="STR_grad_apobs_functions_returnAction">
             <English>Returning connector</English>
+            <German>Connector wird zurücklegen</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_Return">
+            <English>Return connector</English>
             <German>Connector zurücklegen</German>
         </Key>
     </Package>

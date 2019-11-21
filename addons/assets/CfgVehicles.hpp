@@ -89,7 +89,7 @@ class CfgVehicles {
        author = "DerZade [A] & Salbei";
        scope = 1;
        displayName = "APOBS Parachute";
-       model = "\A3\air_f_beta\Parachute_01\Parachute_01_F.p3d";
+       model = QPATHTOF(data\models\parachute.p3d);
        //model = QPATHTOF(data\models\backpack.p3d);
        //picture = QPATHTOF(ui\gunbag_ca.paa);
        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);

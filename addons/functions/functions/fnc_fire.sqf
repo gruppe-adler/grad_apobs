@@ -13,17 +13,13 @@ diag_log format ["Rearpack: %1, Rocket: %2, Parachute: %3, Connector: %4", _rear
     params ["_target", "_rocket","_parachute","_rearpack", "_connector"];
     systemChat "Step 1";
 
-    private _ropes = [];
-    _ropes pushBack (ropes _target);
-    _ropes pushBack (ropes _rearpack);
-    _ropes pushBack (ropes _connector);
+    private _oldHelper = (attachedObjects _target) select 0;
+    private _oldHelper2 = (attachedObjects _rearpack) select 0;
 
-    diag_log str _ropes;
-
-    {
-        ropeDestroy _x;
-    }forEach _ropes;
+    ropeDestroy ((ropes _oldHelper) select 0);
     deleteVehicle _connector;
+    deleteVehicle _oldHelper;
+    deleteVehicle _oldHelper2;
 
     detach _parachute;
     detach _rocket;
@@ -48,26 +44,56 @@ diag_log format ["Rearpack: %1, Rocket: %2, Parachute: %3, Connector: %4", _rear
 
         ropeCreate [_parachute, [0,0,0], (_rearpack getVariable [QGVAR(helper)]), [0,0,0], 7];
 
-        _rocket addForce [_rocket vectorModelToWorld [0,25.5,25.5], [1,0,0]];
+        //_rocket addForce [_rocket vectorModelToWorld [0,25.5,25.5], [1,0,0]];
+        _rocket setVelocity [0,25.5,25.5];
 
-        [{
-            params ["_rearpack", "_prevRopeSegments"];
-
-            systemChat "Boom";
-            diag_log "Step 3";
-            diag_log format ["Rearpack: %1, prevRopeSegments: %2", _rearpack, _prevRopeSegments];
-
-            private _counter = 0;
+        [
             {
-                private _pos = (getPos _x);
-                if (_pos distance (_pos nearestObject "GrenadeHand") > 0.8) then {
-                     "GrenadeHand" createVehicle (getPos _x);
-                    _counter = _counter +1;
-                };
-            } forEach _prevRopeSegments;
+                private _velocity = velocity (_this select 0);
 
-            diag_log format ["Spawned %1 Granades", _counter],
+                systemChat format ["Velo: %1, Bool: %2", _velocity, (((_velocity select 0)<= 0) && {(_velocity select 1)<= 0} && {(_velocity select 2)<= 0})];
 
-        }, [_rearpack, _prevRopeSegments], 7] call CBA_fnc_waitAndExecute;
-    }, [_rocket, _prevRopeSegments, _parachute, _rearpack],0.05] call CBA_fnc_waitAndExecute;
+                (((_velocity select 0)<= 0) && {(_velocity select 1)<= 0} && {(_velocity select 2)<= 0})
+            },{
+                params ["", "_rearpack", "_prevRopeSegments"];
+
+                systemChat "Boom";
+                diag_log "Step 3";
+                diag_log format ["Rearpack: %1, prevRopeSegments: %2", _rearpack, _prevRopeSegments];
+
+                private _counter = 0;
+                {
+                    private _pos = (getPos _x);
+                    if (_pos distance (_pos nearestObject "R_60mm_HE") > 0.8) then {
+                        "R_60mm_HE" createVehicle (getPos _x);
+                        _counter = _counter +1;
+                    };
+                } forEach _prevRopeSegments;
+
+                diag_log format ["Spawned %1 Granades", _counter];
+
+            }, 
+            [_rocket, _rearpack, _prevRopeSegments], 
+            7,
+            {
+                params ["", "_rearpack", "_prevRopeSegments"];
+
+                systemChat "Timeout";
+                systemChat "Boom";
+                diag_log "Step 3";
+                diag_log format ["Rearpack: %1, prevRopeSegments: %2", _rearpack, _prevRopeSegments];
+
+                private _counter = 0;
+                {
+                    private _pos = (getPos _x);
+                    if (_pos distance (_pos nearestObject "GrenadeHand") > 0.8) then {
+                        "GrenadeHand" createVehicle (getPos _x);
+                        _counter = _counter +1;
+                    };
+                } forEach _prevRopeSegments;
+
+                diag_log format ["Spawned %1 Granades", _counter];
+            }  
+        ] call CBA_fnc_waitUntilAndExecute;
+    }, [_rocket, _prevRopeSegments, _parachute, _rearpack], 0.05] call CBA_fnc_waitAndExecute;
 }, [_target, _rocket, _parachute, _rearpack, _connector], 1] call CBA_fnc_waitAndExecute;

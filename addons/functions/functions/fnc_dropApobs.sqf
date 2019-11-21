@@ -4,7 +4,7 @@ params ["_unit"];
 
 private _backpackType = (backpack _unit);
 
-if !(_backpackType in ["Grad_APOBS_Frontpack","Grad_APOBS_Rearpack"]) exitWith {};
+if !(_backpackType in ["Grad_APOBS_Frontpack", "Grad_APOBS_Rearpack"]) exitWith {};
 
 removeBackpack _unit;
 
@@ -20,4 +20,9 @@ _unit reveal _obj;
 [_obj, true, [0,1,1], 0] call ace_dragging_fnc_setCarryable;
 [_obj, true, [0,1,0], 0] call ace_dragging_fnc_setDraggable;
 
-test_apobs = _obj;
+if (_backpackType == "Grad_APOBS_Frontpack") then {
+test_apobs_1 = _obj;
+}else {
+test_apobs_2 = _obj;
+};
+
