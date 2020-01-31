@@ -7,7 +7,7 @@ class CfgVehicles {
        author = "DerZade [A] & Salbei";
        scope = 2;
        displayName = "APOBS Frontpack";
-       model = QPATHTOF(data\models\backpack.p3d);
+       model = QPATHTOF(data\models\backpackWithStraps.p3d);
        //picture = QPATHTOF(ui\gunbag_ca.paa);
        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
        //hiddenSelections[] = {"Camo"};
