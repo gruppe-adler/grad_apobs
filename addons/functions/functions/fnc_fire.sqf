@@ -33,10 +33,10 @@ diag_log format ["Rearpack: %1, Rocket: %2, Parachute: %3, Connector: %4", _rear
     private _rope = ropeCreate [_helper2, [0,0,0], _helper, [0,0,0], 45];
     diag_log format ["New Rope R2P: %1", _rope];
 
-    private _prevRopeSegments = _helper nearObjects ["ropesegment", _helper2 distance _helper];
-
     [{
-        params ["_rocket", "_prevRopeSegments", "_parachute", "_rearpack"];
+        params ["_rocket", "_parachute", "_rearpack"];
+        
+        private _prevRopeSegments = _rocket nearObjects ["ropesegment", _parachute distance _rocket];
 
         systemChat "Step 2";
         diag_log "Step 2";
