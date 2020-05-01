@@ -1,0 +1,19 @@
+name = "GRAD APOBS"
+prefix = "grad_apobs"
+author = "DerZade, Salbei, XDrake"
+files = [
+    "mod.cpp",
+    "Adler.paa",
+    "LICENSE",
+    "README.md"
+]
+
+key_name = "{{prefix}}_{{version}}"
+authority = "{{prefix}}_{{version}}-{{git \"id 8\"}}"
+
+releasebuild = [
+    "@zip grad_apobs_{{semver.major}}.{{semver.minor}}.{{semver.patch}}.{{semver.build}}"
+]
+
+[header_exts]
+version= "{{git \"id 8\"}}"
