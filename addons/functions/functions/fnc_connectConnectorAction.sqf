@@ -28,7 +28,7 @@ params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]], ["_con
 
         private _rope = ropeCreate [_helper2, [0,0,0], _helper, [0,0,0], _distance];
         private _ropeSegments = _helper nearObjects ["ropesegment", _distance];
-        private _attachRope = _ropeSegments select ((round ((count _ropeSegments) /2)) max 1);
+        private _attachRope = _ropeSegments select ((ceil ((count _ropeSegments) /2)) max 1);
 
         _connector setDir ( getDir _attachRope);
         _connector attachTo [_attachRope, [0,0,0]];
