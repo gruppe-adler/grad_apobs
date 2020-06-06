@@ -42,15 +42,24 @@ class CfgVehicles {
   */
 
    class Grad_APOBS_Frontpack_closed: ThingX {
-       author = "DerZade [A] & Salbei";
-       scope = 1;
-       displayName = "APOBS Frontpack";
-       model = QPATHTOF(data\models\backpack.p3d);
-       //picture = QPATHTOF(ui\gunbag_ca.paa);
-       //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-       //hiddenSelections[] = {"Camo"};
-       //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
-       mass = 27.2155;
+        author = "DerZade [A] & Salbei";
+        scope = 1;
+        displayName = "APOBS Frontpack";
+        model = QPATHTOF(data\models\backpack.p3d);
+        //picture = QPATHTOF(ui\gunbag_ca.paa);
+        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
+        //hiddenSelections[] = {"Camo"};
+        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
+        mass = 27.2155;
+        class AnimationSources
+        {
+            class apobs_open
+            {
+                source = "user";	// The controller is defined as a user animation.
+                animPeriod = 1;		// The animation period used for this controller.
+                initPhase=0;		// Initial phase when object is created.
+            };
+        };
    };
    class Grad_APOBS_Rearpack_closed: ThingX {
        author = "DerZade [A] & Salbei";
