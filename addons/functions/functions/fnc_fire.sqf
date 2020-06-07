@@ -48,12 +48,13 @@ diag_log format ["Rearpack: %1, Rocket: %2, Parachute: %3, Connector: %4", _rear
         diag_log "Step 2";
         diag_log format ["Rocket: %1, Parachute: %2, Rearpack: %3", _rocket, _parachute, _rearpack];
         diag_log format ["prevRopeSegments: %1", _prevRopeSegments];
-
-        ropeCreate [_parachute, [0,0,0], (_rearpack getVariable [QGVAR(helper)]), [0,0,0], 7];
+        if !(isNil "_rearpack") then {
+            ropeCreate [_parachute, [0,0,0], (_rearpack getVariable [QGVAR(helper)]), [0,0,0], 7];
+        };
         test_rocket = _rocket;
 
-        //_rocket addForce [_rocket vectorModelToWorld [0,25.5,25.5], [1,0,0]];
-        //_rocket setVelocity [0,0,25.5];
+        _rocket addForce [_rocket vectorModelToWorld [0,25.5,25.5], [1,0,0]];
+        _rocket setVelocity [0,0,25.5];
         [{
             /*
             [
