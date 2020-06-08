@@ -2,6 +2,7 @@
 
 params ["_target"];
 
+_target hideSelection ["rocket", true];
 private _rocket = "grad_apobs_rocket" createVehicle [0,0,0];
 
 test_rocket = _rocket;

@@ -48,8 +48,8 @@ class CfgVehicles {
         model = QPATHTOF(data\models\backpack.p3d);
         //picture = QPATHTOF(ui\gunbag_ca.paa);
         //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-        //hiddenSelections[] = {"texture_cover_outside","texure_buckles","texture_base_outside","texture_cover_inside"};
-        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
+        //hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
+        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa)};
         mass = 27.2155;
         class AnimationSources
         {
