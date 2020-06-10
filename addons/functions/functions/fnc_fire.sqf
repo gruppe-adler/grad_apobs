@@ -56,7 +56,6 @@ diag_log format ["Rearpack: %1, Rocket: %2, Parachute: %3, Connector: %4", _rear
         _rocket addForce [_rocket vectorModelToWorld [0,25.5,25.5], [1,0,0]];
         _rocket setVelocity [0,0,25.5];
         [{
-            /*
             [
                 {
                     private _velocity = velocity (_this select 0);
@@ -105,7 +104,6 @@ diag_log format ["Rearpack: %1, Rocket: %2, Parachute: %3, Connector: %4", _rear
                     diag_log format ["Spawned %1 Granades", _counter];
                 }  
             ] call CBA_fnc_waitUntilAndExecute;
-            */
         }, [_rocket, _rearpack, _prevRopeSegments], 1] call CBA_fnc_waitAndExecute;
     }, [_rocket, _parachute, _rearpack], 0.05] call CBA_fnc_waitAndExecute;
 }, [_target, _rocket, _parachute, _rearpack, _connector], 1] call CBA_fnc_waitAndExecute;

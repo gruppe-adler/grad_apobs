@@ -57,19 +57,29 @@ class CfgVehicles {
             {
                 source = "user";	// The controller is defined as a user animation.
                 animPeriod = 1;		// The animation period used for this controller.
-                initPhase=0;		// Initial phase when object is created.
+                initPhase = 0;		// Initial phase when object is created.
             };
         };
    };
    class Grad_APOBS_Rearpack_closed: ThingX {
-       author = "DerZade [A] & Salbei";
-       scope = 1;
-       displayName = "APOBS Rearpack";
-       model = QPATHTOF(data\models\backpack.p3d);
-       //picture = QPATHTOF(ui\gunbag_ca.paa);
-       //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-       hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
-       mass = 27.2155;
+        author = "DerZade [A] & Salbei";
+        scope = 1;
+        displayName = "APOBS Rearpack";
+        model = QPATHTOF(data\models\backpack.p3d);
+        //picture = QPATHTOF(ui\gunbag_ca.paa);
+        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
+        //hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
+        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
+        mass = 27.2155;
+        class AnimationSources
+        {
+            class apobs_open
+            {
+                source = "user";	// The controller is defined as a user animation.
+                animPeriod = 1;		// The animation period used for this controller.
+                initPhase = 0;		// Initial phase when object is created.
+            };
+        };
    };
    class Grad_APOBS_Connector: ThingX {
        author = "DerZade [A] & Salbei";
