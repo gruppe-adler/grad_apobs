@@ -1,6 +1,10 @@
 #include "script_component.hpp"
 
-params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]], ["_connector", objNull, [objNull]]];
+params [
+    ["_unit", objNull, [objNull]], 
+    ["_rearpack", objNull, [objNull]], 
+    ["_connector", objNull, [objNull]]
+];
 
 [
     2,
@@ -20,6 +24,7 @@ params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]], ["_con
 
         ropeDestroy ((ropes _helper2) select 0);
         detach _connector;
+        deleteVehicle _connector;
 
         private _helper = "ace_fastroping_helper" createVehicle [0,0,0];
         _helper attachTo [_rearpack, [0,0,0]];
@@ -29,9 +34,6 @@ params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]], ["_con
         private _rope = ropeCreate [_helper2, [0,0,0], _helper, [0,0,0], _distance];
         private _ropeSegments = _helper nearObjects ["ropesegment", _distance];
         private _attachRope = _ropeSegments select ((ceil ((count _ropeSegments) /2)) max 1);
-
-        _connector setDir ( getDir _attachRope);
-        _connector attachTo [_attachRope, [0,0,0]];
 
         _source setVariable [QGVAR(rearpack), _rearpack, true];
         _source setVariable [QGVAR(isConnected), true, true];
