@@ -20,7 +20,6 @@ diag_log format ["1: Rearpack: %1, Rocket: %2, Parachute: %3, Connector: %4", _r
     deleteVehicle _oldHelper;
 
     detach _parachute;
-    detach _rocket;
 
     test_rocket = _rocket;
 
@@ -59,8 +58,8 @@ diag_log format ["1: Rearpack: %1, Rocket: %2, Parachute: %3, Connector: %4", _r
             ropeCreate [_parachute, [0,0,0], (_rearpack getVariable QGVAR(helper)), [0,0,0], 7];
         };
 
-        _rocket addForce [_rocket vectorModelToWorld [0,25.5,25.5], [1,0,0]];
-        //_rocket setVelocity [0,0,25.5];
+        detach _rocket;
+        [{_this setVelocity (_this vectorModelToWorld [0, 0, -10])}, _rocket] call CBA_fnc_execNextFrame;
 
         [{
             private _velocity = (_this select 0);
@@ -93,7 +92,6 @@ diag_log format ["1: Rearpack: %1, Rocket: %2, Parachute: %3, Connector: %4", _r
                     } forEach _prevRopeSegments;
 
                     diag_log format ["Spawned %1 Granades", _counter];
-
                 }, 
                 _this, 
                 7,
