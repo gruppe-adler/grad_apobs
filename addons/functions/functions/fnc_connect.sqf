@@ -20,7 +20,6 @@ params [["_unit", objNull, [objNull]], ["_source", objNull, [objNull]]];
             _connector = "Grad_APOBS_Connector" createVehicle [0,0,0];
             private _helper = "ace_fastroping_helper" createVehicle [0,0,0];
 
-            test_connector = _connector;
             _connector attachTo [_unit, [-0.02,-0.01,0.01], "righthandmiddle1"];
             _helper attachTo [_source, [0,0,0]];
 

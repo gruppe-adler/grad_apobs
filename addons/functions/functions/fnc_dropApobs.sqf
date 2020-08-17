@@ -15,14 +15,12 @@ private _obj = createVehicle [(format ["%1_closed", _backpackType]), _pos, [], 0
 _obj setPos _pos;
 _obj setVariable [QGVAR(isClosed), true, true];
 
-_unit reveal _obj;
-
 [_obj, true, [0,1,1], 0] call ace_dragging_fnc_setCarryable;
 [_obj, true, [0,1,0], 0] call ace_dragging_fnc_setDraggable;
 
-if (_backpackType == "Grad_APOBS_Frontpack") then {
-test_apobs_1 = _obj;
+if (_backpackType == "Grad_APOBS_Rearpack") then {
+	test_apobs_2 = _obj;
 }else {
-test_apobs_2 = _obj;
+	test_apobs_1 = _obj;
 };
 

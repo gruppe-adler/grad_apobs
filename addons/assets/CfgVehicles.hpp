@@ -21,65 +21,45 @@ class CfgVehicles {
     };
 
     class ThingX;
-    /*
-    class grad_apobs_cover: ThingX
-    {
-        author="DerZade";
-        displayName="APOBS Cover";
-        scope=1;
-        model = QPATHTOF(data\models\cover.p3d);
+    class Grad_APOBS_Frontpack_closed: ThingX {
+        author = "DerZade [A] & Salbei";
+        scope = 1;
+        displayName = "APOBS Frontpack";
+        model = QPATHTOF(data\models\backpack.p3d);
         //picture = QPATHTOF(ui\gunbag_ca.paa);
         //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-        //hiddenSelections[] = {"Camo"};
-        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
-
-    };
-    class grad_apobs_base: grad_apobs_cover
-    {
-        displayName="APOBS Base";
-        model = QPATHTOF(data\models\base.p3d);
-    };
-    */
-
-    class Grad_APOBS_Frontpack_closed: ThingX {
-            author = "DerZade [A] & Salbei";
-            scope = 1;
-            displayName = "APOBS Frontpack";
-            model = QPATHTOF(data\models\backpack.p3d);
-            //picture = QPATHTOF(ui\gunbag_ca.paa);
-            //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-            //hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
-            //hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa)};
-            mass = 27.2155;
-            class AnimationSources
+        //hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
+        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa)};
+        mass = 27.2155;
+        class AnimationSources
+        {
+            class apobs_open
             {
-                class apobs_open
-                {
-                    source = "user";	// The controller is defined as a user animation.
-                    animPeriod = 1;		// The animation period used for this controller.
-                    initPhase = 0;		// Initial phase when object is created.
-                };
+                source = "user";	// The controller is defined as a user animation.
+                animPeriod = 1;		// The animation period used for this controller.
+                initPhase = 0;		// Initial phase when object is created.
             };
+        };
     };
     class Grad_APOBS_Rearpack_closed: ThingX {
-            author = "DerZade [A] & Salbei";
-            scope = 1;
-            displayName = "APOBS Rearpack";
-            model = QPATHTOF(data\models\backpack.p3d);
-            //picture = QPATHTOF(ui\gunbag_ca.paa);
-            //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-            //hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
-            //hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
-            mass = 27.2155;
-            class AnimationSources
+        author = "DerZade [A] & Salbei";
+        scope = 1;
+        displayName = "APOBS Rearpack";
+        model = QPATHTOF(data\models\backpack.p3d);
+        //picture = QPATHTOF(ui\gunbag_ca.paa);
+        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
+        //hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
+        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
+        mass = 27.2155;
+        class AnimationSources
+        {
+            class apobs_open
             {
-                class apobs_open
-                {
-                    source = "user";	// The controller is defined as a user animation.
-                    animPeriod = 1;		// The animation period used for this controller.
-                    initPhase = 0;		// Initial phase when object is created.
-                };
+                source = "user";	// The controller is defined as a user animation.
+                animPeriod = 1;		// The animation period used for this controller.
+                initPhase = 0;		// Initial phase when object is created.
             };
+        };
     };
     class Grad_APOBS_Connector: ThingX {
         author = "DerZade [A] & Salbei";
@@ -116,5 +96,14 @@ class CfgVehicles {
         //hiddenSelections[] = {"Camo"};
         //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         mass = 1;
+        class AnimationSources
+            {
+                class parachute_unfold
+                {
+                    source = "user";	// The controller is defined as a user animation.
+                    animPeriod = 1;		// The animation period used for this controller.
+                    initPhase = 1;		// Initial phase when object is created.
+                };
+            };
     };
 };
