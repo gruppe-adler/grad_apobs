@@ -1,4 +1,5 @@
 @echo off
+set BIOUTPUT=1
 
 if exist a3 (
   rmdir a3
@@ -6,18 +7,23 @@ if exist a3 (
 mklink /j a3 include\a3
 
 mkdir x
-mkdir x\grad_apobs
-if exist x\grad_apobs\addons (
-  rmdir x\grad_apobs\addons
+mkdir x\rnt
+if exist x\rnt\addons (
+  rmdir x\rnt\addons
 )
-mklink /j x\grad_apobs\addons addons
+mklink /j x\rnt\addons addons
 
-hemtt build --force --release
+IF [%1] == [] (
+  hemtt build --force --release
+) ELSE (
+  hemtt build %1
+)
+
 set BUILD_STATUS=%errorlevel%
 
 rmdir a3
-rmdir x\grad_apobs\addons
-rmdir x\grad_apobs
+rmdir x\rnt\addons
+rmdir x\rnt
 rmdir x
 
 if %BUILD_STATUS% neq 0 (
@@ -25,4 +31,5 @@ if %BUILD_STATUS% neq 0 (
   exit /b %errorlevel%
 ) else (
   echo Build successful
+  EXIT
 )
