@@ -13,8 +13,8 @@ class CfgVehicles {
         };
     };
 
-    class ThingX;
-    class Grad_APOBS_Frontpack_closed: ThingX {
+    class Land_Camping_Light_F;
+    class Grad_APOBS_Frontpack_closed: Land_Camping_Light_F {
         class connectorLength {
             typeName = "NUMBER";
             defaultValue = 6;
@@ -116,7 +116,7 @@ class CfgVehicles {
         };
     };
 
-    class Grad_APOBS_Rearpack_closed: ThingX {
+    class Grad_APOBS_Rearpack_closed: Land_Camping_Light_F {
         GVAR(canReceive) = 1;
         class ACE_Actions {
             class ACE_MainActions {
@@ -172,6 +172,7 @@ class CfgVehicles {
         };
     };
 
+    class ThingX;
     class Grad_APOBS_Connector: ThingX {
         class ACE_Actions {
             class ACE_MainActions {
