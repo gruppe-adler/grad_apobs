@@ -11,11 +11,11 @@ _rocket attachTo [_target, [0, -0.32, 0.05]];
 _target setVariable [QGVAR(rocket), _rocket, true];
 private _helper = ropeAttachedTo _target;
 if !(isNull _helper) then {
-	{
-		if (_x isEqualTo _target) exitWith {
-			ropeDestroy ((ropes _helper) select _forEachIndex);
+    {
+        if (_x isEqualTo _target) exitWith {
+            ropeDestroy ((ropes _helper) select _forEachIndex);
 
-			ropeCreate [_helper, [0,0,0], _rocket, [0,0,0], 45];
-		};
-	}forEach (ropeAttachedObjects _helper);
+            ropeCreate [_helper, [0,0,0], _rocket, [0,0,0], 45];
+        };
+    }forEach (ropeAttachedObjects _helper);
 };

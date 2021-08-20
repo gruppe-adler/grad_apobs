@@ -19,8 +19,8 @@ _obj setVariable [QGVAR(isClosed), true, true];
 [_obj, true, [0,1,0], 0] call ace_dragging_fnc_setDraggable;
 
 if (_backpackType == "Grad_APOBS_Rearpack") then {
-	test_apobs_2 = _obj;
+    test_apobs_2 = _obj;
 }else {
-	test_apobs_1 = _obj;
+    test_apobs_1 = _obj;
 };
 

@@ -13,7 +13,7 @@ class CfgVehicles {
         //hiddenSelections[] = {"Camo"};
         //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         maximumLoad = 0;
-        mass = 27.2155;
+        mass = 1;
     };
     class Grad_APOBS_Rearpack: Grad_APOBS_Frontpack {
         displayName = "APOBS Rearpack";
@@ -73,8 +73,8 @@ class CfgVehicles {
         mass = 1;
     };
 
-    class Land_Can_V1_F;
-    class Grad_APOBS_Rocket: Land_Can_V1_F {
+    class Land_Camping_Light_F;
+    class Grad_APOBS_Rocket: Land_Camping_Light_F {
         author = "DerZade [A] & Salbei";
         scope = 1;
         displayName = "APOBS Rocket";
@@ -85,25 +85,15 @@ class CfgVehicles {
         //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         mass = 1;
     };
-    class Grad_APOBS_Parachute: ThingX {
+    class Grad_APOBS_Parachute: Land_Camping_Light_F {
         author = "DerZade [A] & Salbei";
         scope = 1;
         displayName = "APOBS Parachute";
         model = QPATHTOF(data\models\parachute.p3d);
-        //model = QPATHTOF(data\models\backpack.p3d);
         //picture = QPATHTOF(ui\gunbag_ca.paa);
         //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
         //hiddenSelections[] = {"Camo"};
         //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         mass = 1;
-        class AnimationSources
-            {
-                class parachute_unfold
-                {
-                    source = "user";	// The controller is defined as a user animation.
-                    animPeriod = 1;		// The animation period used for this controller.
-                    initPhase = 1;		// Initial phase when object is created.
-                };
-            };
     };
 };

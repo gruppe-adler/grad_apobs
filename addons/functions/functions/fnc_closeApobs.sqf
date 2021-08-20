@@ -4,12 +4,12 @@ params ["_target"];
 
 _target animate ["apobs_open", 0];
 [
-	{
-		_this animationPhase "apobs_open" == 0
-	}, {
-		_this setVariable [QGVAR(isClosed), true, true];
-	},
-	_target
+    {
+        _this animationPhase "apobs_open" == 0
+    }, {
+        _this setVariable [QGVAR(isClosed), true, true];
+    },
+    _target
 ] call CBA_fnc_waitUntilAndExecute;
 
 _target setVariable [QGVAR(isClosed), true, true];

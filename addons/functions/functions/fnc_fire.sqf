@@ -5,69 +5,71 @@ params ["_target"];
 private _rearpack = _target getVariable [QGVAR(rearpack), objNull];
 private _rocket = _target getVariable [QGVAR(rocket), objNull];
 private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
-
-diag_log format ["1: Rearpack: %1, Rocket: %2, Parachute: %3", _rearpack, _rocket, _parachute];
+private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
 
 [{
-    params ["_target", "_rocket","_parachute","_rearpack", "_connector"];
-    systemChat "Step 1";
+    params ["_rocket","_parachute","_rearpack", "_prevRopeSegments"];
 
-    private _oldHelper = (attachedObjects _target) select 0;
+    _rearpack allowDamage false;  
+    _parachute allowDamage false;  
+    _rocket allowDamage false;  
+  
+    _rearpack setMass 1;  
+    _parachute setMass 1;  
+    _rocket setMass 1;
 
-    ropeDestroy ((ropes _oldHelper) select 0);
-    deleteVehicle _connector;
-    deleteVehicle _oldHelper;
-
-    detach _parachute;
     detach _rocket;
 
-    diag_log format ["2: Rocket: %1, Parachute: %2, Rearpack: %3", _rocket, _parachute, _rearpack];
-
     [{
-        params ["_rocket", "_parachute", "_rearpack"];
-        
-        systemChat "Step 2";
-        diag_log format ["4: Rocket: %1, Parachute: %2, Rearpack: %3", _rocket, _parachute, _rearpack];
-
-        private _prevRopeSegments = _rocket nearObjects ["ropesegment", _parachute distance _rocket];
-        diag_log format ["5: prevRopeSegments: %1", _prevRopeSegments];
-
-        systemChat format ["Helper: %1", _rearpack getVariable QGVAR(helper)];
-        diag_log format ["Helper: %1", _rearpack getVariable QGVAR(helper)];
-
-        if !(isNil "_rearpack") then {
-            ropeCreate [_parachute, [0,0,0], (_rearpack getVariable QGVAR(helper)), [0,0,0], 7];
-        };
-
-        [{_this setVelocity (_this vectorModelToWorld [0, 0, -50])}, _rocket] call CBA_fnc_execNextFrame;
-
+        params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
+         
+        ropeCreate [_rocket, [0,0,0], _parachute, "ropeAttach", 45];  
+    
         [{
-            [
-                {
-                    private _velocity = velocity (_this select 0);
+            params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
+            count (_rocket nearObjects ["ropesegment", 50]) > count _prevRopeSegments 
+        },{
+            params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
+            private _breachLineSegments = +((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments);  
+    
+            ropeCreate [_parachute, "ropeAttach", _rearpack, [0,0,0], 4.572];  
+            _rocket setVelocity [0,20,25.5]; 
 
-                    systemChat format ["Velo: %1, Bool: %2", _velocity, (((_velocity select 0)<= 0) && {(_velocity select 1)<= 0} && {(_velocity select 2)<= 0})];
+            _handle = [{  
+                params ["_args"]; 
+                _args params ["_rocket", "_rearpack", "_parachute"];  
+                
+                private _helper =  "Sign_Sphere25cm_F" createVehicle [0,0,0];
+                _helper setPosASL (getPosASL _rocket);
+                
+                private _helper2 =  "Sign_Sphere25cm_F" createVehicle [0,0,0];
+                _helper2 setObjectTextureGlobal [0, "#(argb,8,8,3)color(1,0,0,1.0,ca)"];
+                _helper2 setPosASL (getPosASL _rearpack);
 
-                    (((_velocity select 0) <= 0) && {(_velocity select 1) <= 0} && {(_velocity select 2) <= 0})
-                }, {
-                    params ["", "_rearpack", "_prevRopeSegments"];
+                private _helper2 =  "Sign_Sphere25cm_F" createVehicle [0,0,0];
+                _helper2 setObjectTextureGlobal [0, "#(argb,8,8,3)color(1,0,1,1.0,ca)"];
+                _helper2 setPosASL (getPosASL _parachute);
+            
+            }, 0, [_rocket, _rearpack, _parachute]] call CBA_fnc_addPerFrameHandler;  
+            
+            [{_this call CBA_fnc_removePerFrameHandler;}, [_handle], 25] call CBA_fnc_waitAndExecute; 
 
-                    systemChat "Boom";
-                    diag_log format ["6: Rearpack: %1, prevRopeSegments: %2", _rearpack, _prevRopeSegments];
+            [{
+                [{
+                    (getPos _this) select 2 <= 0 
+                },{
+                    _this setVelocity [0, 0, 0];
+                }, _this] call CBA_fnc_waitUntilAndExecute; 
+            }, _rocket, 2] call CBA_fnc_waitAndExecute;
 
-                    private _counter = 0;
-                    {
-                        private _pos = (getPos _x);
-                        if (_pos distance (_pos nearestObject "R_60mm_HE") > 1) then {
-                            "R_60mm_HE" createVehicle _pos;
-                            _counter = _counter +1;
-                        };
-                    } forEach _prevRopeSegments;
-
-                    diag_log format ["Spawned %1 Granades", _counter];
-                }, 
-                _this
-            ] call CBA_fnc_waitUntilAndExecute;
-        },[_rocket, _rearpack, _prevRopeSegments], 1] call CBA_fnc_waitAndExecute; 
-    }, [_rocket, _parachute, _rearpack], 0.05] call CBA_fnc_waitAndExecute;
-}, [_target, _rocket, _parachute, _rearpack], 1] call CBA_fnc_waitAndExecute;
+            [{
+                {  
+                    private _pos = (getPos _x);  
+                    if (_pos distance (_pos nearestObject "GrenadeHand") > 0.8) then {  
+                        _v = "GrenadeHand" createVehicle (getPos _x);   
+                    };  
+                } forEach _this; 
+            }, _breachLineSegments, 7] call CBA_fnc_waitAndExecute;
+        },[_rocket, _parachute, _rearpack, _prevRopeSegments]] call CBA_fnc_waitAndExecute;
+    }, [_rocket, _parachute, _rearpack, _prevRopeSegments], 0.05] call CBA_fnc_waitAndExecute;
+}, [_rocket, _parachute, _rearpack, _prevRopeSegments], 15] call CBA_fnc_waitAndExecute;

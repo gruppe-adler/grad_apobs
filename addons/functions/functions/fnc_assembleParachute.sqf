@@ -4,11 +4,11 @@ params ["_target"];
 
 private _helper = attachedObjects _target;
 if (_helper isEqualTo []) then {
-	_helper = "ace_fastroping_helper" createVehicle [0,0,0];
-	_helper disableCollisionWith _target;
-	_helper attachTo [_target, [0,0,0]];
+    _helper = "ace_fastroping_helper" createVehicle [0,0,0];
+    _helper disableCollisionWith _target;
+    _helper attachTo [_target, [0,0,0]];
 } else {
-	_helper = _helper select 0;
+    _helper = _helper select 0;
 };
 
 private _parachute = "GRAD_APOBS_Parachute" createVehicle [0,0,0];
