@@ -18,13 +18,11 @@ params [["_unit", objNull, [objNull]], ["_source", objNull, [objNull]]];
             _connector attachTo [_unit, [-0.02,0.05,-0.12], "righthandmiddle1"];
         } else {                                                                 // func is called on APOBS
             _connector = "Grad_APOBS_Connector" createVehicle [0,0,0];
-            private _helper = "ace_fastroping_helper" createVehicle [0,0,0];
 
             _connector attachTo [_unit, [-0.02,-0.01,0.01], "righthandmiddle1"];
-            _helper attachTo [_source, [0,0,0]];
 
             private _hoseLength = _source getVariable [QGVAR(hoseLength), (getNumber (configfile >> "CfgVehicles" >> "Grad_APOBS_Frontpack_closed" >> "connectorLength" >> "defaultValue"))];
-            private _rope = ropeCreate [_helper, [0,0,0], _connector, [0,-0.01,0], _hoseLength];
+            private _rope = ropeCreate [_source, [0,0,0], _connector, [0,-0.01,0], _hoseLength];
 
             _connector setVariable [QGVAR(rope), _rope, true];
             _connector setVariable [QGVAR(source), _source, true];

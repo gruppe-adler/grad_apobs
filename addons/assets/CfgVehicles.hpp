@@ -14,7 +14,7 @@ class CfgVehicles {
         //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         maximumLoad = 0;
         mass = 1;
-    };
+    }; 
     class Grad_APOBS_Rearpack: Grad_APOBS_Frontpack {
         displayName = "APOBS Rearpack";
         //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};

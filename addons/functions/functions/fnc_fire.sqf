@@ -70,6 +70,6 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
                     };  
                 } forEach _this; 
             }, _breachLineSegments, 7] call CBA_fnc_waitAndExecute;
-        },[_rocket, _parachute, _rearpack, _prevRopeSegments]] call CBA_fnc_waitAndExecute;
+        },[_rocket, _parachute, _rearpack, _prevRopeSegments]] call CBA_fnc_waitUntilAndExecute;
     }, [_rocket, _parachute, _rearpack, _prevRopeSegments], 0.05] call CBA_fnc_waitAndExecute;
 }, [_rocket, _parachute, _rearpack, _prevRopeSegments], 15] call CBA_fnc_waitAndExecute;

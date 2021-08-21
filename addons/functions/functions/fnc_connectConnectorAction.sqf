@@ -20,33 +20,30 @@ params [
         _unit setVariable [QGVAR(connector), objNull, true];
 
         private _source = _connector getVariable [QGVAR(source), objNull];
-        private _helper2 = ((attachedObjects _source) select {(typeOf _x) isEqualTo "ace_fastroping_helper"}) select 0;
-        systemChat format ["Helper2 %1", _helper2];
-        ropeDestroy ((ropes _helper2) select 0);
-        deleteVehicle _helper2;
+        ropeDestroy ((ropes _source) select 0);
         detach _connector;
         deleteVehicle _connector;
 
-        private _helper = attachedObjects _rearpack;
-        if (_helper isEqualTo []) then {
-            _helper = "ace_fastroping_helper" createVehicle [0,0,0];
-            _helper disableCollisionWith _rearpack;
-            _helper attachTo [_rearpack, [0,0,0]];
-        } else {
-            _helper = _helper select 0;
-        }; 
-        
-        if !(isNull (_source getVariable [QGVAR(rocket), objNull])) then {
-            ropeCreate [_helper, [0,0,0], (_source getVariable QGVAR(rocket)), [0,0,0], 45];
-        } else {
-            ropeCreate [_helper, [0,0,0], _source, [0,0,0], 45];
+        private _rocket = _source getVariable [QGVAR(rocket), objNull]; 
+        private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
+
+        private _from = _source;
+        private _to = _rearpack;
+
+        if !(isNull _rocket) then {
+            _from = _rocket;      
         };
+
+        if !(isNull _parachute) then {
+            _to = _parachute;      
+        };
+
+        ropeCreate [_from, [0,0,0], _to, [0,0,0], APOBS_ROPE_LENGTH];
 
         _source setVariable [QGVAR(rearpack), _rearpack, true];
         _source setVariable [QGVAR(isConnected), true, true];
 
         _rearpack setVariable [QGVAR(isConnected), true, true];
-        _rearpack setVariable [QGVAR(helper), _helper, true];
         _rearpack setVariable [QGVAR(frontpack), _source, true];
     },
     "",

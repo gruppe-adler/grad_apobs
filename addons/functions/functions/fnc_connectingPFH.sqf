@@ -40,10 +40,6 @@ params ["_unit", "_connector"];
         if !(isNull _rope) then {
             ropeDestroy _rope;
         };
-        private _helper = _connector getVariable [QGVAR(helper), objNull];
-        if !(isNull _helper) then {
-            deleteVehicle _helper;
-        };
         deleteVehicle _connector;
         _unit selectWeapon (_unit getVariable QGVAR(selectedWeaponOnConnecting));
         _unit setVariable [QGVAR(selectedWeaponOnConnecting), nil];
