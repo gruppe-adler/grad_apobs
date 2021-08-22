@@ -96,4 +96,15 @@ class CfgVehicles {
         //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         mass = 1;
     };
+
+    class Rope;
+    class RopeRabbit : Rope {
+        maxRelLenght = 1.1;
+        maxExtraLenght = 20;
+        springFactor = 0.5; // higher == less stretchy rope
+        segmentType = "RopeSegmentRabbit";    
+        torqueFactor = 0.5;
+        dampingFactor[] = {1.0,2.5,1.0};
+        model = QPATHTOF(data\models\rope.p3d);
+    };
 };

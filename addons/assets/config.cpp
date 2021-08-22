@@ -13,3 +13,4 @@ class CfgPatches {
 };
 
 #include <CfgVehicles.hpp>
+#include <CfgNonAIVehicles.hpp>
