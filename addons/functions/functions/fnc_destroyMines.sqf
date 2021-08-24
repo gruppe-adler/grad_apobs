@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ["_breachLineSegments", "_rocket"];
+params ["_breachLineSegments"];
 
 private _allMines = allMines;
 {
