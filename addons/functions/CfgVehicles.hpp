@@ -72,6 +72,30 @@ class CfgVehicles {
                     showDisabled = 0;
                     priority = -1;
                 };
+                class GVAR(pullFiringSafety) {
+                    selection = "";
+                    displayName = CSTRING(pullSafetyPin);
+                    condition = QUOTE([_target] call FUNC(canPullFiringSafety));
+                    statement = QUOTE([_target] call FUNC(pullFiringSafety));
+                    showDisabled = 0;
+                    priority = -1;
+                };
+                class GVAR(returnFiringSafety) {
+                    selection = "";
+                    displayName = CSTRING(returnSafetyPin);
+                    condition = QUOTE([_target] call FUNC(canReturnFiringSafety));
+                    statement = QUOTE([_target] call FUNC(returnFiringSafety));
+                    showDisabled = 0;
+                    priority = -1;
+                };
+                class GVAR(pullFiringPin) {
+                    selection = "";
+                    displayName = CSTRING(pullFiringPin);
+                    condition = QUOTE([_target] call FUNC(canPullFiringPin));
+                    statement = QUOTE([_target] call FUNC(pullFiringPin));
+                    showDisabled = 0;
+                    priority = -1;
+                };
                 class GVAR(connectRocket) {
                     selection = "";
                     displayName = CSTRING(connectRocket);
@@ -170,30 +194,6 @@ class CfgVehicles {
                 selection = "interaction_point";
                 distance = 5;
                 condition = 'alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}';
-                class GVAR(pullFiringSafety) {
-                    selection = "";
-                    displayName = CSTRING(pullSafetyPin);
-                    condition = QUOTE([_target] call FUNC(canPullFiringSafety));
-                    statement = QUOTE([_target] call FUNC(pullFiringSafety));
-                    showDisabled = 0;
-                    priority = -1;
-                };
-                class GVAR(returnFiringSafety) {
-                    selection = "";
-                    displayName = CSTRING(returnSafetyPin);
-                    condition = QUOTE([_target] call FUNC(canReturnFiringSafety));
-                    statement = QUOTE([_target] call FUNC(returnFiringSafety));
-                    showDisabled = 0;
-                    priority = -1;
-                };
-                class GVAR(pullFiringPin) {
-                    selection = "";
-                    displayName = CSTRING(pullFiringPin);
-                    condition = QUOTE([_target] call FUNC(canPullFiringPin));
-                    statement = QUOTE([_target] call FUNC(pullFiringPin));
-                    showDisabled = 0;
-                    priority = -1;
-                };
             };
         };
     };

@@ -30,9 +30,9 @@ if !(isNull _frontpack) then {
     }forEach ropes _target;
     private _rocket = _frontpack getVariable [QGVAR(rocket), objNull];
     if (isNull _rocket) then {
-        ropeCreate [_parachute, "ropeAttach", _frontpack, [0,0,0], APOBS_ROPE_LENGTH];
+        ropeCreate [_parachute, "ropeAttach", _frontpack, [0,0,0],APOBS_ROPE_LENGTH_LONG];
     } else {
-        ropeCreate [_rocket, [0,0,0], _parachute, "ropeAttach", APOBS_ROPE_LENGTH];
-        ropeCreate [_parachute, "ropeAttach", _target, [0,0,0], APOBS_ROPE_LENGTH2];
+        ropeCreate [_rocket, [0,0,0], _parachute, "ropeAttach",APOBS_ROPE_LENGTH_LONG];
+        ropeCreate [_parachute, "ropeAttach", _target, [0,0,0], APOBS_ROPE_LENGTH_SHORT];
     };
 };

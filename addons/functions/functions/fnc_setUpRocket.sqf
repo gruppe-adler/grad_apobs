@@ -24,8 +24,8 @@ _rocket setVectorDirAndUp [[180,20,0],[0,0.5,0.5]];
 
 _target setVariable [QGVAR(rocket), _rocket, true];
 
-[_target, false, [0,1,1], 0] call ace_dragging_fnc_setCarryable;
-[_target, false, [0,1,1], 0] call ace_dragging_fnc_setDraggable;
+[_rocket, false, [0,1,1], 0] call ace_dragging_fnc_setCarryable;
+[_rocket, false, [0,1,1], 0] call ace_dragging_fnc_setDraggable;
 
 private _rearpack = _target getVariable [QGVAR(rearpack), objNull];
 if !(isNull _rearpack) then {
@@ -35,9 +35,9 @@ if !(isNull _rearpack) then {
     
     private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
     if (isNull _parachute) then {
-        ropeCreate [_rocket, [0,0,0], _rearpack, [0,0,0], APOBS_ROPE_LENGTH];
+        ropeCreate [_rocket, [0,0,0], _rearpack, [0,0,0],APOBS_ROPE_LENGTH_LONG];
     } else {
-        ropeCreate [_rocket, [0,0,0], _parachute, [0,0,0], APOBS_ROPE_LENGTH];
-        ropeCreate [_parachute, [0,0,0], _rearpack, [0,0,0], APOBS_ROPE_LENGTH2]; 
+        ropeCreate [_rocket, [0,0,0], _parachute, "ropeAttach",APOBS_ROPE_LENGTH_LONG];
+        ropeCreate [_parachute, "ropeAttach", _rearpack, [0,0,0], APOBS_ROPE_LENGTH_SHORT]; 
     };
 };
