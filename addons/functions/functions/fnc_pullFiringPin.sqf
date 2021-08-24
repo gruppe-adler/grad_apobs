@@ -1,10 +1,22 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Pull the firing pin, triggering the firing process.
+ *
+ * Arguments:
+ * 0: Target <OBJECT>
+ * 
+ * Return Value:
+ * NONE
+ *
+ * Example:
+ * [obj] call grad_apobs_functions_fnc_pullFiringPin
+ *
+ * Public: No
+ */
 
 params ["_target"];
 
 _target setVariable [QGVAR(firingPinPulled), true, true];
 
-systemChat "Firing Apobs";
-
 [_target] call FUNC(fire);
-//[{[_this] call FUNC(fire);},_target,30] call CBA_fnc_waitAndExecute;

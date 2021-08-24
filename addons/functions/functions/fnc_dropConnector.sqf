@@ -1,5 +1,21 @@
 #include "script_component.hpp"
-
+/*
+ * Author: GitHawk, Salbei
+ * Detaches the connector, drops it and removes player variables.
+ *
+ * Arguments:
+ * 0: Unit <OBJECT> (optional)
+ * 1: Connector <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [player,  connector, false] call ace_refuel_fnc_dropconnector
+ * [objNull, connector, false] call ace_refuel_fnc_dropconnector
+ *
+ * Public: No
+ */
 params [["_unit", objNull, [objNull]], ["_connector", objNull, [objNull]]];
 
 detach _connector;

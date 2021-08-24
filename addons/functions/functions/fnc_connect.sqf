@@ -1,4 +1,20 @@
 #include "script_component.hpp"
+/*
+ * Author: GitHawk, Salbei
+ * Pick up connector
+ *
+ * Arguments:
+ * 0: Unit <OBJECT>
+ * 1: Source <OBJECT>
+ *
+ * Return Value:
+ * NONE
+ *
+ * Example:
+ * [player, obj] call grad_apobs_functions_fnc_connect
+ *
+ * Public: No
+ */
 
 params [["_unit", objNull, [objNull]], ["_source", objNull, [objNull]]];
 

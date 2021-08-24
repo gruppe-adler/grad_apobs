@@ -1,11 +1,11 @@
 #include "script_component.hpp"
 /*
- * Author: GitHawk, Jonpas
+ * Author: GitHawk, Jonpas, Salbei
  * Returns the connector back to source vehicle.
  *
  * Arguments:
  * 0: Unit <OBJECT>
- * 1: Fuel Source <OBJECT>
+ * 1: Source <OBJECT>
  *
  * Return Value:
  * None

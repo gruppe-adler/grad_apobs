@@ -1,4 +1,20 @@
 #include "script_component.hpp"
+/*
+ * Author: GitHawk, Salbei
+ * Take a connector either from a APOBS pack or from the ground.
+ *
+ * Arguments:
+ * 0: Unit <OBJECT>
+ * 1: Connector <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [player, cursorObject] call grad_apobs_functions_fnc_takeConnector
+ *
+ * Public: No
+ */
 
 params ["_unit","_connector"];
 

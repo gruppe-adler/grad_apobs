@@ -1,4 +1,19 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Check if the safety can be pulled.
+ *
+ * Arguments:
+ * 0: Target <OBJECT>
+ *
+ * Return Value:
+ * Can pull <BOOLEAN>
+ *
+ * Example:
+ * [obj] call grad_apobs_functions_fnc_canPullFiringSafety
+ *
+ * Public: No
+ */
 
 params ["_target"];
 

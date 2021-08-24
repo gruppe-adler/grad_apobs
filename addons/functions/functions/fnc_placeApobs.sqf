@@ -1,4 +1,19 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Place the APOBS pack on the ground.
+ *
+ * Arguments:
+ * 0: Unit <OBJECT>
+ * 
+ * Return Value:
+ * NONE
+ *
+ * Example:
+ * [obj] call grad_apobs_functions_fnc_placeApobs
+ *
+ * Public: No
+ */
 
 params ["_unit"];
 

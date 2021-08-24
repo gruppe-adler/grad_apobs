@@ -1,4 +1,19 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Check if the rocket can be disconnected.
+ *
+ * Arguments:
+ * 0: Target <OBJECT>
+ *
+ * Return Value:
+ * Can disconnect <BOOLEAN>
+ *
+ * Example:
+ * [obj] call grad_apobs_functions_fnc_canDisconnectRocket
+ *
+ * Public: No
+ */
 
 params ["_target"];
 

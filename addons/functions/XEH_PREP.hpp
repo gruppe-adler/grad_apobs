@@ -22,7 +22,7 @@ PREP(disassembleParachute);
 PREP(disassembleRocket);
 PREP(disconnect);
 PREP(disconnectRocket);
-PREP(dropApobs);
+PREP(placeApobs);
 PREP(dropConnector);
 PREP(fire);
 PREP(onMouseButtonDown);

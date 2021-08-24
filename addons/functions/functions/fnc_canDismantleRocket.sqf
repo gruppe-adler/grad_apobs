@@ -1,4 +1,19 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Check if the rocket can be dismantled.
+ *
+ * Arguments:
+ * 0: Target <OBJECT>
+ *
+ * Return Value:
+ * Can dismantle <BOOLEAN>
+ *
+ * Example:
+ * [obj] call grad_apobs_functions_fnc_canDismantleRocket
+ *
+ * Public: No
+ */
 
 params ["_target"];
 

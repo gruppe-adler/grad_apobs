@@ -1,4 +1,19 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Disassemble parachute.
+ *
+ * Arguments:
+ * 0: Target <OBJECT>
+ *
+ * Return Value:
+ * NONE
+ *
+ * Example:
+ * [obj] call grad_apobs_functions_fnc_disassembleParachute
+ *
+ * Public: No
+ */
 
 params ["_target"];
 

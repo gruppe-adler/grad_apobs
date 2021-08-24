@@ -1,4 +1,20 @@
 #include "script_component.hpp"
+/*
+ * Author: Dystopian, Salbei
+ * PFH while connector is in hands.
+ *
+ * Arguments:
+ * 0: Unit <OBJECT>
+ * 1: Connector <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [player, connector] call grad_apobs_functions_fnc_connectingPFH
+ *
+ * Public: No
+ */
 
 params ["_unit", "_connector"];
 

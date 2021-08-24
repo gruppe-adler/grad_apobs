@@ -1,4 +1,20 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Disconnect the APOBS.
+ *
+ * Arguments:
+ * 0: Unit <OBJECT>
+ * 1: Rearpack <OBJECT>
+ *
+ * Return Value:
+ * NONE
+ *
+ * Example:
+ * [player, obj] call grad_apobs_functions_fnc_disconnect
+ *
+ * Public: No
+ */
 
 params [["_unit", objNull, [objNull]], ["_rearpack", objNull, [objNull]]];
 

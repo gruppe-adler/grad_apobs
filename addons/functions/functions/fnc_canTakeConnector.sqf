@@ -1,4 +1,20 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Check if the connector can be picked up.
+ *
+ * Arguments:
+ * 0: Unit <OBJECT>
+ * 1: Object <OBJECT>
+ *
+ * Return Value:
+ * Can take <BOOLEAN>
+ *
+ * Example:
+ * [player, obj] call grad_apobs_functions_fnc_canTakeConnector
+ *
+ * Public: No
+ */
 
 params [["_unit", objNull, [objNull]], ["_object", objNull, [objNull]]];
 

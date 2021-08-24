@@ -1,5 +1,5 @@
 class CfgNonAIVehicles {
-    class RopeSegmentRabbit {
+    class Grad_APOBS_Rope_Segment {
         scope=2;
         displayName="";
         simulation="ropesegment";

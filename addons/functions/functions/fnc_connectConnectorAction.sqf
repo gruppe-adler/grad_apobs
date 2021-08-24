@@ -1,4 +1,22 @@
 #include "script_component.hpp"
+/*
+ * Author: GitHawk et.al.
+ * Calculates a connection for attachment.
+ * With code from ace_attach
+ *
+ * Arguments:
+ * 0: Unit <OBJECT>
+ * 1: Rearpack <OBJECT>
+ * 3: Connector <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [player, pack, connector] call grad_apobs_functions_fnc_connectConnectorAction
+ *
+ * Public: No
+ */
 
 params [
     ["_unit", objNull, [objNull]], 

@@ -1,4 +1,19 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Check if the APOBS can be closed.
+ *
+ * Arguments:
+ * 0: Target <OBJECT>
+ *
+ * Return Value:
+ * Can close <BOOLEAN>
+ *
+ * Example:
+ * [obj] call grad_apobs_functions_fnc_canClose
+ *
+ * Public: No
+ */
 
 params ["_target"];
 

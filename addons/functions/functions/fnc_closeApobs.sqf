@@ -1,4 +1,19 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Close APOBS.
+ *
+ * Arguments:
+ * 0: Target <OBJECT>
+ *
+ * Return Value:
+ * NONE
+ *
+ * Example:
+ * [obj] call grad_apobs_functions_fnc_closeApobs
+ *
+ * Public: No
+ */
 
 params ["_target"];
 

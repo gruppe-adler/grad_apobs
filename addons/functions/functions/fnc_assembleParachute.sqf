@@ -1,4 +1,19 @@
 #include "script_component.hpp"
+/*
+ * Author: Salbei
+ * Assemble the chute.
+ *
+ * Arguments:
+ * 0: Target <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [obj] call grad_apobs_functions_fnc_assembleParachute
+ *
+ * Public: No
+ */
 
 params ["_target"];
 

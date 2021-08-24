@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * Author: Dystopian
+ * Author: Dystopian, Salbei
  * Mouse button down event.
  *
  * Arguments:
