@@ -35,7 +35,7 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
             ropeCreate [_parachute, "ropeAttach", _rearpack, [0,0,0], 4.572];  
             _rocket setVelocity [0,20,25.5]; 
 
-            _handle = [{  
+            private _handle = [{  
                 params ["_args"]; 
                 _args params ["_rocket", "_rearpack", "_parachute"];  
                 
@@ -65,8 +65,8 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
             [{
                 {  
                     private _pos = (getPos _x);  
-                    if (_pos distance (_pos nearestObject "GrenadeHand") > 0.8) then {  
-                        _v = "GrenadeHand" createVehicle (getPos _x);   
+                    if (_pos distance (_pos nearestObject "GrenadeHand") > 0.9) then {  
+                        "GrenadeHand" createVehicle (getPos _x);   
                     };  
                 } forEach _this; 
             }, _breachLineSegments, 7] call CBA_fnc_waitAndExecute;
