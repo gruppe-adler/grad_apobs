@@ -97,6 +97,13 @@ class CfgVehicles {
         //hiddenSelections[] = {"Camo"};
         //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         mass = 1;
+        class AnimationSorces {
+            class unfold {
+                source = "user";	// The controller is defined as a user animation.
+                animPeriod = 1;		// The animation period used for this controller.
+                initPhase = 0;	    // Initial phase when object is created.
+            };
+        };
     };
 
     class Rope;

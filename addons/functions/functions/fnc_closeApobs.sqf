@@ -17,6 +17,7 @@
 
 params ["_target"];
 
+//Animate the opening of the pack
 _target animate ["apobs_open", 0];
 [
     {
@@ -27,6 +28,6 @@ _target animate ["apobs_open", 0];
     _target
 ] call CBA_fnc_waitUntilAndExecute;
 
-_target setVariable [QGVAR(isClosed), true, true];
+//Enable Carring & Dragging
 [_target, true, [0,1,1], 0] call ace_dragging_fnc_setCarryable;
 [_target, true, [0,1,0], 0] call ace_dragging_fnc_setDraggable;
