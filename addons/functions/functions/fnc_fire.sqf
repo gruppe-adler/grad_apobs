@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 /*
  * Author: Salbei
- * Fires the rocket, wich pulls the breaching line bhind it.
+ * Fires the rocket, wich pulls the breaching line behind it.
  *
  * Arguments:
  * 0: Target <OBJECT>
@@ -44,7 +44,17 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
         params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
         private _breachLineSegments = +((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments);  
 
-        _rocket addForce [[0,25,30], [1,0,0]];
+        [{
+            params ["_args", "_handle"];
+            _args params ["_rocket", "_vector", "_time"];
+
+            if (diag_tickTime > (_time + 1.8)) exitWith {
+                [_handle] call CBA_fnc_removePerFrameHandler;
+            };
+
+            _rocket addForce _vector;
+        }, 0.1, [_rocket, [[0,1,2], [1,0,0]], diag_tickTime]] call CBA_fnc_addPerFrameHandler;
+        
 
         //#ifdef DEBUG_MODE_FULL
             private _handle = [{  
@@ -66,6 +76,7 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
             
             [{_this call CBA_fnc_removePerFrameHandler;}, [_handle], 25] call CBA_fnc_waitAndExecute; 
         //#endif
+
         [{
             [{
                 (getPos _this) select 2 <= 0 
@@ -78,7 +89,7 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
             params ["_rocket", "_parachute", "_rearpack", "_breachLineSegments"];
             {  
                 private _pos = (getPos _x);  
-                if (_pos distance (_pos nearestObject "GrenadeHand") > 1) then {  
+                if (_pos distance2D (_pos nearestObject "GrenadeHand") > 1.1) then {  
                     "GrenadeHand" createVehicle (getPos _x);   
                 };  
             } forEach _breachLineSegments; 
@@ -90,6 +101,8 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
             {
                 ropeDestroy _x;
             }forEach _ropes;
+
+            deleteVehicle _parachute;
         }, [_rocket, _parachute, _rearpack, _breachLineSegments], 7] call CBA_fnc_waitAndExecute;
     },[_rocket, _parachute, _rearpack, _prevRopeSegments]] call CBA_fnc_waitUntilAndExecute;
     }, [_rocket, _parachute, _rearpack, _prevRopeSegments], 1] call CBA_fnc_waitAndExecute;

@@ -41,6 +41,12 @@ class CfgVehicles {
                 animPeriod = 1;		// The animation period used for this controller.
                 initPhase = 0;		// Initial phase when object is created.
             };
+            class rearPack
+            {
+                source = "user";	// The controller is defined as a user animation.
+                animPeriod = 1;		// The animation period used for this controller.
+                initPhase = 1;		// Initial phase when object is created.
+            };
         };
     };
     class Grad_APOBS_Rearpack_closed: ThingX {
@@ -56,6 +62,12 @@ class CfgVehicles {
         class AnimationSources
         {
             class apobs_open
+            {
+                source = "user";	// The controller is defined as a user animation.
+                animPeriod = 1;		// The animation period used for this controller.
+                initPhase = 0;		// Initial phase when object is created.
+            };
+            class rearPack
             {
                 source = "user";	// The controller is defined as a user animation.
                 animPeriod = 1;		// The animation period used for this controller.
