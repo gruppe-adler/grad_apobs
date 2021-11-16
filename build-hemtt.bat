@@ -14,9 +14,9 @@ if exist x\rnt\addons (
 mklink /j x\rnt\addons addons
 
 IF [%1] == [] (
-  hemtt build --force --release
+  tools\hemtt build --force --release
 ) ELSE (
-  hemtt build %1
+  tools\hemtt build %1
 )
 
 set BUILD_STATUS=%errorlevel%

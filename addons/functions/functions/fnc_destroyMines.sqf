@@ -26,3 +26,5 @@ private _allMines = allMines;
         };
     }forEach _breachLineSegments
 }forEach _allMines;
+
+
