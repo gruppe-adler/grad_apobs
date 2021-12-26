@@ -58,7 +58,7 @@ params [
             _selectionTo = "ropeAttach";   
         };
 
-        ropeCreate [_from, [0,0,0], _to, _selectionTo, APOBS_ROPE_LENGTH_LONG];
+        ropeCreate [_from, [0,0,0], _to, _selectionTo, APOBS_ROPE_LENGTH_LONG, ["", [0,0,-1]], ["", [0,0,-1]], "Grad_APOBS_Rope"];
 
         _source setVariable [QGVAR(rearpack), _rearpack, true];
         _source setVariable [QGVAR(isConnected), true, true];

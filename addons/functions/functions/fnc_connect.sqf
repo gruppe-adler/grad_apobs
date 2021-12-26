@@ -38,7 +38,7 @@ params [["_unit", objNull, [objNull]], ["_source", objNull, [objNull]]];
             _connector attachTo [_unit, [-0.02,-0.01,0.01], "righthandmiddle1"];
 
             private _hoseLength = _source getVariable [QGVAR(hoseLength), (getNumber (configfile >> "CfgVehicles" >> "Grad_APOBS_Frontpack_closed" >> "connectorLength" >> "defaultValue"))];
-            private _rope = ropeCreate [_source, [0,0,0], _connector, [0,-0.01,0], _hoseLength];
+            private _rope = ropeCreate [_source, [0,0,0], _connector, [0,-0.01,0], _hoseLength, ["", [0,0,-1]], ["", [0,0,-1]], "Grad_APOBS_Rope"];
 
             _connector setVariable [QGVAR(rope), _rope, true];
             _connector setVariable [QGVAR(source), _source, true];
