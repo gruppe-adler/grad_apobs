@@ -22,6 +22,8 @@ private _rocket = _target getVariable [QGVAR(rocket), objNull];
 private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
 private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
 
+test_rocket = _rocket;
+
 [{
     params ["_rocket","_parachute","_rearpack", "_prevRopeSegments"];
 
@@ -35,14 +37,15 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
 
     detach _rocket;
     detach _parachute;
-             
+              
     [{
         params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
 
-        count (_rocket nearObjects ["ropesegment", 50]) > count _prevRopeSegments 
+        count (_rocket nearObjects ["Grad_APOBS_Rope_Segment", 50]) > count _prevRopeSegments 
     },{
         params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
-        private _breachLineSegments = +((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments);  
+        private _breachLineSegments = +((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments); 
+        private _vector = [[0,1,2], [1,0,0]];
 
         [{
             params ["_args", "_handle"];
@@ -53,9 +56,8 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
             };
 
             _rocket addForce _vector;
-        }, 0.1, [_rocket, [[0,1,2], [1,0,0]], diag_tickTime]] call CBA_fnc_addPerFrameHandler;
+        }, 0.1, [_rocket, _vector, diag_tickTime]] call CBA_fnc_addPerFrameHandler;
         
-
         //#ifdef DEBUG_MODE_FULL
             private _handle = [{  
                 params ["_args"]; 
