@@ -23,6 +23,7 @@ private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
 private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
 
 test_rocket = _rocket;
+test_target = _target;
 
 [{
     params ["_rocket","_parachute","_rearpack", "_prevRopeSegments"];
@@ -34,7 +35,7 @@ test_rocket = _rocket;
     _rearpack setMass 1;  
     _parachute setMass 1;  
     _rocket setMass 1;
-
+    
     detach _rocket;
     detach _parachute;
               
@@ -44,14 +45,13 @@ test_rocket = _rocket;
         count (_rocket nearObjects ["Grad_APOBS_Rope_Segment", 50]) > count _prevRopeSegments 
     },{
         params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
-        private _breachLineSegments = +((_rocket nearObjects ["ropesegment", 50]) - _prevRopeSegments); 
-        private _vector = [[0,1,2], [1,0,0]];
-
+        private _breachLineSegments = +((_rocket nearObjects ["Grad_APOBS_Rope_Segment", 50]) - _prevRopeSegments); 
+        private _vector = [_rocket vectorModelToWorld [0.4,0,2], [1,0,0]];
         [{
             params ["_args", "_handle"];
             _args params ["_rocket", "_vector", "_time"];
 
-            if (diag_tickTime > (_time + 1.8)) exitWith {
+            if (diag_tickTime > (_time + 1.9)) exitWith {
                 [_handle] call CBA_fnc_removePerFrameHandler;
             };
 
@@ -80,6 +80,10 @@ test_rocket = _rocket;
         //#endif
 
         [{
+            _this hideObjectGlobal false;
+        }, _parachute, 1] call CBA_fnc_waitAndExecute;
+
+        [{
             [{
                 (getPos _this) select 2 <= 0 
             },{
@@ -91,8 +95,9 @@ test_rocket = _rocket;
             params ["_rocket", "_parachute", "_rearpack", "_breachLineSegments"];
             {  
                 private _pos = (getPos _x);  
-                if (_pos distance2D (_pos nearestObject "GrenadeHand") > 1.1) then {  
-                    "GrenadeHand" createVehicle (getPos _x);   
+                if (_pos distance2D (_pos nearestObject "GrenadeHand") > 2) then {  
+                    //"GrenadeHand" createVehicle (getPos _x);   
+                    "GrenadeExplosion" createVehicle (getPos _x);
                 };  
             } forEach _breachLineSegments; 
 
@@ -105,6 +110,7 @@ test_rocket = _rocket;
             }forEach _ropes;
 
             deleteVehicle _parachute;
+            deleteVehicle _rocket;
         }, [_rocket, _parachute, _rearpack, _breachLineSegments], 7] call CBA_fnc_waitAndExecute;
     },[_rocket, _parachute, _rearpack, _prevRopeSegments]] call CBA_fnc_waitUntilAndExecute;
     }, [_rocket, _parachute, _rearpack, _prevRopeSegments], 1] call CBA_fnc_waitAndExecute;

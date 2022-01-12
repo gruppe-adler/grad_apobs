@@ -9,9 +9,6 @@ class CfgVehicles {
         displayName = "APOBS Frontpack";
         model = QPATHTOF(data\models\backpackWithStraps.p3d);
         picture = QPATHTOF(data\images\frontpack_icon.paa);
-        //icon = QPATHTOF(data\images\frontpack_icon.paa);
-        //hiddenSelections[] = {"Camo"};
-        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         maximumLoad = 0;
         mass = 1;
     }; 
@@ -25,13 +22,16 @@ class CfgVehicles {
     class ThingX;
     class Grad_APOBS_Frontpack_closed: ThingX {
         author = "DerZade [A] & Salbei";
-        scope = 1;
+        scope = 2;
         displayName = "APOBS Frontpack";
+        editorCategory = "EdCat_Things";
+        editorSubcategory = "EdSubcat_Military";
+
         model = QPATHTOF(data\models\backpack.p3d);
-        //picture = QPATHTOF(ui\gunbag_ca.paa);
-        //icon = QPATHTOF(data\images\rearpack_icon.paa);
-        //hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
-        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa)};
+        editorPreview = QPATHTOF(data\images\frontpack_icon.paa);
+        hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
+        hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa)};
+
         mass = 27.2155;
         class AnimationSources
         {
@@ -51,13 +51,16 @@ class CfgVehicles {
     };
     class Grad_APOBS_Rearpack_closed: ThingX {
         author = "DerZade [A] & Salbei";
-        scope = 1;
+        scope = 2;
         displayName = "APOBS Rearpack";
+        editorCategory = "EdCat_Things";
+        editorSubcategory = "EdSubcat_Military";
+
         model = QPATHTOF(data\models\backpack.p3d);
-        //picture = QPATHTOF(ui\gunbag_ca.paa);
-        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-        //hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
-        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
+        editorPreview = QPATHTOF(data\images\rearpack_icon.paa);
+        hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
+        hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
+
         mass = 27.2155;
         class AnimationSources
         {
@@ -80,10 +83,7 @@ class CfgVehicles {
         scope = 1;
         displayName = "APOBS Connector";
         model = QPATHTOF(data\models\connector.p3d);
-        //picture = QPATHTOF(ui\gunbag_ca.paa);
-        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
         hiddenSelections[] = {"Camo"};
-        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         mass = 1;
     };
 
@@ -93,10 +93,6 @@ class CfgVehicles {
         scope = 1;
         displayName = "APOBS Rocket";
         model = QPATHTOF(data\models\rocket.p3d);
-        //picture = QPATHTOF(ui\gunbag_ca.paa);
-        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-        //hiddenSelections[] = {"Camo"};
-        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         mass = 1;
     };
     class Grad_APOBS_Parachute: Land_Camping_Light_F {
@@ -104,10 +100,6 @@ class CfgVehicles {
         scope = 1;
         displayName = "APOBS Parachute";
         model = QPATHTOF(data\models\parachute.p3d);
-        //picture = QPATHTOF(ui\gunbag_ca.paa);
-        //icon = QPATHTOF(ui\gunbag_icon_ca.paa);
-        //hiddenSelections[] = {"Camo"};
-        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
         mass = 1;
         class AnimationSorces {
             class unfold {

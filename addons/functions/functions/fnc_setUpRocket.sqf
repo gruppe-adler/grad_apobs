@@ -19,7 +19,7 @@ params ["_target"];
 
 private _rocket = "grad_apobs_rocket" createVehicle [0,0,0];
 
-_rocket attachTo [_target, [-0.027, -0.36, 0.0025]];
+_rocket attachTo [_target, [-0.028, -0.36, 0.0025]];
 _rocket setVectorDirAndUp [[-0.5,0,0],[0.5,-0.5,0.5]];
 
 _target setVariable [QGVAR(rocket), _rocket, true];

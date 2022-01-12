@@ -15,6 +15,26 @@ class CfgVehicles {
 
     class Land_Camping_Light_F;
     class Grad_APOBS_Frontpack_closed: Land_Camping_Light_F {
+
+        class Attributes {
+            class GVAR(openApobs) {
+                control = "CheckboxNumber";
+                defaultValue = "0";
+                displayName = CSTRING(openApobs);
+                tooltip = CSTRING(openApobs_Tooltip);
+                expression = QUOTE([_this] call FUNC(openApobs));
+                property = QGVAR(openApobs);
+            };
+            class GVAR(setUpRocket) {
+                control = "CheckboxNumber";
+                defaultValue = "0";
+                displayName = CSTRING(setUpRocket);
+                tooltip = CSTRING(setUpRocket_Tooltip);
+                expression = QUOTE([_this] call FUNC(setUpRocket));
+                property = QGVAR(setUpRocket);
+            };
+        };
+
         class connectorLength {
             typeName = "NUMBER";
             defaultValue = 6;
@@ -117,6 +137,26 @@ class CfgVehicles {
     };
 
     class Grad_APOBS_Rearpack_closed: Land_Camping_Light_F {
+
+        class Attributes {
+            class GVAR(openApobs) {
+                control = "CheckboxNumber";
+                defaultValue = "0";
+                displayName = CSTRING(openApobs);
+                tooltip = CSTRING(openApobs_Tooltip);
+                expression = QUOTE([_this] call FUNC(openApobs));
+                property = QGVAR(openApobs);
+            };
+            class GVAR(assembleParachute) {
+                control = "CheckboxNumber";
+                defaultValue = "0";
+                displayName = CSTRING(assembleParachute);
+                tooltip = CSTRING(assembleParachute_Tooltip);
+                expression = QUOTE([_this] call FUNC(assembleParachute));
+                property = QGVAR(assembleParachute);
+            };
+        };
+
         GVAR(canReceive) = 1;
         class ACE_Actions {
             class ACE_MainActions {
