@@ -119,7 +119,7 @@ class CfgVehicles {
     class Grad_APOBS_Rope: Rope {
         maxRelLenght = 1.1;
         maxExtraLenght = 20;
-        springFactor = 0.5; // higher == less stretchy rope
+        springFactor = 1.5; // higher == less stretchy rope
         segmentType = "Grad_APOBS_Rope_Segment";    
         torqueFactor = 0.5;
         dampingFactor[] = {1.0,2.5,1.0};

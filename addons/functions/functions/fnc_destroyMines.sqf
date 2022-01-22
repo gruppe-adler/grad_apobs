@@ -24,7 +24,7 @@ private _allMines = allMines;
         if (( _mine distance2D _x) <= APOBS_MINE_DESTRUCTION_RANGE) then {
             _mine setDamage 1;
         };
-    }forEach _breachLineSegments
+    }forEach _breachLineSegments;
 }forEach _allMines;
 
 
