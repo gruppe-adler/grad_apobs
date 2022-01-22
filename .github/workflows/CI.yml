@@ -15,7 +15,7 @@ jobs:
       id: build
 
     - name: Upload artifact
-      uses: actions/upload-artifact@1.1.0
+      uses: actions/upload-artifact@v2
       with:
         name: 'grad_apobs'
         path: ${{ steps.build.outputs.zip_path }}
