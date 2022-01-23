@@ -17,7 +17,6 @@ PREP(closeApobs);
 PREP(connect);
 PREP(connectConnectorAction);
 PREP(connectingPFH);
-PREP(connectRocket);
 PREP(destroyMines);
 PREP(disassembleParachute);
 PREP(disassembleRocket);

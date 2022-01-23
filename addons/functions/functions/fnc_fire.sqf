@@ -22,19 +22,12 @@ private _rocket = _target getVariable [QGVAR(rocket), objNull];
 private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
 private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
 
-test_rocket = _rocket;
-test_target = _target;
-
 [{
     params ["_rocket","_parachute","_rearpack", "_prevRopeSegments"];
 
     _rearpack allowDamage false;  
     _parachute allowDamage false;  
     _rocket allowDamage false;  
-  
-    _rearpack setMass 1;  
-    _parachute setMass 1;  
-    _rocket setMass 1;
     
     detach _rocket;
     detach _parachute;
@@ -46,7 +39,7 @@ test_target = _target;
     },{
         params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
         private _breachLineSegments = +((_rocket nearObjects ["Grad_APOBS_Rope_Segment", 50]) - _prevRopeSegments); 
-        private _vector = [_rocket vectorModelToWorld [0.6,0,1.95], [1,0,0]];
+        private _vector = [_rocket vectorModelToWorld [0.6,0,1.95], [0,0,0]];
         [{
             params ["_args", "_handle"];
             _args params ["_rocket", "_vector", "_time"];
@@ -58,7 +51,7 @@ test_target = _target;
             _rocket addForce _vector;
         }, 0.1, [_rocket, _vector, diag_tickTime]] call CBA_fnc_addPerFrameHandler;
 
-         [QGVAR(rocketFX), [_rocket]] call CBA_fnc_globalEvent;
+        [QGVAR(rocketFX), [_rocket]] call CBA_fnc_globalEvent;
         
         #ifdef DEBUG_MODE_FULL
             private _handle = [{  
@@ -103,12 +96,10 @@ test_target = _target;
 
         [{
             params ["_rocket", "_parachute", "_rearpack", "_breachLineSegments"];
-            {  
-                private _pos = (getPos _x);  
-                if (_pos distance2D (_pos nearestObject "GrenadeHand") > 2) then {
-                    "HelicopterExplo" createVehicle _pos;
-                };  
+            {   
+                "HelicopterExploSmall" createVehicle getPos _x;
             } forEach _breachLineSegments;
+
             [_breachLineSegments] call FUNC(destroyMines);
 
             private _ropes = ropes _rocket;
