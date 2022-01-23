@@ -16,7 +16,14 @@
  * Public: No
  */
 
-params ["_unit","_connector"];
+params ["_unit", "_connector"];
+
+_unit setVariable [QGVAR(selectedWeaponOnConnecting), currentWeapon _unit];
+_unit call ace_common_fnc_fixLoweredRifleAnimation;
+_unit action ["SwitchWeapon", _unit, _unit, 299];
+
+[_unit, "forceWalk", "Grad_APOBS_connecting", true] call ace_common_fnc_statusEffect_set;
+[_unit, "blockThrow", "Grad_APOBS_connecting", true] call ace_common_fnc_statusEffect_set;
 
 _connector attachTo [_unit, [-0.02, -0.01, 0.01], "righthandmiddle1"];
 

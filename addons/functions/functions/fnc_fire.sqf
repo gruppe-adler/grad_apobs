@@ -57,6 +57,8 @@ test_target = _target;
 
             _rocket addForce _vector;
         }, 0.1, [_rocket, _vector, diag_tickTime]] call CBA_fnc_addPerFrameHandler;
+
+         [QGVAR(rocketFX), [_rocket]] call CBA_fnc_globalEvent;
         
         #ifdef DEBUG_MODE_FULL
             private _handle = [{  
@@ -104,7 +106,7 @@ test_target = _target;
             {  
                 private _pos = (getPos _x);  
                 if (_pos distance2D (_pos nearestObject "GrenadeHand") > 2) then {
-                    "HelicopterExploBig" createVehicle _pos;
+                    "HelicopterExplo" createVehicle _pos;
                 };  
             } forEach _breachLineSegments;
             [_breachLineSegments] call FUNC(destroyMines);
