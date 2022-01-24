@@ -55,11 +55,13 @@ params [
 
         if !(isNull _parachute) then {
             _to = _parachute;
-            _selectionTo = "ropeAttach";   
+            _selectionTo = "ropeAttach"; 
+
+            //ropeCreate [_parachute, "ropeAttach", _rearpack, [0,0,0], APOBS_ROPE_LENGTH_SHORT, ["", [0,0,-1]], ["", [0,0,-1]], "Grad_APOBS_Rope"];  
         };
 
         ropeCreate [_from, [0,0,0], _to, _selectionTo, APOBS_ROPE_LENGTH_LONG, ["", [0,0,-1]], ["", [0,0,-1]], "Grad_APOBS_Rope"];
-
+       
         _source setVariable [QGVAR(rearpack), _rearpack, true];
         _source setVariable [QGVAR(isConnected), true, true];
 

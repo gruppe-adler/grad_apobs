@@ -6,12 +6,14 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {QMAINPATCH};
-        authors[] = {"DerZade [A]","Salbei"};
+        requiredAddons[] = { QMAINPATCH , QUOTE(KPATCH(assets))};
+        authors[] = {"DerZade [A]", "Jules", "Salbei"};
         VERSION_CONFIG;
     };
 };
 
 #include <CfgEventHandlers.hpp>
+#include <CfgAmmo.hpp>
+#include <CfgSFX.hpp>
 #include <CfgVehicles.hpp>
 #include <CfgWeapons.hpp>

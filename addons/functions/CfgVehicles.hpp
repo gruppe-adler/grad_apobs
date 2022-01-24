@@ -237,4 +237,14 @@ class CfgVehicles {
             };
         };
     };
+
+    class Sound;
+    class Sound_Missile: Sound
+    {
+        author = "Bohemia Interactive";
+        _generalMacro = "Sound_Missile";
+        scope = 2;
+        sound = QGVAR(missile);
+        displayName = QGVAR(missile);
+    };
 };

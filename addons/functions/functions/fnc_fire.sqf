@@ -15,6 +15,8 @@
  * Public: No
  */
 
+if !(isServer) exitWith {};
+
 params ["_target"];
 
 private _rearpack = _target getVariable [QGVAR(rearpack), objNull];
@@ -39,19 +41,27 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
     },{
         params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
         private _breachLineSegments = +((_rocket nearObjects ["Grad_APOBS_Rope_Segment", 50]) - _prevRopeSegments); 
+
+        // Add sound to rocket
+        private _soundSource = createSoundSource ["Sound_Missile", getPos _rocket, [], 0];
+        _soundSource attachTo [_rocket, [0, -0.05, 0]];
+
         private _vector = [_rocket vectorModelToWorld [0.6,0,1.95], [0,0,0]];
         [{
             params ["_args", "_handle"];
-            _args params ["_rocket", "_vector", "_time"];
+            _args params ["_rocket", "_vector", "_time", "_soundSource"];
 
             if (diag_tickTime > (_time + 1.8)) exitWith {
                 [_handle] call CBA_fnc_removePerFrameHandler;
+                deleteVehicle _soundSource;
             };
 
             _rocket addForce _vector;
-        }, 0.1, [_rocket, _vector, diag_tickTime]] call CBA_fnc_addPerFrameHandler;
+        }, 0.1, [_rocket, _vector, diag_tickTime, _soundSource]] call CBA_fnc_addPerFrameHandler;
 
         [QGVAR(rocketFX), [_rocket]] call CBA_fnc_globalEvent;
+
+        
         
         #ifdef DEBUG_MODE_FULL
             private _handle = [{  
@@ -97,7 +107,7 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
         [{
             params ["_rocket", "_parachute", "_rearpack", "_breachLineSegments"];
             {   
-                "HelicopterExploSmall" createVehicle getPos _x;
+                QGVAR(explosion) createVehicle getPos _x;
             } forEach _breachLineSegments;
 
             [_breachLineSegments] call FUNC(destroyMines);

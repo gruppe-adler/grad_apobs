@@ -19,4 +19,4 @@ params ["_target"];
 
 _target setVariable [QGVAR(firingPinPulled), true, true];
 
-[_target] call FUNC(fire);
+[QGVAR(fire), [_target]] call CBA_fnc_globalEvent;

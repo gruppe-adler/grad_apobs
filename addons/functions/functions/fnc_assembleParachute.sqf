@@ -25,9 +25,6 @@ _parachute animate ["parachute_unfold", 1];
 _parachute hideObjectGlobal true;
 _target setVariable [QGVAR(parachute), _parachute, true];
 
-test_parachute = _parachute;
-test_rearpack = _target;
-
 //If possible create the ropes, needed to connect to the front part
 private _frontpack = _target getVariable [QGVAR(frontpack), objNull];
 if !(isNull _frontpack) then {
