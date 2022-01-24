@@ -25,6 +25,7 @@ PREP(disconnectRocket);
 PREP(placeApobs);
 PREP(dropConnector);
 PREP(fire);
+PREP(firingRocket);
 PREP(onMouseButtonDown);
 PREP(openApobs);
 PREP(pullFiringPin);
