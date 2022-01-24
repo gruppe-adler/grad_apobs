@@ -95,7 +95,8 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
             deleteVehicle _parachute;
             deleteVehicle _rocket;
         }, [_rocket, _parachute, _rearpack, _breachLineSegments], 9] call CBA_fnc_waitAndExecute;
-    },[_rocket, _parachute, _rearpack, _prevRopeSegments],
+    },
+    [_rocket, _parachute, _rearpack, _prevRopeSegments],
     0.1,
     {
         params ["_rocket"];
