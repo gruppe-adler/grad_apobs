@@ -18,6 +18,7 @@
 
 params ["_unit", "_connector"];
 
+// holster weapon
 _unit setVariable [QGVAR(selectedWeaponOnConnecting), currentWeapon _unit];
 _unit call ace_common_fnc_fixLoweredRifleAnimation;
 _unit action ["SwitchWeapon", _unit, _unit, 299];
