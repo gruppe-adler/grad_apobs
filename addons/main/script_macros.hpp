@@ -8,3 +8,5 @@
 #define QADDON QUOTE(ADDON)
 #define AUTHOR Gruppe Adler
 #define QAUTHOR QUOTE(AUTHOR)
+
+#define AUTHORS {"DerZade [A]", "Jules", "Salbei"}

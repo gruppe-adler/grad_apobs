@@ -7,7 +7,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { QMAINPATCH , QUOTE(KPATCH(assets))};
-        authors[] = {"DerZade [A]", "Jules", "Salbei"};
+        authors[] = AUTHORS;
         VERSION_CONFIG;
     };
 };

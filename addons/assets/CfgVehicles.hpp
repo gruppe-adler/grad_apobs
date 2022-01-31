@@ -9,14 +9,17 @@ class CfgVehicles {
         displayName = "APOBS Frontpack";
         model = QPATHTOF(data\models\backpackWithStraps.p3d);
         picture = QPATHTOF(data\images\frontpack_icon.paa);
+        hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
+        hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_back_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
         maximumLoad = 0;
         mass = 1;
-    }; 
+    };
     class Grad_APOBS_Rearpack: Grad_APOBS_Frontpack {
         author = "DerZade [A] & Salbei";
         displayName = "APOBS Rearpack";
         picture = QPATHTOF(data\images\rearpack_icon.paa);
-        //hiddenSelectionsTextures[] = {QPATHTOF(data\images\out_co.paa)};
+        hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
+        hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_back_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
     };
 
     class ThingX;
@@ -59,7 +62,7 @@ class CfgVehicles {
         model = QPATHTOF(data\models\backpack.p3d);
         editorPreview = QPATHTOF(data\images\rearpack_icon.paa);
         hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
-        hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
+        hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_back_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
 
         mass = 27.2155;
         class AnimationSources
@@ -120,7 +123,7 @@ class CfgVehicles {
         maxRelLenght = 1.1;
         maxExtraLenght = 20;
         springFactor = 1.5; // higher == less stretchy rope
-        segmentType = "Grad_APOBS_Rope_Segment";    
+        segmentType = "Grad_APOBS_Rope_Segment";
         torqueFactor = 0.5;
         dampingFactor[] = {1.0,2.5,1.0};
         model = QPATHTOF(data\models\rope.p3d);
