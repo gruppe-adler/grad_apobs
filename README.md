@@ -19,3 +19,5 @@ Setup:
 
 Warning:
 If you pull the firing pin, before attaching the line. The rocket will fly of without the breaching line.
+
+Font: [Stencil Army WW I](https://www.1001freefonts.com/stencil-army-ww-i.font)
