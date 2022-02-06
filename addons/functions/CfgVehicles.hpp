@@ -79,7 +79,7 @@ class CfgVehicles {
                 class GVAR(setUpRocket) {
                     selection = "";
                     displayName = CSTRING(setUpRocket);
-                    condition = QUOTE([_target] call FUNC(canSetUpRocket));
+                    condition = QUOTE([ARR_2(_target,_player)] call FUNC(canSetUpRocket));
                     statement = QUOTE([_target] call FUNC(setUpRocket));
                     showDisabled = 0;
                     priority = -1;
@@ -113,22 +113,6 @@ class CfgVehicles {
                     displayName = CSTRING(pullFiringPin);
                     condition = QUOTE([_target] call FUNC(canPullFiringPin));
                     statement = QUOTE([_target] call FUNC(pullFiringPin));
-                    showDisabled = 0;
-                    priority = -1;
-                };
-                class GVAR(connectRocket) {
-                    selection = "";
-                    displayName = CSTRING(connectRocket);
-                    condition = QUOTE([_target] call FUNC(canConnectRocket));
-                    statement = QUOTE([_target] call FUNC(connectRocket));
-                    showDisabled = 0;
-                    priority = -1;
-                };
-                class GVAR(disconnectRocket) {
-                    selection = "";
-                    displayName = CSTRING(disconnectRocket);
-                    condition = QUOTE([_target] call FUNC(canDisconnectRocket));
-                    statement = QUOTE([_target] call FUNC(disconnectRocket));
                     showDisabled = 0;
                     priority = -1;
                 };

@@ -18,6 +18,7 @@
 params ["_target"];
 
 _target animate ["apobs_open", 1];
+
 [
     {
         _this animationPhase "apobs_open" == 1

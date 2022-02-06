@@ -4,10 +4,9 @@ class cfgWeapons {
 
     class GRAD_APOBS_rocketPacked: ACE_ItemCore {
         author = "Salbei";
-        displayName = CSTRING(rocketPackedDescription);
+        displayName = CSTRING(rocketPacked);
         descriptionShort = CSTRING(rocketPackedDescription);
-        //model = QPATHTOEF(assets,rocket_packed.p3d);
-        //picture = QPATHTOF(ui\w_entrchtool_ca.paa);
+        picture = QPATHTOF(data\rocketholder_bag.paa);
         scope = 2;
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 10;

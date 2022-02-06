@@ -2,6 +2,7 @@
 /*
  * Author: Salbei
  * Goes through the firing sequence
+ *
  * Arguments:
  * 0: Target <OBJECT>
  *
@@ -21,10 +22,16 @@ params ["_target"];
 private _rearpack = _target getVariable [QGVAR(rearpack), objNull];
 private _rocket = _target getVariable [QGVAR(rocket), objNull];
 private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
-private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
+
+_target setVariable [QGVAR(fired), true, true];
+
+if !(isNull _rearpack) then {
+    _rearpack setVariable [QGVAR(fired), true, true];
+};
 
 [{
-    params ["_rocket","_parachute","_rearpack", "_prevRopeSegments"];
+    params ["_rocket","_parachute","_rearpack"];
+
     detach _rocket;
 
     if !(isNull _parachute) then {
@@ -32,13 +39,7 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
     };
 
     [{
-        params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
-
-        count (_rocket nearObjects ["Grad_APOBS_Rope_Segment", 50]) > count _prevRopeSegments
-    },{
-        systemChat "Got Rope";
-        params ["_rocket", "_parachute", "_rearpack", "_prevRopeSegments"];
-        private _breachLineSegments = +((_rocket nearObjects ["Grad_APOBS_Rope_Segment", 50]) - _prevRopeSegments);
+        params ["_rocket", "_parachute", "_rearpack"];
 
         [_rocket] call FUNC(firingRocket);
 
@@ -64,49 +65,51 @@ private _prevRopeSegments = _target getVariable [QGVAR(prevRopeSegments), []];
             [{_this call CBA_fnc_removePerFrameHandler;}, [_handle], 25] call CBA_fnc_waitAndExecute;
         #endif
 
-        [{
-            _this hideObjectGlobal false;
-        }, _parachute, 2] call CBA_fnc_waitAndExecute;
-
-        [{
+        if !(isNull _parachute) then {
             [{
-                (getPos _this) select 2 <= 0
-            },{
-                _this setVelocity [0, 0, 0];
-            }, _this] call CBA_fnc_waitUntilAndExecute;
-        }, _parachute, 4] call CBA_fnc_waitAndExecute;
+                _this hideObjectGlobal false;
+            }, _parachute, 3] call CBA_fnc_waitAndExecute;
+
+            [{
+                [{
+                    (getPos _this) select 2 <= 0
+                },{
+                    _this setVelocity [0, 0, 0];
+
+                    [{
+                        _this hideObjectGlobal false;
+                    }, _this, 0.5] call CBA_fnc_waitAndExecute;
+                }, _this] call CBA_fnc_waitUntilAndExecute;
+            }, _parachute, 4] call CBA_fnc_waitAndExecute;
+        };
 
         [{
-            params ["_rocket", "_parachute", "_rearpack", "_breachLineSegments"];
-            {
-                QGVAR(explosion) createVehicle getPos _x;
-            } forEach _breachLineSegments;
-
-            [_breachLineSegments] call FUNC(destroyMines);
+            params ["_rocket", "_parachute", "_rearpack"];
 
             private _ropes = ropes _rocket;
             _ropes append (ropes _parachute);
             _ropes append (ropes _rearpack);
 
-            {
-                ropeDestroy _x;
-            }forEach _ropes;
+            if !(isNull _parachute) then {
+                private _breachLineSegments = ropeSegments (_ropes select 0);
 
-            deleteVehicle _parachute;
-            deleteVehicle _rocket;
-        }, [_rocket, _parachute, _rearpack, _breachLineSegments], 9] call CBA_fnc_waitAndExecute;
-    },
-    [_rocket, _parachute, _rearpack, _prevRopeSegments],
-    0.1,
-    {
-        params ["_rocket"];
+                for "_i" from 0 to (count _breachLineSegments) step 4 do {
+                    QGVAR(explosion) createVehicle (getPos (_breachLineSegments select _i));
+                };
 
-        [_rocket] call FUNC(firingRocket);
+                [_breachLineSegments] call FUNC(destroyMines);
+            };
 
-        [{
-            deleteVehicle _this;
-        }, _rocket, 9] call CBA_fnc_waitAndExecute;
-    }
-    ] call CBA_fnc_waitUntilAndExecute;
-}, [_rocket, _parachute, _rearpack, _prevRopeSegments], 1] call CBA_fnc_waitAndExecute;
-//}, [_rocket, _parachute, _rearpack, _prevRopeSegments], 15] call CBA_fnc_waitAndExecute;
+            [{
+                params ["_rocket", "_parachute", "_ropes"];
+
+                {
+                    ropeDestroy _x;
+                }forEach _ropes;
+
+                deleteVehicle _parachute;
+                deleteVehicle _rocket;
+            }, [_rocket, _parachute, _ropes], 0.5] call CBA_fnc_waitAndExecute;
+        }, [_rocket, _parachute, _rearpack], 7] call CBA_fnc_waitAndExecute;
+    }, [_rocket, _parachute, _rearpack]] call CBA_fnc_execNextFrame;
+}, [_rocket, _parachute, _rearpack], 15] call CBA_fnc_waitAndExecute;

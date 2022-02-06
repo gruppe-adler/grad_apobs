@@ -20,8 +20,7 @@ params [["_unit", objNull, [objNull]], ["_connector", objNull, [objNull]]];
 
 detach _connector;
 _connector setVariable [QGVAR(isConnecting), false, true];
-
-_connector setVelocity [0, 0, 0];
+_connector setVelocity [0,0,0];
 
 private _groundPosition = getPosASL _connector;
 private _posA = (getPosASL _connector) vectorAdd [0,0,0.05];

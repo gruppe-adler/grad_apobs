@@ -101,5 +101,13 @@
             <English>Return connector</English>
             <German>Connector zurücklegen</German>
         </Key>
+        <Key ID="STR_grad_apobs_functions_rocketPacked">
+            <English>APOBS rocket pack</English>
+            <German>APOBS Racketenpack</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_rocketPackedDescription">
+            <English>Anti-personnel obstacle breaching system, launch rocket pack</English>
+            <German>Anti-personnel obstacle breaching system, Racketenpack</German>
+        </Key>
     </Package>
 </Project>

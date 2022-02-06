@@ -44,7 +44,7 @@ class CfgVehicles {
                 animPeriod = 1;		// The animation period used for this controller.
                 initPhase = 0;		// Initial phase when object is created.
             };
-            class rearPack
+            class hideRocketHolder
             {
                 source = "user";	// The controller is defined as a user animation.
                 animPeriod = 1;		// The animation period used for this controller.
@@ -61,7 +61,7 @@ class CfgVehicles {
 
         model = QPATHTOF(data\models\backpack.p3d);
         editorPreview = QPATHTOF(data\images\rearpack_icon.paa);
-        hiddenSelections[] = {"texture_cover","texure_buckles","texture_base"};
+        hiddenSelections[] = {"texture_cover", "texure_buckles", "texture_base"};
         hiddenSelectionsTextures[] = {QPATHTOF(data\images\cover_back_co.paa), QPATHTOF(data\images\buckles_co.paa), QPATHTOF(data\images\base_co.paa), QPATHTOF(data\images\cover_inside_co.paa)};
 
         mass = 27.2155;
@@ -73,11 +73,11 @@ class CfgVehicles {
                 animPeriod = 1;		// The animation period used for this controller.
                 initPhase = 0;		// Initial phase when object is created.
             };
-            class rearPack
+            class hideRocketHolder
             {
                 source = "user";	// The controller is defined as a user animation.
                 animPeriod = 1;		// The animation period used for this controller.
-                initPhase = 0;		// Initial phase when object is created.
+                initPhase = 0.5;	// Initial phase when object is created.
             };
         };
     };
@@ -86,7 +86,6 @@ class CfgVehicles {
         scope = 1;
         displayName = "APOBS Connector";
         model = QPATHTOF(data\models\connector.p3d);
-        hiddenSelections[] = {"Camo"};
         mass = 1;
     };
 

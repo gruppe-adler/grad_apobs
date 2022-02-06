@@ -19,5 +19,6 @@ params ["_target"];
 
 if !(_target getVariable [QGVAR(firingSaftyPulled), false]) exitWith { false };
 if (_target getVariable [QGVAR(firingPinPulled), false]) exitWith { false };
+if (_target getVariable [QGVAR(fired), false]) exitWith { false };
 
 true

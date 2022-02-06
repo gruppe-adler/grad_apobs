@@ -4,7 +4,7 @@ class CfgPatches {
     class ADDON {
         name = QUOTE(ADDON);
         units[] = {};
-        weapons[] = {};
+        weapons[] = {"GRAD_APOBS_rocketPacked"};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { QMAINPATCH , QUOTE(KPATCH(assets))};
         authors[] = AUTHORS;

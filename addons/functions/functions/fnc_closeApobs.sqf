@@ -19,6 +19,7 @@ params ["_target"];
 
 //Animate the opening of the pack
 _target animate ["apobs_open", 0];
+
 [
     {
         _this animationPhase "apobs_open" == 0

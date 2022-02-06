@@ -19,3 +19,10 @@ params ["_target"];
 
 private _rocket = _target getVariable [QGVAR(rocket), objNull];
 deleteVehicle _rocket;
+
+ACE_PLAYER addItem "GRAD_APOBS_rocketPacked";
+
+// If item does not fit in the inventory, create it on the ground
+if !("GRAD_APOBS_rocketPacked" in items ACE_PLAYER ) then {
+
+};

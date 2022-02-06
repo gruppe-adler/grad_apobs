@@ -20,7 +20,8 @@ params ["_target", "_unit"];
 
 if (_target getVariable [QGVAR(isClosed), true]) exitWith { false };
 if !(isNull (_target getVariable [QGVAR(rocket), objNull])) exitWith { false };
+if (_target getVariable [QGVAR(fired), false]) exitWith { false };
 
-if !("GRAD_APOBS_rocketPacked" in (_unit call ace_common_fnc_uniqueItems)) exitWith {false};
+if !("GRAD_APOBS_rocketPacked" in items _unit) exitWith {false};
 
 true
