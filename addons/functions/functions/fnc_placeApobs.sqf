@@ -5,7 +5,7 @@
  *
  * Arguments:
  * 0: Unit <OBJECT>
- * 
+ *
  * Return Value:
  * NONE
  *
@@ -36,7 +36,7 @@ _obj setVariable [QGVAR(isClosed), true, true];
 [_obj, true, [0,1,0], 0] call ace_dragging_fnc_setDraggable;
 
 if (_backpackType == "Grad_APOBS_Frontpack") then {
-   private _prevRopeSegments = +(_obj nearObjects ["Grad_APOBS_Rope_Segment", 50]);  
-   _obj getVariable [QGVAR(prevRopeSegments), _prevRopeSegments];
+   private _prevRopeSegments = +(_obj nearObjects ["Grad_APOBS_Rope_Segment", 50]);
+   _obj setVariable [QGVAR(prevRopeSegments), _prevRopeSegments];
 };
 

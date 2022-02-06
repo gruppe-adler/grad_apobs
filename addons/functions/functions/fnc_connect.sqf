@@ -29,10 +29,13 @@ params [["_unit", objNull, [objNull]], ["_source", objNull, [objNull]]];
 
         private _connector = _source;
 
-        if ((typeOf _source) isEqualTo "Grad_APOBS_Connector") then {          // func is called on connector either connected or on ground
+        // func is called on connector either connected or on ground
+        if ((typeOf _source) isEqualTo "Grad_APOBS_Connector") then {
             _source = _connector getVariable QGVAR(source);
             _connector attachTo [_unit, [-0.02,0.05,-0.12], "righthandmiddle1"];
-        } else {                                                                 // func is called on APOBS
+
+        // func is called on APOBS
+        } else {
             _connector = "Grad_APOBS_Connector" createVehicle [0,0,0];
 
             _connector attachTo [_unit, [-0.02,-0.01,0.01], "righthandmiddle1"];

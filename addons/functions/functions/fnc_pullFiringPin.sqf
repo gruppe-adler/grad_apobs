@@ -5,7 +5,7 @@
  *
  * Arguments:
  * 0: Target <OBJECT>
- * 
+ *
  * Return Value:
  * NONE
  *
@@ -19,4 +19,4 @@ params ["_target"];
 
 _target setVariable [QGVAR(firingPinPulled), true, true];
 
-[QGVAR(fire), [_target]] call CBA_fnc_globalEvent;
+[QGVAR(fire), [_target]] call CBA_fnc_serverEvent;
