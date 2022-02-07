@@ -40,9 +40,10 @@ params ["_target"];
             }forEach ((ropes _frontpack) + (ropes _rocket));
 
             if (isNull _rocket) then {
-                ropeCreate [_parachute, "ropeAttach", _frontpack, [0,0,0],APOBS_ROPE_LENGTH_LONG, ["", [0,0,-1]], ["", [0,0,-1]], "Grad_APOBS_Rope"];
+                ropeCreate [_parachute, "ropeAttach", _frontpack, [0,0,0], APOBS_ROPE_LENGTH_LONG, ["", [0,0,-1]], ["", [0,0,-1]], "Grad_APOBS_Rope"];
             } else {
-                ropeCreate [_rocket, [0,0,0], _parachute, "ropeAttach",APOBS_ROPE_LENGTH_LONG, ["", [0,0,-1]], ["", [0,0,-1]], "Grad_APOBS_Rope"];
+                ropeCreate [_rocket, [0,0,0], _parachute, "ropeAttach", APOBS_ROPE_LENGTH_LONG, ["", [0,0,-1]], ["", [0,0,-1]], "Grad_APOBS_Rope"];
+                //ropeCreate [_parachute, "ropeAttach", _target, [0,0,0], 5];
             };
         };
     },
