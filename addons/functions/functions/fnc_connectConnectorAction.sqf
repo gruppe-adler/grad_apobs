@@ -19,8 +19,8 @@
  */
 
 params [
-    ["_unit", objNull, [objNull]], 
-    ["_rearpack", objNull, [objNull]], 
+    ["_unit", objNull, [objNull]],
+    ["_rearpack", objNull, [objNull]],
     ["_connector", objNull, [objNull]]
 ];
 
@@ -30,8 +30,8 @@ params [
     {
         params ["_args"];
         _args params [
-            ["_unit", objNull, [objNull]], 
-            ["_connector", objNull, [objNull]], 
+            ["_unit", objNull, [objNull]],
+            ["_connector", objNull, [objNull]],
             ["_rearpack", objNull, [objNull]]
         ];
 
@@ -42,7 +42,7 @@ params [
         detach _connector;
         deleteVehicle _connector;
 
-        private _rocket = _source getVariable [QGVAR(rocket), objNull]; 
+        private _rocket = _source getVariable [QGVAR(rocket), objNull];
         private _parachute = _rearpack getVariable [QGVAR(parachute), objNull];
 
         private _from = _source;
@@ -50,18 +50,16 @@ params [
         private _selectionTo = [0,0,0];
 
         if !(isNull _rocket) then {
-            _from = _rocket;      
+            _from = _rocket;
         };
 
         if !(isNull _parachute) then {
             _to = _parachute;
-            _selectionTo = "ropeAttach"; 
-
-            //ropeCreate [_parachute, "ropeAttach", _rearpack, [0,0,0], APOBS_ROPE_LENGTH_SHORT, ["", [0,0,-1]], ["", [0,0,-1]], "Grad_APOBS_Rope"];  
+            _selectionTo = "ropeAttach";
         };
 
         ropeCreate [_from, [0,0,0], _to, _selectionTo, APOBS_ROPE_LENGTH_LONG, ["", [0,0,-1]], ["", [0,0,-1]], "Grad_APOBS_Rope"];
-       
+
         _source setVariable [QGVAR(rearpack), _rearpack, true];
         _source setVariable [QGVAR(isConnected), true, true];
 

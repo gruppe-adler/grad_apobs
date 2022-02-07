@@ -3,9 +3,15 @@ class CfgVehicles {
     class CAManBase: Man {
         class ACE_SelfActions {
             class ACE_Equipment {
-                class GVAR(placeApobs) {
-                    displayName = CSTRING(placeApobs);
-                    condition = QUOTE((backpack _player) in [ARR_2('Grad_APOBS_Frontpack', 'Grad_APOBS_Rearpack')]);
+                class GVAR(placeApobsFront) {
+                    displayName = CSTRING(placeApobsFront);
+                    condition = QUOTE((backpack _player) isEqualTo 'Grad_APOBS_Frontpack');
+                    statement = QUOTE([ARR_2(_player,_target)] call FUNC(placeApobs));
+                    showDisabled = 0;
+                };
+                class GVAR(placeApobsRear) {
+                    displayName = CSTRING(placeApobsRear);
+                    condition = QUOTE((backpack _player) isEqualTo 'Grad_APOBS_Rearpack');
                     statement = QUOTE([ARR_2(_player,_target)] call FUNC(placeApobs));
                     showDisabled = 0;
                 };
@@ -46,7 +52,7 @@ class CfgVehicles {
                 condition = 'alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}';
                 class GVAR(openApobs) {
                     selection = "";
-                    displayName = CSTRING(openApobs);
+                    displayName = CSTRING(openApobsFront);
                     condition = QUOTE(_target getVariable [ARR_2(QUOTE(QGVAR(isClosed)), true)]);
                     statement = QUOTE([_target] call FUNC(openApobs));
                     showDisabled = 0;
@@ -54,7 +60,7 @@ class CfgVehicles {
                 };
                 class GVAR(closeApobs) {
                     selection = "";
-                    displayName = CSTRING(closeApobs);
+                    displayName = CSTRING(closeApobsFront);
                     condition = QUOTE([_target] call FUNC(canClose));
                     statement = QUOTE([_target] call FUNC(closeApobs));
                     showDisabled = 0;
@@ -149,7 +155,7 @@ class CfgVehicles {
                 condition = 'alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}';
                 class GVAR(openApobs) {
                     selection = "";
-                    displayName = CSTRING(openApobs);
+                    displayName = CSTRING(openApobsRear);
                     condition = QUOTE(_target getVariable [ARR_2(QUOTE(QGVAR(isClosed)), true)]);
                     statement = QUOTE([_target] call FUNC(openApobs));
                     showDisabled = 0;
@@ -157,7 +163,7 @@ class CfgVehicles {
                 };
                 class GVAR(closeApobs) {
                     selection = "";
-                    displayName = CSTRING(closeApobs);
+                    displayName = CSTRING(closeApobsRear);
                     condition = QUOTE([_target] call FUNC(canClose));
                     statement = QUOTE([_target] call FUNC(closeApobs));
                     showDisabled = 0;

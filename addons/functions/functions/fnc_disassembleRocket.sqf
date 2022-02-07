@@ -17,12 +17,21 @@
 
 params ["_target"];
 
-private _rocket = _target getVariable [QGVAR(rocket), objNull];
-deleteVehicle _rocket;
+[
+    5,
+    _target,
+    {
+        params ["_target"];
 
-ACE_PLAYER addItem "GRAD_APOBS_rocketPacked";
+        private _rocket = _target getVariable [QGVAR(rocket), objNull];
+        deleteVehicle _rocket;
 
-// If item does not fit in the inventory, create it on the ground
-if !("GRAD_APOBS_rocketPacked" in items ACE_PLAYER ) then {
+        _target setVariable [QGVAR(rocket), objNull];
 
-};
+        ACE_PLAYER addItem "GRAD_APOBS_rocketPacked";
+    },
+    {},
+    localize LSTRING(dismantleRocketAction),
+    {true},
+    [INTERACT_EXCEPTIONS_APOBS]
+] call ace_common_fnc_progressBar;

@@ -5,9 +5,25 @@
             <English>Open APOBS</English>
             <German>APOBS öffnen</German>
         </Key>
+        <Key ID="STR_grad_apobs_functions_openApobsFront">
+            <English>Open APOBS Front Pack</English>
+            <German>APOBS vorderes pack öffnen</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_openApobsRear">
+            <English>Open APOBS Rear Pack</English>
+            <German>APOBS hinteres pack öffnen</German>
+        </Key>
         <Key ID="STR_grad_apobs_functions_closeApobs">
             <English>Close APOBS</English>
             <German>APOBS schließen</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_closeApobsFront">
+            <English>Close APOBS Front Pack</English>
+            <German>APOBS vorderes pack schließen</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_closeApobsRear">
+            <English>Close APOBS Rear Pack</English>
+            <German>APOBS hinteres pack schließen</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_connectApobs">
             <English>Connect APOBS</English>
@@ -21,25 +37,33 @@
             <English>Set up rocket</English>
             <German>Rackete aufstellen</German>
         </Key>
+        <Key ID="STR_grad_apobs_functions_setUpRocketAction">
+            <English>Setting up rocket</English>
+            <German>Rackete wird aufstellen</German>
+        </Key>
         <Key ID="STR_grad_apobs_functions_dismantleRocket">
             <English>Dismantle rocket</English>
             <German>Rackete abbauen</German>
         </Key>
-        <Key ID="STR_grad_apobs_functions_connectRocket">
-            <English>Connect rocket</English>
-            <German>Rackete verbinden</German>
-        </Key>
-        <Key ID="STR_grad_apobs_functions_disconnectRocket">
-            <English>Disconnect rocket</English>
-            <German>Racketen verbindung trennen</German>
+        <Key ID="STR_grad_apobs_functions_dismantleRocketAction">
+            <English>Dismantling rocket</English>
+            <German>Rackete wird abgebaut</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_assembleParachute">
             <English>Assemble parachute</English>
             <German>Falschirm aufbauen</German>
         </Key>
+        <Key ID="STR_grad_apobs_functions_assembleParachuteAction">
+            <English>Assembling parachute</English>
+            <German>Falschirm wird aufbauen</German>
+        </Key>
         <Key ID="STR_grad_apobs_functions_disassembleParachute">
             <English>Disassemble parachute</English>
-            <German>Racketen verbindung trennen</German>
+            <German>Falschirm abbauen</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_disassembleParachuteAction">
+            <English>Disassembling parachute</English>
+            <German>Falschirm wird abgebaut</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_pullsafetyPin">
             <English>Pull safty pin</English>
@@ -61,9 +85,13 @@
             <English>Disconnect connector</English>
             <German>Connector trennen</German>
         </Key>
-        <Key ID="STR_grad_apobs_functions_placeApobs">
-            <English>Place APOBS</English>
-            <German>APOBS platzieren</German>
+        <Key ID="STR_grad_apobs_functions_placeApobsFront">
+            <English>Place APOBS Front Pack</English>
+            <German>APOBS vorderes pack platzieren</German>
+        </Key>
+        <Key ID="STR_grad_apobs_functions_placeApobsRear">
+            <English>Place APOBS Rear Pack</English>
+            <German>APOBS hinteres pack platzieren</German>
         </Key>
         <Key ID="STR_grad_apobs_functions_takeApobs">
             <English>Take APOBS</English>

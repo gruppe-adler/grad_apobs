@@ -17,6 +17,20 @@
 
 params ["_target"];
 
-private _parachute = _target getVariable [QGVAR(parachute), objNull];
-deleteVehicle _parachute;
-_target setVariable [QGVAR(parachute), objNull, true];
+[
+    5,
+    _target,
+    {
+        params ["_target"];
+
+        private _parachute = _target getVariable [QGVAR(parachute), objNull];
+        deleteVehicle _parachute;
+
+        _target setVariable [QGVAR(parachute), objNull, true];
+
+    },
+    {},
+    localize LSTRING(disassembleParachuteAction),
+    {true},
+    [INTERACT_EXCEPTIONS_APOBS]
+] call ace_common_fnc_progressBar;
