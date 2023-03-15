@@ -1,5 +1,5 @@
 name = "Gruppe Adler APOBS";
-author = "Salbei, DerZade";
+author = "DerZade, Salbei";
 logo = "logo_ca.paa";
 logoOver = "logo_active_ca.paa";
 tooltip = "Gruppe Adler APOBS";
