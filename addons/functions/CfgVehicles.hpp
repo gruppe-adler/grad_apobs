@@ -49,7 +49,7 @@ class CfgVehicles {
             class ACE_MainActions {
                 selection = "interaction_point";
                 distance = 5;
-                condition = 'alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}';
+                condition = "alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}";
                 class GVAR(openApobs) {
                     selection = "";
                     displayName = CSTRING(openApobsFront);
@@ -152,7 +152,7 @@ class CfgVehicles {
             class ACE_MainActions {
                 selection = "interaction_point";
                 distance = 5;
-                condition = 'alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}';
+                condition = "alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}";
                 class GVAR(openApobs) {
                     selection = "";
                     displayName = CSTRING(openApobsRear);
@@ -208,7 +208,7 @@ class CfgVehicles {
             class ACE_MainActions {
                 selection = "interaction_point";
                 distance = 5;
-                condition = 'alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}';
+                condition = "alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}";
                 class GVAR(pickUpConnector) {
                     displayName = CSTRING(pickUpConnector);
                     condition = QUOTE([ARR_2(_player,_target)] call FUNC(canTakeConnector));
@@ -223,7 +223,7 @@ class CfgVehicles {
             class ACE_MainActions {
                 selection = "interaction_point";
                 distance = 5;
-                condition = 'alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}';
+                condition = "alive _target && {[_player, _target, [INTERACT_EXCEPTIONS_APOBS]] call ace_common_fnc_canInteractWith}";
             };
         };
     };
