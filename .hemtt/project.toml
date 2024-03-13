@@ -1,0 +1,25 @@
+name = "GRAD APOBS"
+prefix = "grad_apobs"
+author = "DerZade, Salbei, Jules, Drakenberger"
+mainprefix = "x"
+
+[files]
+include = [
+    "meta.cpp",
+    "mod.cpp",
+    "logo_active_ca.paa",
+    "logo_ca.paa",
+    "overview_co.paa",
+    "logo_small_ca.paa",
+    "LICENSE",
+    "README.md"
+]
+exclude = [
+
+]
+
+[version]
+path = "addons/main/script_version.hpp"
+
+[properties]
+url = "https://github.com/gruppe-adler/grad_apobs/releases"

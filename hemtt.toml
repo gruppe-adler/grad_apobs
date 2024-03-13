@@ -1,6 +1,6 @@
 name = "GRAD APOBS"
 prefix = "grad_apobs"
-author = "DerZade, Salbei, XDrake"
+author = "DerZade, Salbei, Jules, Drakenberger"
 files = [
     "mod.cpp",
     "logo_active_ca.paa",
