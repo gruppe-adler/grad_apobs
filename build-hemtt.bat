@@ -9,11 +9,11 @@ if exist a3 (
 mklink /j a3 include\a3
 
 mkdir x
-mkdir x\grad_trenches
-if exist x\grad_trenches\addons (
-  rmdir x\grad_trenches\addons
+mkdir x\grad_apobs
+if exist x\grad_apobs\addons (
+  rmdir x\grad_apobs\addons
 )
-mklink /j x\grad_trenches\addons addons
+mklink /j x\grad_apobs\addons addons
 
 IF [%1] == [] (
   tools\hemtt.exe build
@@ -24,8 +24,8 @@ IF [%1] == [] (
 set BUILD_STATUS=%errorlevel%
 
 rmdir a3
-rmdir x\grad_trenches\addons
-rmdir x\grad_trenches
+rmdir x\grad_apobs\addons
+rmdir x\grad_apobs
 rmdir x
 
 if %BUILD_STATUS% neq 0 (
